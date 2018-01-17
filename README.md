@@ -4,11 +4,11 @@ Project to create a textbook exchange website for college students
 
 ### Concept: 
 
-> One of the most significant difficulties faced by students at the beginning of a semester (Especially freshers) is getting the required reference material for that semester. We aim to solve this by an online textbook exchange platform.
+* One of the most significant difficulties faced by students at the beginning of a semester (Especially freshers) is getting the required reference material for that semester. We aim to solve this by an online textbook exchange platform.
 
-> This will be a web app that consists of two sections: for the buyer and the seller. Students who are ooking to give away their textbooks can put up details of the book, the author and the amount they want for it. Students looking to buy can search/sort books by subject, topic, author etc. 
+* This will be a web app that consists of two sections: for the buyer and the seller. Students who are ooking to give away their textbooks can put up details of the book, the author and the amount they want for it. Students looking to buy can search/sort books by subject, topic, author etc. 
 
-> Once they have picked a buyer they can exchange contacts and set a time and meet up place within the campus to exchange the book.
+* Once they have picked a buyer they can exchange contacts and set a time and meet up place within the campus to exchange the book.
 
 
 ### Technical outline:
