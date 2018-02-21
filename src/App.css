@@ -22,6 +22,20 @@
   font-size: large;
 }
 
+.test{
+  height: 1.7em;
+  background-color: yellow;
+  color: black;
+  font-size: 19px;
+  width: 50%;
+  padding: 5px;
+  padding-top: 1em;
+  margin-left: 16em;
+  border-radius: 7px;
+  border-left: 3px solid green;
+  border-bottom: 3px solid green;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
