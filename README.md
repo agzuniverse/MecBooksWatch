@@ -34,7 +34,7 @@ This is a project to create a textbook exchange website for college students, st
 
 * Begin coding!
 
-## Contributors
+## Team Members
 
 * [Aswin G](https://github.com/agzuniverse/)
 * [Aswin M Prabhu](https://github.com/aswin1999/)
