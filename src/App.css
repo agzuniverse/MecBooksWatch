@@ -1,1 +1,54 @@
+ .mainBackground{
+     background:#455A64;
+ }
+ .mainColor{
+     color:rgba(255,255,255,0.87);
+ }
+ 
+ .SideMenu{
+    position: fixed;
+    height:100%;
+    width: 15%;
+    margin:0px;
+    padding:20px 10px;
+    text-align: center;
+ }
+ .logo{
+     float: left;
+     text-decoration: none;
+     text-align: center;
+     color: rgba(255,255,255,0.87);
+     font-size: 35px; 
+     line-height: 25px;
+ }
+ #watchPart{
+     color:lawngreen;
+ }
+ .filterDiv{
+     position: absolute;
+     top: 50px;
+     font-size: 20px; 
+     line-height: 25px;
+     text-align: left;
+     padding: 10px;
+ }
+ .dropDownMenu{
+     width: 200px;
+ }
+ .linksDiv{
+    position: absolute;
+    bottom: 50px;
+    font-size: 20px; 
+    line-height: 25px;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+ }
+ .linksDiv a{
+    text-decoration: none;
+    color: lawngreen;
+    text-align: center;
+ }
 
+ 
+ 
