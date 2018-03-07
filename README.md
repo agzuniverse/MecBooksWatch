@@ -40,3 +40,8 @@ This is a project to create a textbook exchange website for college students, st
 * [Aswin M Prabhu](https://github.com/aswin1999/)
 * [Joyal A Johney](https://github.com/joyalajohney/)
 * [Vivek R](https://github.com/123vivekr)
+
+### Features that may or may not be added
+* Image preview before upload
+* Better overall styling
+* Support for things other than textbooks, like mini drafters etc
