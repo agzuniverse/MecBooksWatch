@@ -78,7 +78,10 @@ footer{
 }
 
  .mainBackground{
-     background:rgb(44,62,80);
+     background:rgb(4, 47, 78);
+     height: 100vh;
+     overflow: hidden;
+    
  }
  .mainColor{
      color:rgba(255,255,255,0.87);
@@ -101,7 +104,17 @@ footer{
      line-height: 25px;
  }
  #watchPart{
-     color:lawngreen;
+     color:#00c853;
+ }
+
+ #priceTag{
+    color:#00c853;
+    font-size: 40px;         
+ }
+
+ #available{
+    color:#00c853;
+     
  }
  .filterDiv{
      position: absolute;
@@ -130,7 +143,7 @@ footer{
  }
 
  .centerTotal{
-    height: 100%;
+    height: 100vh;
     width: 85%;
     background-color: white;
     display: flex;
@@ -138,7 +151,7 @@ footer{
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 20px rgb(66,66,66);
-    background-color: rgb(236,239,241)
+    background-color: rgb(236,239,241);
  }
 
  .sellWrapper{
@@ -146,6 +159,7 @@ footer{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+
  }
  
  .materialBlack{
@@ -154,7 +168,7 @@ footer{
 
  .appbar{
      background-color: rgb(33,33,33);
-     position: fixed;
+     position: sticky;
      top:0px;
      width: 100vw;
      text-align: center;
@@ -174,6 +188,87 @@ footer{
     width:100%;
     height:5%
  }
+
+ .imageHolder{
+     background-color: grey;
+     width: 26%;
+     height: 70vh;
+     position: relative;
+     top: 7%;
+     left: -27%;
+     color: white;
+     font-size: 22px;
+     text-align: center;
+ }
+
+ #textbook{
+     height: 100%;
+     width: 100%;
+ }
+
+ .detailCard{
+     background-color: white;
+     width: 30%;
+     height: 56vh;
+     position: absolute;
+     left: 48%;
+     top: 26%;
+     text-indent: 7%;
+     border-radius: 2%;
+     box-shadow: 2px 2px 20px rgb(66,66,66);
+     background-color: rgb(236,239,241);
+}
+
+#textName{
+    /*background-color: white;*/
+    width: 100%;
+    height: 15%;
+    font-size: 22px;
+    padding-top: 9px;
+    margin-top: 1em;
+}
+
+#author{
+    color: rgb(14, 99, 226);
+    /*background-color: yellow;*/
+    width: 100%;
+    height: 6%;
+    padding: 1px;
+}
+
+#amount{
+    /*background-color: white;*/
+    width: 100%;
+    height: 17%;
+    font-size: 25px;
+    margin-top: 0.6em;
+    padding-top: 9px;
+
+}
+
+#productDetails{
+    /*background-color: grey;*/ 
+    color: #212121;
+}
+
+#sellerInfo{
+    justify-content: center;
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    padding: 10px;
+    font-size: 18px;
+    background: none;
+    width: 30%;
+    border-radius: 1em;
+}
+.details{
+    color: #212121;
+}
+
+#Container{
+    overflow: scroll;
+}
 
  .chooseImageButton{
      border-style: solid;
@@ -198,4 +293,37 @@ footer{
         display: flex;
         justify-content: center;
      }
+}
+
+@media(max-width:768px){
+    .imageHolder{
+        height: 45%;
+        width: 60%;
+        left: 0%;
+        top: -1%;
+    }
+
+    .details{
+        display: none;
+    }
+
+    .detailCard{
+        top: 32.8em;
+        width: 70%;
+        left: 15.5%;
+    }
+
+    #textName{
+        height: 16%;
+        font-size: 20px;
+    }
+
+    #sellerInfo{
+        width: 50%;
+        left: 24%;
+    }
+
+    .mainBackground{height: 100vh;}
+    .sellWrapper{height: 100vh;}
+    .centerTotal{height: 100vh;}
 }
