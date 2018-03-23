@@ -69,6 +69,7 @@ footer{
     /*background-image: url("img/cloud.jpg");*/
     background-color: #070707 ;
     height: 10vh;
+    width: 100%;
     text-align: center;
     position: relative;
     color: wheat;
@@ -78,9 +79,9 @@ footer{
 }
 
  .mainBackground{
-     background:rgb(4, 47, 78);
-     height: 100vh;
-     overflow: hidden;
+    background:rgb(4, 47, 78);
+    height: 100vh;
+    overflow: scroll;
     
  }
  .mainColor{
@@ -158,8 +159,8 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-
+    height: 130vh;
+    overflow: hidden;
  }
  
  .materialBlack{
@@ -172,7 +173,7 @@ footer{
      top:0px;
      width: 100vw;
      text-align: center;
-     height: 10vh;
+     min-height: 10vh;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -191,14 +192,11 @@ footer{
 
  .imageHolder{
      background-color: grey;
-     width: 26%;
-     height: 70vh;
-     position: relative;
-     top: 7%;
-     left: -27%;
-     color: white;
-     font-size: 22px;
-     text-align: center;
+     width: 25%;
+     height: 75vh;
+     position: absolute;
+     top: 18%;
+     left: 15%;
  }
 
  #textbook{
@@ -208,13 +206,15 @@ footer{
 
  .detailCard{
      background-color: white;
-     width: 30%;
-     height: 56vh;
+     width: 32%;
+     height: 62%;
      position: absolute;
-     left: 48%;
-     top: 26%;
-     text-indent: 7%;
+     top: 23%;
+     right: 17%;
+     float: left;
      border-radius: 2%;
+     padding-left: 1.7em;
+     padding-right: 1.7em;
      box-shadow: 2px 2px 20px rgb(66,66,66);
      background-color: rgb(236,239,241);
 }
@@ -240,15 +240,24 @@ footer{
     /*background-color: white;*/
     width: 100%;
     height: 17%;
-    font-size: 25px;
-    margin-top: 0.6em;
+    font-size: 27px;
     padding-top: 9px;
 
 }
 
-#productDetails{
-    /*background-color: grey;*/ 
+#realprice{
+    margin-left: 8px;
+}
+#userprice{
+    margin-left: 10px;
+    font-size: 33px;
+}
+
+#details{
+    /*background-color: grey;*/
+    position: absolute; 
     color: #212121;
+    float: left;
 }
 
 #sellerInfo{
@@ -262,6 +271,43 @@ footer{
     width: 30%;
     border-radius: 1em;
 }
+
+#sellerInfoCard{
+    /*display: none;*/
+    height: 65%;
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    right: 14%;
+    background-color: rgba(0,0,0,0.92);
+    color: white;
+    font-size: 18px;
+    line-height: 2.1em;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0.5em;
+}
+
+#sellerInfoCard h2{
+    text-align: center;
+}
+
+#sellerInfoCard button{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12%;
+    margin: auto;
+    border-radius: 1em;
+    width: 20%;
+    padding: 3px;
+    font-size: 18px;
+}
+
+#sellerInfoCard button:hover{
+    color: white;
+}
+
 .details{
     color: #212121;
 }
@@ -300,7 +346,9 @@ footer{
         height: 45%;
         width: 60%;
         left: 0%;
-        top: -1%;
+        top: 25%;
+        right: 0;
+        margin: auto;
     }
 
     .details{
@@ -308,22 +356,55 @@ footer{
     }
 
     .detailCard{
-        top: 32.8em;
-        width: 70%;
-        left: 15.5%;
+        top: 79%;
+        width: 60%;
+        height: 70%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        align-content: center;
     }
 
     #textName{
-        height: 16%;
+        height: 18%;
         font-size: 20px;
     }
 
     #sellerInfo{
         width: 50%;
-        left: 24%;
+        position: absolute;
+        top: 83%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
     }
 
-    .mainBackground{height: 100vh;}
-    .sellWrapper{height: 100vh;}
-    .centerTotal{height: 100vh;}
+    #sellerInfoCard{
+        width: 75%;
+        height: 73%;
+        position: absolute;
+        top: 78%;
+        left: 0;
+        right: 0;
+        margin: auto;   
+    }
+    #sellerInfoCard button{
+        bottom: 6%;
+        width: 35%;
+    }
+
+    .imageHolder{
+        top: 20%;
+        width: 70%;
+        height: 55%;
+    }
+    footer{
+        font-size: 17px;
+    }
+
+    .mainBackground{height: 170vh;}
+    .sellWrapper{height: 180vh;}
+    .centerTotal{height: 200vh;}
 }
