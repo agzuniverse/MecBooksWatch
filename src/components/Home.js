@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { login, logout } from './auth';
+import * as firebase from 'firebase';
+
 
 class Home extends Component {
   render() {
