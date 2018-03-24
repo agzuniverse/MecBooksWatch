@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SideMenu from './components/Components';
 import AddProduct from './components/AddProduct';
 import Home from './components/Home';
+import ProductDisplay from './components/ProductDisplay';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/addproduct" component={AddProduct}/>
           <Route path="/search" component={SideMenu}/>
+          <Route path="/productdisplay" component={ProductDisplay}/>
         </div>
       </Router>
     );
