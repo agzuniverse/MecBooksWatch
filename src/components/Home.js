@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Auth from './auth';
+
 
 class Home extends Component {
   render() {
     return (
+        <div className="App">
+            <div id="top">
+            <Auth />
+            <div id="search">
         <div className="Container">
             <div className="topWrapper">
                 <h1 id="head">Books<span id="watch">Watch</span></h1>
