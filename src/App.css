@@ -1,84 +1,95 @@
 #App{
     overflow: hidden;
 }
-#top{
-    position: relative;
-    width: 100%;
+
+/*LandingPage*/
+
+.Container{
     height: 100vh;
-    background-color: #212121;
-    background-image: url("img/snow.jpg");
+    width: 100%;
+    overflow: hidden;
+}
+.topWrapper{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/night2.jpg');
     background-size: cover;
     overflow: hidden;
 }
 
-#search{
-    position: relative;
-    top: 68%;
+#head{
+    color: white;
+    width: 23%;
+    position: absolute;
+    top: 20%;
     left: 0;
     right: 0;
-    width: 100%;
-    background-color: #212121;
-    background: none;
-}
-
-#searchbutton{
-    position: relative;
-    left: 28.6%;
-    padding: 10px;
-    background: none;
-    color: white;
-    height: 60%;
-    width: 11%;
-    font-size: 20px;
-    margin: 8px;
-    border-radius: 20px;
-}
-
-#searchbutton:hover{
-    background-color: #0B0B0B;
-    color: white;
+    margin: auto;
+    font-size: 45px;
+}   
+#watch{
+    color: #00c853 ;
 }
 
 #input{
-    height: 31px;
+    height: 23px;
     width: 40%;
-    position: relative;
-    left: 28.6%;
-    margin: 6px;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
+    margin: auto;
     background-color: white;
     color: black;
-    font-size: 20px;
+    font-size: 17px;
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
-}
+}    
 
-#head{
+#tagLine{
     color: white;
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
     position: absolute;
-    top: 1em;
-    left: 40%;
-    font-size: 45px;
+    top: 43%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
-#watch{
-    color: #00c853 ;
+#bottom{
+    color: white;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 17px;
 }
 
 footer{
     /*background-image: url("img/cloud.jpg");*/
     background-color: #070707 ;
-    height: 10vh;
+    height: 15vh;
+    width: 100%;
     text-align: center;
-    position: relative;
-    color: wheat;
+    color: whitesmoke;
     font-size: 20px;
-    padding: 2em;
-    overflow: hidden;
+    padding-top: 2em;
+    position: relative;
+
 }
 
  .mainBackground{
-     background:rgb(44,62,80);
+    background:rgb(4, 47, 78);
+    height: 100vh;
+    overflow: scroll;
+    
  }
  .mainColor{
      color:rgba(255,255,255,0.87);
@@ -101,7 +112,17 @@ footer{
      line-height: 25px;
  }
  #watchPart{
-     color:lawngreen;
+     color:#00c853;
+ }
+
+ #priceTag{
+    color:#00c853;
+    font-size: 40px;         
+ }
+
+ #available{
+    color:#00c853;
+     
  }
  .filterDiv{
      position: absolute;
@@ -130,7 +151,7 @@ footer{
  }
 
  .centerTotal{
-    height: 100%;
+    height: 100vh;
     width: 85%;
     background-color: white;
     display: flex;
@@ -138,14 +159,15 @@ footer{
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 20px rgb(66,66,66);
-    background-color: rgb(236,239,241)
+    background-color: rgb(236,239,241);
  }
 
  .sellWrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 130vh;
+    overflow: hidden;
  }
  
  .materialBlack{
@@ -154,11 +176,11 @@ footer{
 
  .appbar{
      background-color: rgb(33,33,33);
-     position: fixed;
+     position: sticky;
      top:0px;
      width: 100vw;
      text-align: center;
-     height: 10vh;
+     min-height: 10vh;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -174,6 +196,132 @@ footer{
     width:100%;
     height:5%
  }
+
+ .imageHolder{
+     background-color: grey;
+     width: 25%;
+     height: 75vh;
+     position: absolute;
+     top: 18%;
+     left: 15%;
+ }
+
+ #textbook{
+     height: 100%;
+     width: 100%;
+ }
+
+ .detailCard{
+     background-color: white;
+     width: 32%;
+     height: 62%;
+     position: absolute;
+     top: 23%;
+     right: 17%;
+     float: left;
+     border-radius: 2%;
+     padding-left: 1.7em;
+     padding-right: 1.7em;
+     box-shadow: 2px 2px 20px rgb(66,66,66);
+     background-color: rgb(236,239,241);
+}
+
+#textName{
+    /*background-color: white;*/
+    width: 100%;
+    height: 15%;
+    font-size: 22px;
+    padding-top: 9px;
+    margin-top: 1em;
+}
+
+#author{
+    color: rgb(14, 99, 226);
+    /*background-color: yellow;*/
+    width: 100%;
+    height: 6%;
+    padding: 1px;
+}
+
+#amount{
+    /*background-color: white;*/
+    width: 100%;
+    height: 17%;
+    font-size: 27px;
+    padding-top: 9px;
+
+}
+
+#realprice{
+    margin-left: 8px;
+}
+#userprice{
+    margin-left: 10px;
+    font-size: 33px;
+}
+
+#details{
+    /*background-color: grey;*/
+    position: absolute; 
+    color: #212121;
+    float: left;
+}
+
+#sellerInfo{
+    justify-content: center;
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    padding: 10px;
+    font-size: 18px;
+    background: none;
+    width: 30%;
+    border-radius: 1em;
+}
+
+#sellerInfoCard{
+    /*display: none;*/
+    height: 65%;
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    right: 14%;
+    background-color: rgba(0,0,0,0.92);
+    color: white;
+    font-size: 18px;
+    line-height: 2.1em;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0.5em;
+}
+
+#sellerInfoCard h2{
+    text-align: center;
+}
+
+#sellerInfoCard button{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12%;
+    margin: auto;
+    border-radius: 1em;
+    width: 20%;
+    padding: 3px;
+    font-size: 18px;
+}
+
+#sellerInfoCard button:hover{
+    color: white;
+}
+
+.details{
+    color: #212121;
+}
+
+#Container{
+    overflow: scroll;
+}
 
  .chooseImageButton{
      border-style: solid;
@@ -198,4 +346,87 @@ footer{
         display: flex;
         justify-content: center;
      }
+}
+
+@media(max-width:768px){
+    .imageHolder{
+        height: 45%;
+        width: 60%;
+        left: 0%;
+        top: 25%;
+        right: 0;
+        margin: auto;
+    }
+
+    .details{
+        display: none;
+    }
+
+    .detailCard{
+        top: 79%;
+        width: 60%;
+        height: 70%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        align-content: center;
+    }
+
+    #textName{
+        height: 18%;
+        font-size: 20px;
+    }
+
+    #sellerInfo{
+        width: 50%;
+        position: absolute;
+        top: 83%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+    }
+
+    #sellerInfoCard{
+        width: 75%;
+        height: 73%;
+        position: absolute;
+        top: 78%;
+        left: 0;
+        right: 0;
+        margin: auto;   
+    }
+    #sellerInfoCard button{
+        bottom: 6%;
+        width: 35%;
+    }
+
+    .imageHolder{
+        top: 20%;
+        width: 70%;
+        height: 55%;
+    }
+    footer{
+        font-size: 17px;
+    }
+    #head{
+        width: 70%;
+        font-size: 37px;
+    }
+    #tagLine{
+        top: 46%;
+        font-size: 18.5px;
+    }
+    #bottom{
+        font-size: 14px;
+    }
+    #input{
+        top: 36%;
+        width: 80%;
+    }
+
+    .mainBackground{height: 170vh;}
+    .sellWrapper{height: 180vh;}
+    .centerTotal{height: 200vh;}
 }
