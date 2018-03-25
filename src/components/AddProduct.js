@@ -7,6 +7,8 @@ import TextField from 'material-ui/TextField';
 import AppBar from 'material-ui/AppBar'
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import { addToStorage } from '../firebase/firebase';
+
 
 class AddProduct extends Component {
     constructor(props) {
@@ -20,6 +22,9 @@ class AddProduct extends Component {
         let title = document.getElementById('bookTitle').value;
         let author = document.getElementById('bookAuthor').value;
         let price = document.getElementById('bookPrice').value;
+        let file = document.getElementById('fileUpload').files[0];
+        console.log(file);
+        addToStorage(file);
         
     }
 
@@ -56,7 +61,7 @@ class AddProduct extends Component {
                             labelPosition="before"
                             containerElement="label"
                          >
-                        <input type="file" accept='image/*' className='hiddenFileInput'/>
+                        <input id='fileUpload' type="file" accept='image/*' className='hiddenFileInput'/>
                         </RaisedButton>
                         <div style={{height:'5vh'}}/>
                         <RaisedButton onClick={() => this.handeSubmit()} label="Submit" primary={true}/>

@@ -3,10 +3,6 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
-exports.helloWorld = functions.https.onRequest((req, res) => {
-    res.send("Hello Firebase");
-});
-
 exports.getData = functions.https.onRequest((req, res) => {
     const params = req.url.split("/");
     const id = params[2];
