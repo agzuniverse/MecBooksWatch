@@ -9,24 +9,6 @@ import ProductDisplay from './components/ProductDisplay';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.setUId = this.setUId.bind(this);
-
-    this.state = {
-      uid: '',
-      isLoggedIn: false,
-    };
-  }
-
-  setUId(uid) {
-    this.setState({
-      uid: uld,
-      isLoggedIn: (uid === null) ? true : false,
-    })
-  }
-
-
 
   render() {
     return (

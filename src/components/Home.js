@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { login, logout } from './auth';
-import * as firebase from 'firebase';
+import Auth from './auth';
 
 
 class Home extends Component {
@@ -9,6 +8,7 @@ class Home extends Component {
     return (
         <div className="App">
             <div id="top">
+            <Auth />
             <div id="search">
                 <input id="input" type="text" placeholder="Search for Books" />
                 <button type="submit" id="searchbutton">Begin Watch</button>
