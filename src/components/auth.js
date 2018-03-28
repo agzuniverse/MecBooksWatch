@@ -1,4 +1,4 @@
-import firebase, { auth, provider } from './firebase/firebase';
+import firebase, { auth, provider } from '../firebase/firebase';
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 

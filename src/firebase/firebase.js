@@ -17,3 +17,7 @@ export function addToStorage(file){
         console.log('Uploaded a blob or file!');
     });
 }
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = firebase.auth();
+export default firebase;
