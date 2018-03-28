@@ -1,81 +1,88 @@
 #App{
     overflow: hidden;
 }
-#top{
-    position: relative;
-    width: 100%;
+
+/*LandingPage*/
+
+.Container{
     height: 100vh;
-    background-color: #212121;
-    background-image: url("img/snow.jpg");
+    width: 100%;
+    overflow: hidden;
+}
+.topWrapper{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/night2.jpg');
     background-size: cover;
     overflow: hidden;
 }
 
-#search{
-    position: relative;
-    top: 68%;
+#head{
+    color: white;
+    width: 23%;
+    position: absolute;
+    top: 20%;
     left: 0;
     right: 0;
-    width: 100%;
-    background-color: #212121;
-    background: none;
-}
-
-#searchbutton{
-    position: relative;
-    left: 28.6%;
-    padding: 10px;
-    background: none;
-    color: white;
-    height: 60%;
-    width: 11%;
-    font-size: 20px;
-    margin: 8px;
-    border-radius: 20px;
-}
-
-#searchbutton:hover{
-    background-color: #0B0B0B;
-    color: white;
+    margin: auto;
+    font-size: 45px;
+}   
+#watch{
+    color: #00c853 ;
 }
 
 #input{
-    height: 31px;
+    height: 23px;
     width: 40%;
-    position: relative;
-    left: 28.6%;
-    margin: 6px;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
+    margin: auto;
     background-color: white;
     color: black;
-    font-size: 20px;
+    font-size: 17px;
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
-}
+}    
 
-#head{
+#tagLine{
     color: white;
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
     position: absolute;
-    top: 1em;
-    left: 40%;
-    font-size: 45px;
+    top: 43%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
-#watch{
-    color: #00c853 ;
+#bottom{
+    color: white;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 17px;
 }
 
 footer{
     /*background-image: url("img/cloud.jpg");*/
     background-color: #070707 ;
-    height: 10vh;
+    height: 15vh;
     width: 100%;
     text-align: center;
-    position: relative;
-    color: wheat;
+    color: whitesmoke;
     font-size: 20px;
-    padding: 2em;
-    overflow: hidden;
+    padding-top: 2em;
+    position: relative;
+
 }
 
  .mainBackground{
@@ -402,6 +409,21 @@ footer{
     }
     footer{
         font-size: 17px;
+    }
+    #head{
+        width: 70%;
+        font-size: 37px;
+    }
+    #tagLine{
+        top: 46%;
+        font-size: 18.5px;
+    }
+    #bottom{
+        font-size: 14px;
+    }
+    #input{
+        top: 36%;
+        width: 80%;
     }
 
     .mainBackground{height: 170vh;}
