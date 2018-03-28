@@ -9,7 +9,18 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 class ProductDisplay extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            hidden:true
+        }
+    }
+    toggleSellerInfoHidden = () =>{
+        this.setState({hidden:!this.state.hidden});
+    }
+    
     render(){
+        
         return(
             <div className="mainBackground sellWrapper">
                 <div className="appbar">
@@ -32,10 +43,9 @@ class ProductDisplay extends Component{
                             Buyers are required to contact the sellers 
                             and set up a meeting place for themselves
                         </div>
-                        <button type="submit" id="sellerInfo">Seller Info</button>
+                        <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
                     </div>
-
-                    <div id="sellerInfoCard">
+                    {!this.state.hidden ? <div id="sellerInfoCard">
                         <h2>Seller Info</h2>
                         <ul>
                             <li>Name: <span>Captain America</span></li>
@@ -44,9 +54,10 @@ class ProductDisplay extends Component{
                             <li>Mobile No: <span>9876543210</span></li>
                             <li>Is on Whatsapp: <span>Yes</span></li>
                             <li>Email: <span>avengers@gmail.com</span></li>
-                            <button type="submit" >Done</button>
+                            <button type="submit" onClick={() => this.toggleSellerInfoHidden()}>Done</button>
                         </ul>
-                    </div>
+        </div>:null}
+                    
                </div>
                <footer>
                     @Copyright Original From Model Engineering College
@@ -54,6 +65,9 @@ class ProductDisplay extends Component{
             </div>
         )
     }
+
+
+    
 }
 
 export default ProductDisplay;

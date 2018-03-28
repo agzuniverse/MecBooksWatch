@@ -280,7 +280,6 @@ footer{
 }
 
 #sellerInfoCard{
-    display: none;
     height: 65%;
     width: 40%;
     position: absolute;
@@ -363,7 +362,7 @@ footer{
     }
 
     .detailCard{
-        top: 79%;
+        top: 84%;
         width: 60%;
         height: 70%;
         position: absolute;
@@ -390,9 +389,9 @@ footer{
 
     #sellerInfoCard{
         width: 75%;
-        height: 73%;
+        height: 75%;
         position: absolute;
-        top: 78%;
+        top: 82%;
         left: 0;
         right: 0;
         margin: auto;
