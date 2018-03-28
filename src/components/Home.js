@@ -12,6 +12,7 @@ class Home extends Component {
                 
                 <div id="bottom">@Copyright Original from Model Engineering College.</div>
             </div>
+        </div>
     );
   }
 }
