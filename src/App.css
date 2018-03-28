@@ -20,23 +20,23 @@
 
 #head{
     color: white;
-    width: 23%;
+    width: 22.5%;
     position: absolute;
     top: 20%;
     left: 0;
     right: 0;
     margin: auto;
-    font-size: 45px;
+    font-size: 43px;
 }   
 #watch{
     color: #00c853 ;
 }
 
 #input{
-    height: 23px;
+    height: 3.9%;
     width: 40%;
     position: absolute;
-    top: 33%;
+    top: 31%;
     left: 0;
     right: 0;
     margin: auto;
@@ -50,11 +50,11 @@
 
 #tagLine{
     color: white;
-    font-size: 22px;
+    font-size: 21px;
     text-align: center;
     width: 100%;
     position: absolute;
-    top: 43%;
+    top: 40.5%;
     left: 0;
     right: 0;
     margin: auto;
@@ -280,7 +280,7 @@ footer{
 }
 
 #sellerInfoCard{
-    /*display: none;*/
+    display: none;
     height: 65%;
     width: 40%;
     position: absolute;
@@ -395,7 +395,8 @@ footer{
         top: 78%;
         left: 0;
         right: 0;
-        margin: auto;   
+        margin: auto;
+   
     }
     #sellerInfoCard button{
         bottom: 6%;
