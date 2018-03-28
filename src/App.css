@@ -4,14 +4,91 @@
  .mainColor{
      color:rgba(255,255,255,0.87);
  }
- 
+ .App{
+     width: 100vw;
+     height: 100vh;
+     padding: 0px;
+     margin: 0px;
+     display: grid;
+     grid-template-columns: 220px 1fr;
+     grid-template-rows: 1fr;
+ }
+
  .SideMenu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr 1fr;
+    padding:20px 10px;
+    text-align: center;
+    grid-row: 1/2
+ }
+ .logo{
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    color: rgba(255,255,255,0.87);
+    font-size: 35px; 
+    line-height: 25px;
+}
+#watchPart{
+    color:lawngreen;
+}
+.dropDownMenu{
+    width: 200px;
+}
+ 
+.linksDiv{
+    align-self: end;
+ }
+ .linksDiv a{
+    text-decoration: none;
+    font-size: 25px;
+    color: lawngreen;
+    text-align: center;
+ }
+ .mainDiv{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.ProductDiv{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.imgDiv{
+    padding: 10px;
+}
+.infoDiv{
+    padding: 10px;
+}
+#price{
+   color: red;
+   font-size: 20px;
+}
+#bookName{
+   font-size: 25px;
+}
+#author{
+   font-size: 20px;
+}
+/* .SideMenu{
     position: fixed;
     height:100%;
     width: 15%;
     margin:0px;
     padding:20px 10px;
     text-align: center;
+ }
+ .mainDiv{
+     width: 85%;
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+     position: fixed;
+     left: 17%;
+     top: 0%;
  }
  .logo{
      float: left;
@@ -49,6 +126,38 @@
     color: lawngreen;
     text-align: center;
  }
+ .ProductDiv{
+     width: 100%;
+     margin: 0px;
+ }
+ .imgDiv{
+     display: inline-block;
+     width: 20%;
+     height: 100%;
+     margin: 0px;
+     padding: 10px;
+     text-align: center;
+     float: left;
+ }
+ .infoDiv{
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
+    float: right;
+}
+#price{
+    color: red;
+    font-size: 20px;
+}
+#bookName{
+    font-size: 25px;
+}
+#author{
+    font-size: 20px;
+}
+*/
 
- 
+
  
