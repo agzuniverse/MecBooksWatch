@@ -14,7 +14,7 @@ class ProductDiv extends Component {
         <div className="ProductDiv">
           <MuiThemeProvider>
             <div className="imgDiv">
-              <img src="../assets/book1.jpg"/>
+              <img src={require("../assets/book1.jpg")}/>
             </div>
             <div className="infoDiv">
               <span id="bookName">Design and Engineering</span><br/>
