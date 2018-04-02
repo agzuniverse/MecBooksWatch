@@ -260,7 +260,8 @@ footer{
 */
 
 .centerTotal{
-    height: 100vh;
+    height: auto;
+    padding: 20px 0px 20px 0px;
     width: 85%;
     background-color: white;
     display: flex;
