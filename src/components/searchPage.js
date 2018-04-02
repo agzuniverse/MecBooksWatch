@@ -12,6 +12,10 @@ class SearchPage extends Component {
         <div className="mainDiv">
           <ProductDiv/>
           <ProductDiv/>
+          <ProductDiv/>
+          <ProductDiv/>
+
+
         </div>
       </div>
     );
