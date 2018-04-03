@@ -2,7 +2,6 @@
     overflow: hidden;
 }
 
-/*LandingPage*/
 
 .Container{
     height: 100vh;
@@ -73,7 +72,6 @@
 }
 
 footer{
-    /*background-image: url("img/cloud.jpg");*/
     background-color: #070707 ;
     height: 15vh;
     width: 100%;
@@ -87,21 +85,100 @@ footer{
 
  .mainBackground{
     background:rgb(4, 47, 78);
-    height: 100vh;
-    overflow: scroll;
     
  }
  .mainColor{
      color:rgba(255,255,255,0.87);
  }
- 
+ .App{
+     width: 100vw;
+     height: 100vh;
+     padding: 0px;
+     margin: 0px;
+     display: grid;
+     grid-template-columns: 220px 1fr;
+     grid-template-rows: 1fr;
+ }
+
  .SideMenu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr 1fr;
+    padding:20px 10px;
+    text-align: center;
+    grid-row: 1/2
+ }
+ .logo{
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    color: rgba(255,255,255,0.87);
+    font-size: 35px; 
+    line-height: 25px;
+}
+#watchPart{
+    color:lawngreen;
+}
+.dropDownMenu{
+    width: 200px;
+}
+ 
+.linksDiv{
+    align-self: end;
+ }
+ .linksDiv a{
+    text-decoration: none;
+    font-size: 25px;
+    color: lawngreen;
+    text-align: center;
+ }
+ .mainDiv{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+.ProductDiv{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    min-height: 250px;
+}
+.imgDiv{
+    padding: 10px;
+}
+.infoDiv{
+    padding: 10px;
+}
+#price{
+   color: #00c853;
+   font-size: 20px;
+}
+#bookName{
+   font-size: 25px;
+}
+#author{
+   font-size: 20px;
+}
+ /*.SideMenu{
     position: fixed;
     height:100%;
     width: 15%;
     margin:0px;
     padding:20px 10px;
     text-align: center;
+ }
+ 
+ .mainDiv{
+     width: 85%;
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+     position: fixed;
+     left: 17%;
+     top: 0%;
  }
  .logo{
      float: left;
@@ -149,9 +226,42 @@ footer{
     color: lawngreen;
     text-align: center;
  }
+ .ProductDiv{
+     width: 100%;
+     margin: 0px;
+ }
+ .imgDiv{
+     display: inline-block;
+     width: 20%;
+     height: 100%;
+     margin: 0px;
+     padding: 10px;
+     text-align: center;
+     float: left;
+ }
+ .infoDiv{
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
+    float: right;
+}
+#price{
+    color: red;
+    font-size: 20px;
+}
+#bookName{
+    font-size: 25px;
+}
+#author{
+    font-size: 20px;
+}
+*/
 
- .centerTotal{
-    height: 100vh;
+.centerTotal{
+    height: auto;
+    padding: 20px 0px 20px 0px;
     width: 85%;
     background-color: white;
     display: flex;
@@ -227,7 +337,6 @@ footer{
 }
 
 #textName{
-    /*background-color: white;*/
     width: 100%;
     height: 15%;
     font-size: 22px;
@@ -237,14 +346,12 @@ footer{
 
 #author{
     color: rgb(14, 99, 226);
-    /*background-color: yellow;*/
     width: 100%;
     height: 6%;
     padding: 1px;
 }
 
 #amount{
-    /*background-color: white;*/
     width: 100%;
     height: 17%;
     font-size: 27px;
@@ -261,7 +368,6 @@ footer{
 }
 
 #details{
-    /*background-color: grey;*/
     position: absolute; 
     color: #212121;
     float: left;
@@ -339,7 +445,6 @@ footer{
     opacity: 0;
  }
 
- /*All non-media query related things must be above this*/
  @media only screen and (max-width:768px){
     .backToButton{
         display: flex;
