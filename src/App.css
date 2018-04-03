@@ -188,6 +188,7 @@ footer{
      font-size: 35px; 
      line-height: 25px;
  }
+ */
  #watchPart{
      color:#00c853;
  }
@@ -201,6 +202,7 @@ footer{
     color:#00c853;
      
  }
+ /*
  .filterDiv{
      position: absolute;
      top: 50px;
@@ -253,14 +255,14 @@ footer{
 }
 #bookName{
     font-size: 25px;
-}
+}*/
 #author{
     font-size: 20px;
 }
-*/
+
 
 .centerTotal{
-    height: auto;
+    height: 100vh;
     padding: 20px 0px 20px 0px;
     width: 85%;
     background-color: white;
@@ -476,7 +478,22 @@ footer{
         margin: auto;
         align-content: center;
     }
+    #author{
+        font-size: 14px;
+    }
 
+    #amount{
+        padding-top: 14px;
+        margin-top: 8px; 
+        margin-bottom: -8px;
+    }
+    #productDetails{
+        font-size: 15px;
+    }
+    #details{
+        margin-top: 20px;    
+        font-size: 15px;
+    }
     #textName{
         height: 18%;
         font-size: 20px;

@@ -33,8 +33,8 @@ class ProductDisplay extends Component{
                    </div>
                
                     <div className="detailCard">
-                        <div id="textName">Differential Equations</div>
-                        <div id="author">BruceWayn (Author Name)</div>
+                        <div id="textName">Introduction to Computer and Problem Solving</div>
+                        <div id="author">Elon Musk blah blah (Author Name)</div>
                         <div id="amount"><span id="priceTag">Price</span>: Rs 200 </div>
                         <div id="productDetails">
                             Cash on Exchange <span id="available">Available<br /></span>.
