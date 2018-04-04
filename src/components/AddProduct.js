@@ -50,6 +50,10 @@ class AddProduct extends Component {
             let userClass = document.getElementById('userClass').value;
             let isOnWa = this.state.isOnWa;
             let file = document.getElementById('fileUpload').files[0];
+            let tags = title.split(' ').concat(author.split(' '));
+
+            //Generate tags for searching
+
 
             let data = {
                 "title":title,
@@ -60,7 +64,8 @@ class AddProduct extends Component {
                 "isOnWa":isOnWa,
                 "uid":this.props.uid,
                 "email":this.props.email,
-                "username":this.props.name
+                "username":this.props.name,
+                "tags":tags
             }
 
             addToStorage(file,data);
