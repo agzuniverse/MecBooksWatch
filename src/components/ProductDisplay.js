@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField';
 import AppBar from 'material-ui/AppBar'
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import SideMenu from '../components/SideMenu';
 
 class ProductDisplay extends Component{
     constructor(props){
@@ -27,7 +28,7 @@ class ProductDisplay extends Component{
                     <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
                 </div>
                
-                <div className="centerTotal">
+                <div id="centerTotal">
                     <div className="imageHolder">
                         <img id="textbook" src={require("../img/text1.jpg")} />
                    </div>
@@ -45,6 +46,7 @@ class ProductDisplay extends Component{
                         </div>
                         <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
                     </div>
+                    
                     {!this.state.hidden ? <div id="sellerInfoCard">
                         <h2>Seller Info</h2>
                         <ul>
@@ -56,9 +58,9 @@ class ProductDisplay extends Component{
                             <li>Email: <span>avengers@gmail.com</span></li>
                             <button type="submit" onClick={() => this.toggleSellerInfoHidden()}>Done</button>
                         </ul>
-        </div>:null}
+                    </div>:null}
                     
-               </div>
+                </div>
                <footer>
                     @Copyright Original From Model Engineering College
                 </footer>
