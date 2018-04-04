@@ -78,11 +78,18 @@ class Auth extends React.Component {
 
     render() {
         return(
-            <div>
-                <button onClick={ this.login }>Login</button>
-                <button onClick={ this.logout }>Logout</button>
-                <Link to='/user'>Click here to go to your userpage</Link>
+            <div className="topWrapper">
+                <div className="appbar">
+                    <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
+                    <button id="logout" onClick={ this.logout }>Logout</button>
+                </div>
+                <div id="buttons">
+                    <button id="google-login" className="loginBtn loginBtn--google" onClick={ this.login }>Login with Google</button>
+                    <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button>
+                    <Link to='/user'>Click here to go to your userpage</Link>
+                </div>
             </div>
+
         );
     }
 }
