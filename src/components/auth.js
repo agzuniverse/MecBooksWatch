@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Userpage from './Userpage';
+import GetAuthDetails from './GetAuthDetails';
 
 
 class Auth extends React.Component {
@@ -93,6 +94,7 @@ class Auth extends React.Component {
     render() {
         return(
             <div className="topWrapper">
+                <GetAuthDetails/>
                 <div className="appbar">
                     <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
                     <button id="logout" onClick={ this.logout }>Logout</button>

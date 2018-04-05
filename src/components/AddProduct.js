@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import GetAuthDetails from './GetAuthDetails';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -21,13 +22,6 @@ class AddProduct extends Component {
             branchValue:"Computer Science",
             isOnWa:true
         };
-    }
-
-    componentDidMount(){
-        this.props.update('SET_UID',{uid:localStorage.getItem('LOCAL_UID')});
-        this.props.update('SET_NAME',{uid:localStorage.getItem('LOCAL_NAME')});
-        this.props.update('SET_EMAIL',{uid:localStorage.getItem('LOCAL_EMAIL')});
-        this.props.update('SET_PROPIC',{uid:localStorage.getItem('LOCAL_PROPIC')});
     }
 
     updateCheckmark = () => {
@@ -93,6 +87,7 @@ class AddProduct extends Component {
     render(){
         return(
             <div className='mainBackground sellWrapper'>
+                <GetAuthDetails/>
                 <MuiThemeProvider>
                     <div className='appbar'>
                         <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
@@ -161,12 +156,5 @@ class AddProduct extends Component {
 export default connect(
     (store) => {
         return store;
-    },
-    (dispatch) => {
-        return {
-            update:(dispatchType, dispatchPayload) => {
-                dispatch({type:dispatchType,payload:dispatchPayload});
-            }
-        }
     }
 )(AddProduct);
