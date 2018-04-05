@@ -18,6 +18,13 @@ class Userpage extends Component{
         this.fetchUserBooks("116739592701726269240");
     }
 
+    componentDidMount(){
+        this.props.update('SET_UID',{uid:localStorage.getItem('LOCAL_UID')});
+        this.props.update('SET_NAME',{uid:localStorage.getItem('LOCAL_NAME')});
+        this.props.update('SET_EMAIL',{uid:localStorage.getItem('LOCAL_EMAIL')});
+        this.props.update('SET_PROPIC',{uid:localStorage.getItem('LOCAL_PROPIC')});
+    }
+
     fetchUserBooks = async (uid) => {
         var bookData = await readFromStorage(uid);
         console.log(bookData);
@@ -44,5 +51,12 @@ class Userpage extends Component{
 export default connect(
     (store) => {
         return store;
+    },
+    (dispatch) => {
+        return {
+            update:(dispatchType, dispatchPayload) => {
+                dispatch({type:dispatchType,payload:dispatchPayload});
+            }
+        }
     }
 )(Userpage);

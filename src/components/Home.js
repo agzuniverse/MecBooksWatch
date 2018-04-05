@@ -12,6 +12,13 @@ class Home extends Component {
     }
   }
 
+  componentDidMount(){
+    this.props.update('SET_UID',{uid:localStorage.getItem('LOCAL_UID')});
+    this.props.update('SET_NAME',{uid:localStorage.getItem('LOCAL_NAME')});
+    this.props.update('SET_EMAIL',{uid:localStorage.getItem('LOCAL_EMAIL')});
+    this.props.update('SET_PROPIC',{uid:localStorage.getItem('LOCAL_PROPIC')});
+  }
+
   search = () => {
     let query = document.getElementById('input').value;
     this.props.update('SEARCH_STRING',{query:query});
