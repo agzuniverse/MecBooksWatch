@@ -30,15 +30,17 @@ class SearchPage extends Component {
   }
 
   render() {
+    const books = Object.keys(this.state.bookData).map(key => {
+      return (
+        <ProductDiv details={this.state.bookData[key]} />
+      );
+    });
     return (
       <div className="App">
         <GetAuthDetails/>
-        <SideMenu/>
+        <SideMenu isFilter={false}/>
         <div className="mainDiv">
-          <ProductDiv/>
-          <ProductDiv/>
-          <ProductDiv/>
-          <ProductDiv/>
+          {books}
 
 
         </div>

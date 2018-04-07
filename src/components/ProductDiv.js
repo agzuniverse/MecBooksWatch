@@ -7,19 +7,20 @@ import RaisedButton from 'material-ui/RaisedButton';
 class ProductDiv extends Component {
     constructor(props) {
       super(props);
-      this.state = {semesterValue: "Semester 1",authorValue: "Indian"};
+      console.log(props);
     }
+    
     render() {
       return (
         <div className="ProductDiv">
           <MuiThemeProvider>
             <div className="imgDiv">
-              <img src={require("../assets/book1.jpg")}/>
+              <img src={this.props.details.imageURL}/>
             </div>
             <div className="infoDiv">
-              <span id="bookName">Design and Engineering</span><br/>
-              <span id="author">Aswin G</span><br/>
-              <span id="price">Rs 120</span><br/><br/>
+              <span id="bookName">{this.props.details.title}</span><br/>
+              <span id="author">{this.props.details.author}</span><br/>
+              <span id="price">Rs {this.props.details.price}</span><br/><br/>
   
             </div>
           </MuiThemeProvider>
