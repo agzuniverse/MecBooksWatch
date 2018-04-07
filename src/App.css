@@ -96,14 +96,14 @@ footer{
      padding: 0px;
      margin: 0px;
      display: grid;
-     grid-template-columns: 220px 1fr;
+     grid-template-columns: 230px 1fr;
      grid-template-rows: 1fr;
  }
 
  .SideMenu{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 7fr 2fr;
     padding:20px 10px;
     text-align: center;
     grid-row: 1/2
@@ -126,12 +126,7 @@ footer{
 .linksDiv{
     align-self: end;
  }
- .linksDiv a{
-    text-decoration: none;
-    font-size: 25px;
-    color: lawngreen;
-    text-align: center;
- }
+
  .mainDiv{
     margin: 0px;
     padding: 0px;
@@ -535,4 +530,16 @@ footer{
     .mainBackground{height: 170vh;}
     .sellWrapper{height: 180vh;}
     .centerTotal{height: 200vh;}
+}
+
+.userInfoDiv{
+    text-align:center;
+    color: white;
+    font-size: 1.2vw;
+    overflow-x: hidden;
+}
+.profilePic{
+    width: 200px;
+    height: 200px;
+    border-radius:50%;
 }

@@ -17,7 +17,7 @@ const reducer = (state,action) => {
 
 export default createStore(reducer,{
     test:'incomplete',
-    uid:'',
+    uid:'116739592701726269240',
     name:'',
     proPic:'',
     email:''
