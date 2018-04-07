@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { readFromStorage } from '../firebase/firebase';
 import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
+import GetAuthDetails from './GetAuthDetails';
 
 class Userpage extends Component{
 
@@ -52,6 +53,8 @@ class Userpage extends Component{
                     </div>
                 </div>
             );
+
+     
     }
 }
 

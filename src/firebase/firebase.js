@@ -45,6 +45,29 @@ export function readFromStorage(uid){
     });
 }
 
+export function searchAll(query){
+    query = query.toLowerCase();
+    return new Promise((resolve,reject) => {
+        firebase.database().ref('store/textbooks/').once('value',(snapshot) => {
+            let data = snapshot.val();
+            let results = [];
+            let flag = true;
+            for(let i in data)
+                for(let j in data[i])
+                    for(let tag in data[i][j].tags)
+                        if(data[i][j].tags[tag].toLowerCase().includes(query)){
+                            flag = true;
+                            for(let k in results)
+                                if(results[k] == data[i][j])
+                                    flag=false;
+                            if(flag)
+                                results.push(data[i][j]);
+                        }
+            resolve(results);   
+        });
+    });
+}
+
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 export default firebase;

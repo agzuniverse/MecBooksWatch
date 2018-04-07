@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import GetAuthDetails from './GetAuthDetails';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -18,6 +19,7 @@ class AddProduct extends Component {
         super(props);
         this.state = {
             semesterValue: "Semester 1",
+            branchValue:"Computer Science",
             isOnWa:true
         };
     }
@@ -38,6 +40,12 @@ class AddProduct extends Component {
         });
     }
 
+    branchChange = (event, index, value) => {
+        this.setState({
+            branchValue:value
+        });
+    }
+
     handeSubmit = () => {
         if(this.props.uid == '' || this.props.uid == null){
             alert("You need to log in to add a book!");
@@ -49,7 +57,13 @@ class AddProduct extends Component {
             let contact = document.getElementById('mobile').value;
             let userClass = document.getElementById('userClass').value;
             let isOnWa = this.state.isOnWa;
+            let semester = this.state.semesterValue;
+            let branch = this.state.branchValue;
             let file = document.getElementById('fileUpload').files[0];
+            let tags = title.split(' ').concat(author.split(' '));
+
+            //Generate tags for searching
+
 
             let data = {
                 "title":title,
@@ -60,7 +74,10 @@ class AddProduct extends Component {
                 "isOnWa":isOnWa,
                 "uid":this.props.uid,
                 "email":this.props.email,
-                "username":this.props.name
+                "username":this.props.name,
+                "semester":semester,
+                "branch":branch,
+                "tags":tags
             }
 
             addToStorage(file,data);
@@ -70,6 +87,7 @@ class AddProduct extends Component {
     render(){
         return(
             <div className='mainBackground sellWrapper'>
+                <GetAuthDetails/>
                 <MuiThemeProvider>
                     <div className='appbar'>
                         <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
@@ -95,7 +113,7 @@ class AddProduct extends Component {
                                 style={{fontSize:'13px'}}
                             />
                         </div>
-                        <br/><br/>
+                        <br/>
                         <span style={{fontSize:'13px'}}>Choose the semester for which this book is used:</span>
                         <DropDownMenu onChange={this.semChange} style={{width:'65%'}} value={this.state.semesterValue} autoWidth={false} className="dropDownMenu">
                             <MenuItem value="Semester 1" primaryText="Semester 1" />
@@ -106,6 +124,15 @@ class AddProduct extends Component {
                             <MenuItem value="Semester 6" primaryText="Semester 6" />
                             <MenuItem value="Semester 7" primaryText="Semester 7" />
                             <MenuItem value="Semester 8" primaryText="Semester 8" />
+                        </DropDownMenu>
+                        <br/>
+                        <span style={{fontSize:'13px'}}>Choose the branch for this book is used:</span>
+                        <DropDownMenu onChange={this.branchChange} style={{width:'65%'}} value={this.state.branchValue} autoWidth={false} className="dropDownMenu">
+                            <MenuItem value="Computer Science" primaryText="Computer Science" />
+                            <MenuItem value="Electrical" primaryText="Electrical" />
+                            <MenuItem value="Electronics" primaryText="Electronics" />
+                            <MenuItem value="Mechanical" primaryText="Mechanical" />
+                            <MenuItem value="Civil" primaryText="Civil" />
                         </DropDownMenu>
                         <br/><br/>
                         <span style={{padding:'5px', fontSize:'13px'}}> Upload a good quality picture of the book. </span>
