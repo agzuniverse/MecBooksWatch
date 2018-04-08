@@ -66,10 +66,10 @@ class AddProduct extends Component {
     }
 
     handeSubmit = () => {
-        // if(this.props.uid == '' || this.props.uid == null){
-        //     alert("You need to log in to add a book!");
-        // }
-        // else{
+        if(this.props.uid == '' || this.props.uid == null){
+            alert("You need to log in to add a book!");
+        }
+        else{
             let title = document.getElementById('bookTitle').value;
             let author = document.getElementById('bookAuthor').value;
             let price = document.getElementById('bookPrice').value;
@@ -89,11 +89,10 @@ class AddProduct extends Component {
             if(author.replace(/\s/g,"") == "")
                 this.setInvalid('Author field is blank');
             
-                console.log(typeof(parseFloat(price)));
             if((isNumeric(price)) && !(parseFloat(price) > 0))
                 this.setInvalid('Price should be numeric and >0.');
 
-            if(isMobilePhone(contact, 'en-IN')) 
+            if(!isMobilePhone(contact, 'en-IN')) 
                 this.setInvalid('Contact number is invalid. We only accept Indian Mobile Numbers. format eg: +91xxxxxxxxxx or xxxxxxxxxx');
 
             if(!(file && file.type.slice(0, 5) == "image"))
@@ -107,26 +106,26 @@ class AddProduct extends Component {
                 console.log("Form field error");
                 this.handleOpen();
             }
-
-            let data = {
-                "title":title,
-                "author":author,
-                "price":price,
-                "contact":contact,
-                "userClass":userClass,
-                "isOnWa":isOnWa,
-                "uid":this.props.uid,
-                "email":this.props.email,
-                "username":this.props.name,
-                "semester":semester,
-                "branch":branch,
-                "tags":tags
+            else {
+                let data = {
+                    "title":title,
+                    "author":author,
+                    "price":price,
+                    "contact":contact,
+                    "userClass":userClass,
+                    "isOnWa":isOnWa,
+                    "uid":this.props.uid,
+                    "email":this.props.email,
+                    "username":this.props.name,
+                    "semester":semester,
+                    "branch":branch,
+                    "tags":tags
+                }
+    
+                console.log("Adding book");
+                addToStorage(file,data);
             }
-
-        //     console.log("Adding book");
-        //     addToStorage(file,data);
-        //     console.log("Book added");
-        // }
+        }
     }
 
     printError = () => {
