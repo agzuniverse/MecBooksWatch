@@ -15,7 +15,7 @@ class ProductDiv extends Component {
         <div className="ProductDiv">
           <MuiThemeProvider>
             <div className="imgDiv">
-              <img src={this.props.details.imageURL}/>
+              <img src={this.props.details.imageURL} id="productImg"/>
             </div>
             <div className="infoDiv">
               <span id="bookName">{this.props.details.title}</span><br/>

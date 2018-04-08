@@ -11,7 +11,7 @@ class SearchPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      searchResults:{}
+      searchResults:[]
     }
   }
 
@@ -24,21 +24,22 @@ class SearchPage extends Component {
   performSearch = async (query) => {
     let data = await searchAll(query);
     console.log(data);
-    this.setState = {
+    this.setState({
       searchResults:data
-    }
+    });
   }
 
   render() {
-    const books = Object.keys(this.state.bookData).map(key => {
+    console.log(this.state.searchResults);
+    const books = this.state.searchResults.map(book => {
       return (
-        <ProductDiv details={this.state.bookData[key]} />
+        <ProductDiv details={book}/>
       );
     });
     return (
       <div className="App">
         <GetAuthDetails/>
-        <SideMenu isFilter={false}/>
+        <SideMenu isFilter={true}/>
         <div className="mainDiv">
           {books}
 
