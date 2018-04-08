@@ -12,6 +12,8 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import { addToStorage } from '../firebase/firebase';
+import Dialog from 'material-ui/Dialog';
+import {isNumeric, isMobilePhone} from 'validator';
 
 
 class AddProduct extends Component {
@@ -20,9 +22,20 @@ class AddProduct extends Component {
         this.state = {
             semesterValue: "Semester 1",
             branchValue:"Computer Science",
-            isOnWa:true
+            isOnWa:true,
+            open: false,
+            classNames: [], //uncomment class validator
+            invalid: [],
         };
     }
+
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+    
+    handleClose = () => {
+        this.setState({open: false});
+    };
 
     updateCheckmark = () => {
         this.setState({
@@ -46,11 +59,17 @@ class AddProduct extends Component {
         });
     }
 
+    setInvalid = (field) => {
+        var state = this.state;
+        state.invalid.push(field);
+        this.setState(state);
+    }
+
     handeSubmit = () => {
-        if(this.props.uid == '' || this.props.uid == null){
-            alert("You need to log in to add a book!");
-        }
-        else{
+        // if(this.props.uid == '' || this.props.uid == null){
+        //     alert("You need to log in to add a book!");
+        // }
+        // else{
             let title = document.getElementById('bookTitle').value;
             let author = document.getElementById('bookAuthor').value;
             let price = document.getElementById('bookPrice').value;
@@ -62,8 +81,32 @@ class AddProduct extends Component {
             let file = document.getElementById('fileUpload').files[0];
             let tags = title.split(' ').concat(author.split(' '));
 
+            this.state.invalid = [];
             //Generate tags for searching
+            if(title.replace(/\s/g,"") == "")
+                this.setInvalid('Title field is blank');
+            
+            if(author.replace(/\s/g,"") == "")
+                this.setInvalid('Author field is blank');
+            
+                console.log(typeof(parseFloat(price)));
+            if((isNumeric(price)) && !(parseFloat(price) > 0))
+                this.setInvalid('Price should be numeric and >0.');
 
+            if(isMobilePhone(contact, 'en-IN')) 
+                this.setInvalid('Contact number is invalid. We only accept Indian Mobile Numbers. format eg: +91xxxxxxxxxx or xxxxxxxxxx');
+
+            if(!(file && file.type.slice(0, 5) == "image"))
+                this.setInvalid('Image is invalid.');
+            
+            //add all classes to state
+            //if(!this.classNames.includes(userClass)) 
+            //  this.setInvalid('class');
+
+            if(!this.state.invalid.length == 0) {
+                console.log("Form field error");
+                this.handleOpen();
+            }
 
             let data = {
                 "title":title,
@@ -80,11 +123,29 @@ class AddProduct extends Component {
                 "tags":tags
             }
 
-            addToStorage(file,data);
-        }
+        //     console.log("Adding book");
+        //     addToStorage(file,data);
+        //     console.log("Book added");
+        // }
     }
 
-    render(){
+    printError = () => {
+        var error = '';
+        if(this.state.invalid.includes('Contact'))
+            error += 'Conta'
+    }
+
+    render() {
+
+        const actions = [
+            <FlatButton
+              label="Ok"
+              primary={true}
+              keyboardFocused={true}
+              onClick={this.handleClose}
+            />,
+        ];
+
         return(
             <div className='mainBackground sellWrapper'>
                 <GetAuthDetails/>
@@ -104,6 +165,16 @@ class AddProduct extends Component {
                         <TextField style={{width:'65%'}} id="bookPrice" hintText="Enter your expected price"/>
                         <TextField type='number' style={{width:'65%'}} id="mobile" hintText="Enter your contact number"/>
                         <TextField style={{width:'65%'}} id="userClass" hintText="Enter your class (eg: CS4A, EE6 etc..)"/>
+                        {/* <SelectField
+                            floatingLabelText="Select Class"
+                            value={this.state.selectedClass}
+                            onChange={this.handleChange}
+                            id="userClass"
+                        >
+                            <MenuItem value={CS1A} primaryText="CS1A" />
+                            <MenuItem value={} primaryText="" />
+                            <MenuItem value={} primaryText="" />
+                        </SelectField> */}
                         <br/>
                         <div>
                             <Checkbox
@@ -140,14 +211,24 @@ class AddProduct extends Component {
                             label="Choose Image"
                             labelPosition="before"
                             containerElement="label"
-                         >
+                        >
                         <input id='fileUpload' type="file" accept='image/*' className='hiddenFileInput'/>
                         </RaisedButton>
                         <div style={{height:'5vh'}}/>
                         <RaisedButton onClick={() => this.handeSubmit()} label="Submit" primary={true}/>
-                       
+                        <Dialog
+                            title="Some fields require attention!"
+                            actions={actions}
+                            modal={true}
+                            open={this.state.open}
+                        >  
+                            {this.state.invalid.map((value) => {
+                                return <p key={ value }>{value}</p>;
+                            })}
+                        </Dialog>
                     </div>
                 </MuiThemeProvider>
+
             </div>
         );
     }

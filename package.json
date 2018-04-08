@@ -8,11 +8,13 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-material-ui-form-validator": "^1.1.0",
     "react-materialize": "^2.1.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
-    "redux": "^3.7.2"
+    "react-scripts": "^1.1.0",
+    "redux": "^3.7.2",
+    "validator": "^9.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
