@@ -12,10 +12,12 @@ import Checkbox from 'material-ui/Checkbox';
 class SideMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {semesterValue: "Semester 1",authorValue: "Indian"};
+    this.state = { semesterValue: "Semester 1", authorValue: "Indian" };
   }
-  componentWillMount(){
-    this.setState({imgURL:this.props.userDetails.imgURL});
+  componentWillMount() {
+    if (this.props.isFilter == false) {
+      this.setState({ imgURL: this.props.userDetails.imgURL });
+    }
   }
   render() {
     if (this.props.isFilter == true) {
@@ -48,19 +50,19 @@ class SideMenu extends Component {
         </div>
 
       );
-    }else{
-      return(
+    } else {
+      return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
             <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
             <div className="userInfoDiv">
               <br /><br />
-              <img src={this.props.proPic} className="profilePic"/><br/><br/>
-              {this.props.userDetails.name}<br/>
-              {this.props.userDetails.email}<br/>
+              <img src={this.props.proPic} className="profilePic" /><br /><br />
+              {this.props.userDetails.name}<br />
+              {this.props.userDetails.email}<br />
             </div>
             <div className="linksDiv">
-              <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Add Book</RaisedButton><br/><br/>
+              <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Add Book</RaisedButton><br /><br />
               <RaisedButton backgroundColor="red" fullWidth={true}>Logout</RaisedButton>
             </div>
           </MuiThemeProvider>
@@ -72,13 +74,13 @@ class SideMenu extends Component {
 
 export default connect(
   (store) => {
-      return store;
+    return store;
   },
   (dispatch) => {
-      return {
-          update:(dispatchType, dispatchPayload) => {
-              dispatch({type:dispatchType,payload:dispatchPayload});
-          }
+    return {
+      update: (dispatchType, dispatchPayload) => {
+        dispatch({ type: dispatchType, payload: dispatchPayload });
       }
+    }
   }
 )(SideMenu);
