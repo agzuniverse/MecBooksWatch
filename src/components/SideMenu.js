@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -24,7 +25,7 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
+            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
             <div className="filterDiv">
               <br /><br />
               Semester<br />
@@ -38,13 +39,11 @@ class SideMenu extends Component {
                 <MenuItem value="Semester 7" primaryText="Semester 7" />
                 <MenuItem value="Semester 8" primaryText="Semester 8" />
               </DropDownMenu>
-              <br /><br />
-              Author<br /><br />
-              <Checkbox label="Indian" labelStyle={{ "color": "rgba(255,255,255,0.87)", "text-align": "left", "margin-left": "5px" }} iconStyle={{ "fill": "rgba(255,255,255,0.87)" }} />
-              <Checkbox label="Foreign" labelStyle={{ "color": "rgba(255,255,255,0.87)", "text-align": "left", "margin-left": "5px" }} iconStyle={{ "fill": "rgba(255,255,255,0.87)" }} />
             </div>
             <div className="linksDiv">
-              <a href="">Sell Books</a>
+              <Link to='/user'>
+                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
+              </Link>
             </div>
           </MuiThemeProvider>
         </div>
@@ -54,7 +53,7 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
+            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
             <div className="userInfoDiv">
               <br /><br />
               <img src={this.props.proPic} className="profilePic" /><br /><br />
@@ -62,8 +61,15 @@ class SideMenu extends Component {
               {this.props.userDetails.email}<br />
             </div>
             <div className="linksDiv">
-              <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Add Book</RaisedButton><br /><br />
-              <RaisedButton backgroundColor="red" fullWidth={true}>Logout</RaisedButton>
+              <Link to='/addproduct'>
+                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Add Book</RaisedButton><br /><br/>
+              </Link>
+              <Link to='/search'>
+                <RaisedButton backgroundColor="lightblue" fullWidth={true}>Search for books</RaisedButton><br /><br/>
+              </Link>
+              <Link to='/login'>
+                <RaisedButton backgroundColor="red" fullWidth={true}>Logout</RaisedButton>
+              </Link>
             </div>
           </MuiThemeProvider>
         </div>

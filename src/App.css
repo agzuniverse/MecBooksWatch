@@ -142,10 +142,12 @@ footer{
     grid-template-columns: 1fr 4fr;
     min-height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin:15px;
     transition: 0.3s;
 }
 .ProductDiv:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin:5px;
 }
 .imgDiv{
     padding: 10px;
@@ -468,25 +470,45 @@ footer{
 
  /*Login */
 
- #logout{
+#logout{
      box-sizing: border-box;
-     float: right;
      position: absolute;
-     top: 0;
-     bottom: 0;
+     top: 39%;
+     left: 0;
+     right: 0;
      margin: auto;
-     right: 1em;
+     width: 13em;
+     height: 2.2em;
      text-align: center;
-     height: 2em;
-     width: 6em;
      font-size: 18px;
      background-color: #00c853b7;
      color: white;
      border: none;
      border-radius: 0.2em;
      white-space: nowrap;
-
+     cursor: pointer;
  }
+
+ #logoutAppBar{
+    box-sizing: border-box;
+    float: right;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 1em;
+    text-align: center;
+    height: 2em;
+    width: 6em;
+    font-size: 18px;
+    background-color: #00c853b7;
+    color: white;
+    border: none;
+    border-radius: 0.2em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
  #google-login{
      position: absolute;
      top: 39%;
@@ -495,6 +517,7 @@ footer{
      margin: auto;
      width: 13em;
      height: 2.2em;
+     cursor: pointer;
  }
 
  #fb-login{
