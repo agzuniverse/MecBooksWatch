@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Userpage from './Userpage';
 import GetAuthDetails from './GetAuthDetails';
+import Appbar from './appBar';
 
 
 class Auth extends React.Component {
@@ -95,10 +96,11 @@ class Auth extends React.Component {
         return(
             <div className="topWrapper">
                 <GetAuthDetails/>
-                <div className="appbar">
+                <Appbar />
+               {/* <div className="appbar">
                     <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
                     <button id="logout" onClick={ this.logout }>Logout</button>
-                </div>
+        </div>*/}
                 <div id="buttons">
                     <button id="google-login" className="loginBtn loginBtn--google" onClick={ this.login }>Login with Google</button>
                     <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button>
