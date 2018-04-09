@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import FA from 'react-fontawesome';
+import {FaPhone, FaEnvelope, FaGithub} from 'react-icons/lib/fa'
 
 class Credits extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class Credits extends React.Component {
                 sub:"Project Lead",
                 mobile:"100",
                 githubID:"https://github.com/agzuniverse",
-                avatar:'../img/devpic/agzuniverse.jpeg',
+                avatar: require("../img/devpic/agzuniverse.jpeg"),
                 desc: 'JS',
                 gitName: 'agzuniverse',
             },
@@ -22,7 +22,7 @@ class Credits extends React.Component {
                 sub:"Front End",
                 mobile:"108",
                 githubID:"https://github.com/aswin1999",
-                avatar:'../img/devpic/aswin1999.jpeg',
+                avatar: require("../img/devpic/aswin1999.jpeg"),
                 desc:'Re',
                 gitName: 'aswin1999',
             },
@@ -32,7 +32,7 @@ class Credits extends React.Component {
                 sub:"Front End",
                 mobile:"102",
                 githubID:"https://github.com/JoyalAJohney",
-                avatar:'../img/devpic/JoyalAJohney.jpeg',
+                avatar: require("../img/devpic/JoyalAJohney.jpeg"),
                 desc:'elon musk',
                 gitName: 'JoyalAJohney',
             },
@@ -42,7 +42,7 @@ class Credits extends React.Component {
                 sub:"Back End",
                 mobile:"+91 88482 72124",
                 githubID:"https://github.com/123vivekr",
-                avatar:'../img/devpic/123vivekr.jpeg',
+                avatar: require("../img/devpic/123vivekr.jpeg"),
                 desc:'Lorem ipsum dolor',
                 gitName: '123vivekr',
             },
@@ -51,7 +51,7 @@ class Credits extends React.Component {
 
     userPic = (dev) => {
         return(
-            <a key={dev.name} href={"#"+dev.name}><img id='credits-avatar' src={require('../img/devpic/123vivekr.jpeg')} alt={dev.name+" pic"} /></a>
+            <a key={dev.name} href={"#"+dev.name}><img id='credits-avatar' src={dev.avatar} alt={dev.name+" pic"} /></a>
         )
     }
 
@@ -65,9 +65,9 @@ class Credits extends React.Component {
                 {dev.desc}
             </p>
             <b>Contact</b><br />
-            <FA name='mobile' key={dev.mobile} />Mobile: {dev.mobile}<br />
-            <FA name='envelope' key={dev.email} />Email: {dev.email}<br />
-            <FA name='github' key={dev.githubID} />Github: <a href={dev.githubID} style={{color:"#2ecc71"}}>{dev.gitName}</a>
+            <FaPhone key={dev.mobile} /> {dev.mobile}<br />
+            <FaEnvelope key={dev.email} /> {dev.email}<br />
+            <FaGithub key={dev.githubID} /> <a href={dev.githubID} style={{color:"#2ecc71"}}>{dev.gitName}</a>
             </div>
         )
     }
@@ -82,7 +82,7 @@ class Credits extends React.Component {
                     <center> {this.devs.map((dev) => this.userPic(dev))} </center>
                 </div>
                 {this.devs.map((dev) => this.userDetails(dev))}
-            </div>
+                </div>
         )
     }
 }
