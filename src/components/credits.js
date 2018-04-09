@@ -14,6 +14,7 @@ class Credits extends React.Component {
                 githubID:"https://github.com/agzuniverse",
                 avatar:'../img/devpic/agzuniverse.jpeg',
                 desc: 'JS',
+                gitName: 'agzuniverse',
             },
             {
                 name:"Aswin M Prabhu",
@@ -23,6 +24,7 @@ class Credits extends React.Component {
                 githubID:"https://github.com/aswin1999",
                 avatar:'../img/devpic/aswin1999.jpeg',
                 desc:'Re',
+                gitName: 'aswin1999',
             },
             {
                 name:"Joyal A Johney",
@@ -32,6 +34,7 @@ class Credits extends React.Component {
                 githubID:"https://github.com/JoyalAJohney",
                 avatar:'../img/devpic/JoyalAJohney.jpeg',
                 desc:'elon musk',
+                gitName: 'JoyalAJohney',
             },
             {
                 name:"Vivek R",
@@ -41,6 +44,7 @@ class Credits extends React.Component {
                 githubID:"https://github.com/123vivekr",
                 avatar:'../img/devpic/123vivekr.jpeg',
                 desc:'Lorem ipsum dolor',
+                gitName: '123vivekr',
             },
         ];
     }
@@ -63,7 +67,7 @@ class Credits extends React.Component {
             <b>Contact</b><br />
             <FA name='mobile' key={dev.mobile} />Mobile: {dev.mobile}<br />
             <FA name='envelope' key={dev.email} />Email: {dev.email}<br />
-            <FA name='github' key={dev.githubID} />Github: <a href={dev.githubID}>{dev.githubID}</a>
+            <FA name='github' key={dev.githubID} />Github: <a href={dev.githubID} style={{color:"#2ecc71"}}>{dev.gitName}</a>
             </div>
         )
     }
@@ -72,6 +76,7 @@ class Credits extends React.Component {
         return (
             <div className="credit-container">
                 <h1 id="credits-head">Books<span id="credits-watch">Watch</span></h1>
+                <h1 id="credits-aboutus">ABOUT US</h1>
                 <span className="credit-sep"></span>
                 <div className="credit-devs">
                     <center> {this.devs.map((dev) => this.userPic(dev))} </center>

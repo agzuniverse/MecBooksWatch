@@ -741,7 +741,7 @@ footer{
     font-size: 20px;
     color: white;
     text-align: justify;
-    height: 0 ;
+    height: 0;
     overflow:hidden;
 }
 
@@ -765,4 +765,8 @@ footer{
 }   
 #credits-watch{
     color: #00c853 ;
+}
+#credits-aboutus{
+    color:#f39c12;
+    font-size:20px;
 }

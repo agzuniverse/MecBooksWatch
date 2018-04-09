@@ -3,7 +3,6 @@ import '../App.css';
 import { connect } from 'react-redux';
 import GetAuthDetails from './GetAuthDetails';
 
-
 class Home extends Component {
 
   constructor(props){
@@ -31,7 +30,9 @@ class Home extends Component {
                       </form>
                       <div id="tagLine">An official KTU Book exchange platform For Mecians!</div>
 
-                      <div id="bottom">@Copyright Original from Model Engineering College.</div>
+                      <div id="bottom">@Copyright Original from Model Engineering College. <br />
+                        <a href="/credits" style={{color:"#2ecc71"}}>BooksWatch Crew</a>
+                      </div>
                   </div>
               </div>
             </div>
