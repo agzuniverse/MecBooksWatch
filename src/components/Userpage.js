@@ -3,13 +3,16 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { readFromStorage } from '../firebase/firebase';
+import SideMenu from './SideMenu';
+import ProductDiv from './ProductDiv';
+import GetAuthDetails from './GetAuthDetails';
 
 class Userpage extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            bookData:{}
+            bookData:[]
         }
     }
 
@@ -24,20 +27,34 @@ class Userpage extends Component{
         this.setState({
             bookData:bookData
         });
-    }
+        
+    
+        
 
+    }
+    
     render(){
+        const books = Object.keys(this.state.bookData).map(key => { 
+            console.log(this.state.bookData[key],key);
+            return(
+                <ProductDiv details={this.state.bookData[key]}/>
+            
+            );
+        });
+        
         if(this.props.uid=='' || this.props.uid==null)
             return null;
         else
             return(
-                <div>
-                    <p>NAME:{this.props.name}</p>
-                    <p>EMAIL:{this.props.email}</p>
-                    <img src={{uri:this.props.name}}/>
-                    <Link to='/addproduct'>Click here to add a book</Link>
+                <div className="App">
+                    <SideMenu isFilter={false} userDetails={this.props} />
+                    <div className="mainDiv">
+                        {books}
+                    </div>
                 </div>
             );
+
+     
     }
 }
 

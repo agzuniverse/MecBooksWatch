@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -8,6 +9,7 @@ import AppBar from 'material-ui/AppBar'
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import SideMenu from '../components/SideMenu';
+import GetAuthDetails from './GetAuthDetails';
 
 class ProductDisplay extends Component{
     constructor(props){
@@ -24,6 +26,7 @@ class ProductDisplay extends Component{
         
         return(
             <div className="mainBackground sellWrapper">
+            <GetAuthDetails/>
                 <div className="appbar">
                     <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
                 </div>
@@ -72,4 +75,8 @@ class ProductDisplay extends Component{
     
 }
 
-export default ProductDisplay;
+export default connect(
+    (store) => {
+        return store;
+    }
+)(ProductDisplay);

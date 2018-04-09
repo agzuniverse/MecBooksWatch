@@ -11,14 +11,17 @@ const reducer = (state,action) => {
         return Object.assign({},state,{email:action.payload.email});
     } else if(action.type == 'SET_PROPIC'){
         return Object.assign({},state,{proPic:action.payload.propic});
+    } else if(action.type == 'SEARCH_STRING'){
+        return Object.assign({},state,{query:action.payload.query});
     } else    
         return state;
 }
 
 export default createStore(reducer,{
     test:'incomplete',
-    uid:'',
+    uid:'116739592701726269240',
     name:'',
     proPic:'',
-    email:''
+    email:'',
+    query:''
 })

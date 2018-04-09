@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Userpage from './Userpage';
+import GetAuthDetails from './GetAuthDetails';
 
 
 class Auth extends React.Component {
@@ -43,8 +44,17 @@ class Auth extends React.Component {
                     isNewUser: false,  
                     isLoggedIn: false,
                     uToken: '',
+                    uid:'',
+                    userEmail:'',
+                    userName:'',
+                    userProPic:'',
                 });
-                console.log("Signout Successful");
+                localStorage.removeItem('LOCAL_UID');
+                localStorage.removeItem('LOCAL_NAME');
+                localStorage.removeItem('LOCAL_EMAIL');
+                localStorage.removeItem('LOCAL_PROPIC');
+                console.log("Logout Successful");
+                this.props.history.push('/home');
             });
     }
 
@@ -69,9 +79,14 @@ class Auth extends React.Component {
                         this.props.update('SET_NAME',{name:this.state.userName});
                         this.props.update('SET_EMAIL',{email:this.state.userEmail});
                         this.props.update('SET_PROPIC',{propic:this.state.userProPic});
+                        localStorage.setItem('LOCAL_UID',this.state.uid);
+                        localStorage.setItem('LOCAL_NAME',this.state.userName);
+                        localStorage.setItem('LOCAL_EMAIL',this.state.userEmail);
+                        localStorage.setItem('LOCAL_PROPIC',this.state.userProPic);
                         this.props.history.push('/user');
                     });
                     console.log("User has logged in");
+                    this.props.history.push('/user');
                 })
     }
 
@@ -79,6 +94,7 @@ class Auth extends React.Component {
     render() {
         return(
             <div className="topWrapper">
+                <GetAuthDetails/>
                 <div className="appbar">
                     <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
                     <button id="logout" onClick={ this.logout }>Logout</button>
@@ -86,7 +102,6 @@ class Auth extends React.Component {
                 <div id="buttons">
                     <button id="google-login" className="loginBtn loginBtn--google" onClick={ this.login }>Login with Google</button>
                     <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button>
-                    <Link to='/user'>Click here to go to your userpage</Link>
                 </div>
             </div>
 
