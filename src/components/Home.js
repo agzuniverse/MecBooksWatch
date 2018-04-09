@@ -24,7 +24,7 @@ class Home extends Component {
               <GetAuthDetails/>
               <div className="Container">
                   <div className="topWrapper">
-                      <h1 id="head">Books<span id="watch">Watch</span></h1>
+                      <center><h1 id="head">Books<span id="watch">Watch</span></h1></center>
                       <form onSubmit={this.search}>
                         <input id="input" type="text" placeholder="Search for Books" />
                       </form>
