@@ -13,7 +13,6 @@ import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import { addToStorage } from '../firebase/firebase';
 import Dialog from 'material-ui/Dialog';
-import {isNumeric, isMobilePhone} from 'validator';
 
 
 class AddProduct extends Component {
@@ -89,11 +88,11 @@ class AddProduct extends Component {
             if(author.replace(/\s/g,"") == "")
                 this.setInvalid('Author field is blank');
             
-            if((isNumeric(price)) && !(parseFloat(price) > 0))
+            if(!(parseFloat(price) > 0))
                 this.setInvalid('Price should be numeric and >0.');
 
-            if(!isMobilePhone(contact, 'en-IN')) 
-                this.setInvalid('Contact number is invalid. We only accept Indian Mobile Numbers. format eg: +91xxxxxxxxxx or xxxxxxxxxx');
+            if (!(parseFloat(contact) > 0 && contact.length === 10))
+                this.setInvalid('Contact number is invalid. We only accept Indian Mobile Numbers. format eg: xxxxxxxxxx');
 
             if(!(file && file.type.slice(0, 5) == "image"))
                 this.setInvalid('Image is invalid.');
@@ -126,12 +125,6 @@ class AddProduct extends Component {
                 addToStorage(file,data);
             }
         }
-    }
-
-    printError = () => {
-        var error = '';
-        if(this.state.invalid.includes('Contact'))
-            error += 'Conta'
     }
 
     render() {
