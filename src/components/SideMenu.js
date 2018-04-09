@@ -19,6 +19,11 @@ class SideMenu extends Component {
       this.setState({ imgURL: this.props.userDetails.imgURL });
     }
   }
+  semChange = (event, index, value) => {
+    this.setState({
+        semesterValue:value
+    });
+}
   render() {
     if (this.props.isFilter == true) {
       return (
@@ -28,7 +33,7 @@ class SideMenu extends Component {
             <div className="filterDiv">
               <br /><br />
               Semester<br />
-              <DropDownMenu value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+              <DropDownMenu value={this.state.semesterValue} onChange={this.semChange} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
                 <MenuItem value="Semester 1" primaryText="Semester 1" />
                 <MenuItem value="Semester 2" primaryText="Semester 2" />
                 <MenuItem value="Semester 3" primaryText="Semester 3" />
