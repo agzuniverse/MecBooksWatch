@@ -150,7 +150,7 @@ class AddProduct extends Component {
                 <GetAuthDetails/>
                 <MuiThemeProvider>
                     <div className='appbar'>
-                        <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
+                        <a href="/" className="logo">Books<span id="watchPart">Watch</span></a>
                     </div>
                     <div className="centerTotal">
                         <div className='backToButton'>
