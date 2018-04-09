@@ -13,13 +13,29 @@ import Checkbox from 'material-ui/Checkbox';
 class SideMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = { semesterValue: "Semester 1", authorValue: "Indian" };
+    this.state = {
+      semesterValue: "Semester 1",
+      branchValue:'Computer Science'
+    };
   }
   componentWillMount() {
     if (this.props.isFilter == false) {
       this.setState({ imgURL: this.props.userDetails.imgURL });
     }
   }
+
+  semChange = (event, index, value) => {
+    this.setState({
+        semesterValue:value
+    });
+  }
+
+  branchChange = (event, index, value) => {
+      this.setState({
+          branchValue:value
+      });
+  }
+
   render() {
     if (this.props.isFilter == true) {
       return (
@@ -29,7 +45,7 @@ class SideMenu extends Component {
             <div className="filterDiv">
               <br /><br />
               Semester<br />
-              <DropDownMenu value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+              <DropDownMenu onChange={this.semChange} value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
                 <MenuItem value="Semester 1" primaryText="Semester 1" />
                 <MenuItem value="Semester 2" primaryText="Semester 2" />
                 <MenuItem value="Semester 3" primaryText="Semester 3" />
@@ -38,6 +54,15 @@ class SideMenu extends Component {
                 <MenuItem value="Semester 6" primaryText="Semester 6" />
                 <MenuItem value="Semester 7" primaryText="Semester 7" />
                 <MenuItem value="Semester 8" primaryText="Semester 8" />
+              </DropDownMenu>
+              <br/>
+              Branch<br />
+              <DropDownMenu onChange={this.branchChange} value={this.state.branchValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+                <MenuItem value="Computer Science" primaryText="Computer Science" />
+                <MenuItem value="Electrical" primaryText="Electrical" />
+                <MenuItem value="Electronics" primaryText="Electronics" />
+                <MenuItem value="Mechanical" primaryText="Mechanical" />
+                <MenuItem value="Civil" primaryText="Civil" />
               </DropDownMenu>
             </div>
             <div className="linksDiv">
