@@ -8,7 +8,6 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-fontawesome": "^1.6.1",
     "react-icons": "^2.2.7",
     "react-material-ui-form-validator": "^1.1.0",
     "react-materialize": "^2.1.2",
