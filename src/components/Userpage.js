@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 import { readFromStorage } from '../firebase/firebase';
 import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Userpage extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            bookData:{}
+            bookData:{},
+            loaded:false
         }
     }
 
@@ -36,7 +39,8 @@ class Userpage extends Component{
         var bookData = await readFromStorage(uid);
         console.log(bookData);
         this.setState({
-            bookData:bookData
+            bookData:bookData,
+            loaded:true
         });
     }
     
@@ -49,17 +53,27 @@ class Userpage extends Component{
             );
         });
 
-        if(this.props.uid !== '' && this.props.uid !== null)
-            return(
-                <div className="App">
-                    <SideMenu isFilter={false} userDetails={this.props} />
-                    <div className="mainDiv">
-                        {books}
-                    </div>
+        if (!this.state.loaded) {
+            return (
+                <div id="loading">
+                    <MuiThemeProvider>
+                        <CircularProgress size={300} thickness={10} />
+                    </MuiThemeProvider>
                 </div>
             );
-        else
-            return <h1>403 Forbidden</h1>
+        } else {
+            if (this.props.uid !== '' && this.props.uid !== null)
+                return (
+                    <div className="App">
+                        <SideMenu isFilter={false} userDetails={this.props} />
+                        <div className="mainDiv">
+                            {books}
+                        </div>
+                    </div>
+                );
+            else
+                return <h1>403 Forbidden</h1>
+        }
     }
 }
 

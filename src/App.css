@@ -127,7 +127,10 @@ footer{
 .linksDiv{
     align-self: end;
  }
-
+#loading{
+    text-align: center;
+    padding-top:10%;
+}
  .mainDiv{
     margin: 0px;
     padding: 0px;
@@ -359,8 +362,6 @@ footer{
     display: block;
     width: 100%;
     height: auto;
-    position: absolute;
-    top:20%;
  }
 
  .detailCard{
