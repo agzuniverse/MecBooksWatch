@@ -140,7 +140,9 @@ footer{
 #searchDiv{
     height: 30px;
     padding:10px;
+    padding-bottom: 17px;
     text-align: center;
+    background-color: #021230;
 }
 #input2{
     height: 80%;
