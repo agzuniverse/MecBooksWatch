@@ -26,11 +26,11 @@ class Credits extends React.Component {
             },
             {
                 name:"Joyal A Johney",
-                email:"jondoe@tesla.com",
-                sub:"Front End",
+                email:"joyalajohny@gmail.com",
+                sub:"Front End, General Styling",
                 githubID:"https://github.com/JoyalAJohney",
-                avatar: require("../img/devpic/JoyalAJohney.jpeg"),
-                desc:'elon musk',
+                avatar: require("../img/devpic/JoyalAJohney.jpg"),
+                desc:'Loves Coding, Excited about ',
                 gitName: 'JoyalAJohney',
             },
             {

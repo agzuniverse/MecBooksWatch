@@ -468,15 +468,16 @@ footer{
 }
 
 #sellerInfoCard{
-    height: 65%;
+    height: 69%;
     width: 40%;
     position: absolute;
-    top: 20%;
-    right: 14%;
+    top: 18%;
+    right: 7%;
     background-color: rgba(0,0,0,0.92);
     color: white;
     font-size: 18px;
     line-height: 2.1em;
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 0.5em;
@@ -490,12 +491,13 @@ footer{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 12%;
+    bottom: 9%;
     margin: auto;
     border-radius: 1em;
     width: 20%;
     padding: 3px;
     font-size: 18px;
+    outline: none;
 }
 
 #sellerInfoCard button:hover{

@@ -6,6 +6,7 @@ import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
 import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import GetAuthDetails from './GetAuthDetails';
 
 class Userpage extends Component{
 
