@@ -23,7 +23,6 @@ class SideMenu extends Component {
       this.setState({ imgURL: this.props.userDetails.imgURL });
     }
   }
-
   semChange = (event, index, value) => {
     this.setState({
         semesterValue:value
