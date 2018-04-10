@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -18,55 +19,75 @@ class ProductDisplay extends Component{
             hidden:true
         }
     }
-    toggleSellerInfoHidden = () =>{
-        this.setState({hidden:!this.state.hidden});
+    toggleSellerInfoHidden = () => {
+        if(this.props.uid !== '' && this.props.uid !== null && this.props.uid !== undefined)
+            this.setState({hidden:!this.state.hidden});
+        else{
+            alert("Please login to view seller details");
+        }
     }
     
     render(){
-        
         return(
             <div className="mainBackground sellWrapper">
             <GetAuthDetails/>
-                <div className="appbar">
-                    <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
-                </div>
-               
-                <div id="centerTotal">
-                    <div className="imageHolder">
-                        <img id="textbook" src={require("../img/text1.jpg")} />
-                   </div>
-               
-                    <div className="detailCard">
-                        <div id="textName">Introduction to Computer and Problem Solving</div>
-                        <div id="author">Elon Musk blah blah (Author Name)</div>
-                        <div id="amount"><span id="priceTag">Price</span>: Rs 200 </div>
-                        <div id="productDetails">
-                            Cash on Exchange <span id="available">Available<br /></span>.
-                        </div>
-                        <div id="details">
-                            Buyers are required to contact the sellers 
-                            and set up a meeting place for themselves
-                        </div>
-                        <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
+            {this.props.location.state ?
+                <div>
+                    <div className="appbar">
+                        <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                        { !this.props.uid ?
+                            <Link to='/login'>
+                                <button id="logoutAppBar">Login</button>
+                            </Link>
+                            :
+                            <Link to='/user'>
+                                <button id="logoutAppBar">Profile</button>
+                            </Link>
+                        }
                     </div>
-                    
-                    {!this.state.hidden ? <div id="sellerInfoCard">
-                        <h2>Seller Info</h2>
-                        <ul>
-                            <li>Name: <span>Captain America</span></li>
-                            <li>Semester: <span>4</span></li>
-                            <li>Branch: <span>Computer Science</span></li>
-                            <li>Mobile No: <span>9876543210</span></li>
-                            <li>Is on Whatsapp: <span>Yes</span></li>
-                            <li>Email: <span>avengers@gmail.com</span></li>
-                            <button type="submit" onClick={() => this.toggleSellerInfoHidden()}>Done</button>
-                        </ul>
-                    </div>:null}
-                    
+                
+                    <div id="centerTotal">
+                        <div className="imageHolder">
+                            <img id="textbook" src={this.props.location.state.imageURL} />
+                    </div>
+                
+                        <div className="detailCard">
+                            <div id="textName">{this.props.location.state.title}</div>
+                            <div id="author">{this.props.location.state.author}</div>
+                            <div id="amount"><span id="priceTag">Price</span>: Rs {this.props.location.state.price} </div>
+                            <div id="details">
+                                Buyers are required to contact the sellers 
+                                and set up a meeting place for themselves
+                            </div>
+                            <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
+                        </div>
+                        
+                        {!this.state.hidden ? <div id="sellerInfoCard">
+                            <h2>Seller Info</h2>
+                            <ul>
+                                <li>Name: <span>{this.props.location.state.username}</span></li>
+                                <li>Semester: <span>4</span></li>
+                                <li>Branch: <span>Computer Science</span></li>
+                                <li>Mobile No: <span>{this.props.location.state.contact}</span></li>
+                                {
+                                this.props.location.state.isOnWa?
+                                <li>Is on Whatsapp: <span>Yes</span></li>
+                                :
+                                <li>Is on Whatsapp: <span>No</span></li>
+                                }
+                                <li>Email: <span>{this.props.location.state.email}</span></li>
+                                <button type="submit" onClick={() => this.toggleSellerInfoHidden()}>Done</button>
+                            </ul>
+                        </div>:null}
+                        
+                    </div>
+                <footer>
+                        @Copyright Original From Model Engineering College
+                    </footer>
                 </div>
-               <footer>
-                    @Copyright Original From Model Engineering College
-                </footer>
+                :
+                <h1 style={{color:'white'}}>403 Forbidden</h1>
+            }
             </div>
         )
     }
