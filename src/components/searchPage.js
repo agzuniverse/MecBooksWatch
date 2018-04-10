@@ -41,9 +41,10 @@ class SearchPage extends Component {
         <GetAuthDetails/>
         <SideMenu isFilter={true}/>
         <div className="mainDiv">
+          <div id="searchDiv">
+            <input id="input2" type="text" placeholder="Search for Books" />
+          </div>
           {books}
-
-
         </div>
       </div>
     );

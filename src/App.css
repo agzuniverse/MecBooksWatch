@@ -103,7 +103,7 @@ footer{
  .SideMenu{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 7fr 2fr;
+    grid-template-rows: 1fr 6fr 3fr;
     padding:20px 10px;
     text-align: center;
     grid-row: 1/2
@@ -132,19 +132,37 @@ footer{
     padding: 0px;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(5fr);
     overflow-y: scroll;
     overflow-x: hidden;
 
+}
+#searchDiv{
+    height: 30px;
+    padding:10px;
+    text-align: center;
+}
+#input2{
+    height: 80%;
+    width: 90%;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    border-radius: 17px;
+    text-indent: 5%;
+    padding: 3px;
 }
 .ProductDiv{
     display: grid;
     grid-template-columns: 1fr 4fr;
     min-height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin:15px;
     transition: 0.3s;
 }
 .ProductDiv:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin:5px;
 }
 .imgDiv{
     padding: 10px;
@@ -328,7 +346,7 @@ footer{
  }
 
  .imageHolder{
-     background-color: grey;
+     background-color: rgb(236,239,241);
      width: 25%;
      height: 75vh;
      position: absolute;
@@ -337,8 +355,11 @@ footer{
  }
 
  #textbook{
-     height: 100%;
-     width: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top:20%;
  }
 
  .detailCard{
@@ -467,25 +488,45 @@ footer{
 
  /*Login */
 
- #logout{
+#logout{
      box-sizing: border-box;
-     float: right;
      position: absolute;
-     top: 0;
-     bottom: 0;
+     top: 39%;
+     left: 0;
+     right: 0;
      margin: auto;
-     right: 1em;
+     width: 13em;
+     height: 2.2em;
      text-align: center;
-     height: 2em;
-     width: 6em;
      font-size: 18px;
      background-color: #00c853b7;
      color: white;
      border: none;
      border-radius: 0.2em;
      white-space: nowrap;
-
+     cursor: pointer;
  }
+
+ #logoutAppBar{
+    box-sizing: border-box;
+    float: right;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 1em;
+    text-align: center;
+    height: 2em;
+    width: 6em;
+    font-size: 18px;
+    background-color: #00c853b7;
+    color: white;
+    border: none;
+    border-radius: 0.2em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
  #google-login{
      position: absolute;
      top: 39%;
@@ -494,6 +535,7 @@ footer{
      margin: auto;
      width: 13em;
      height: 2.2em;
+     cursor: pointer;
  }
 
  #fb-login{

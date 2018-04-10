@@ -100,7 +100,6 @@ class AddProduct extends Component {
             //add all classes to state
             //if(!this.classNames.includes(userClass)) 
             //  this.setInvalid('class');
-
             if(!this.state.invalid.length == 0) {
                 console.log("Form field error");
                 this.handleOpen();
@@ -137,8 +136,8 @@ class AddProduct extends Component {
               onClick={this.handleClose}
             />,
         ];
-
-        return(
+      if(this.props.uid !== '' && this.props.uid !== null)
+          return(
             <div className='mainBackground sellWrapper'>
                 <GetAuthDetails/>
                 <MuiThemeProvider>
@@ -223,6 +222,14 @@ class AddProduct extends Component {
 
             </div>
         );
+
+        else
+            return (
+                <div>
+                    <GetAuthDetails/>
+                    <h1> 403 Forbidden </h1>
+                </div>
+            );
     }
 }
 

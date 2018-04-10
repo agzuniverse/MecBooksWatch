@@ -14,7 +14,7 @@ class GetAuthDetails extends React.Component {
     }
     
     render() {
-        return(null);
+        return null;
     }
 }
 
