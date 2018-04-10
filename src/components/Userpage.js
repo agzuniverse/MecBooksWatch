@@ -35,6 +35,8 @@ class Userpage extends Component{
     fetchUserBooks = async (uid) => {
         var bookData = await readFromStorage(uid);
         console.log(bookData);
+        if(bookData == null)
+            bookData = {};
         this.setState({
             bookData:bookData
         });
