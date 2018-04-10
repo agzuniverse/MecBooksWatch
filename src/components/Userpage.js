@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 import { readFromStorage } from '../firebase/firebase';
 import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Userpage extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            bookData:{}
+            bookData:{},
+            loaded:false
         }
     }
 
@@ -38,28 +41,37 @@ class Userpage extends Component{
         if(bookData == null)
             bookData = {};
         this.setState({
-            bookData:bookData
+            bookData:bookData,
+            loaded:true
         });
     }
     
-    render(){
+    render() {
         const books = Object.keys(this.state.bookData).map(key => {
-            return(
-                <ProductDiv details={this.state.bookData[key]}/>
+            return (
+                <ProductDiv details={this.state.bookData[key]} />
             );
         });
 
-        if(this.props.uid !== '' && this.props.uid !== null)
-            return(
+
+        if (this.props.uid !== '' && this.props.uid !== null)
+            return (
                 <div className="App">
                     <SideMenu isFilter={false} userDetails={this.props} />
                     <div className="mainDiv">
-                        {books}
+                        {this.state.loaded ? books :
+                            <div id="loading">
+                                <MuiThemeProvider>
+                                    <CircularProgress size={200} thickness={9} />
+                                </MuiThemeProvider>
+                            </div>}
+
                     </div>
                 </div>
             );
         else
             return <h1>403 Forbidden</h1>
+
     }
 }
 
