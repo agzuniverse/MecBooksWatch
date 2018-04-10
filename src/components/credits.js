@@ -82,7 +82,7 @@ class Credits extends React.Component {
                     <center> {this.devs.map((dev) => this.userPic(dev))} </center>
                 </div>
                 {this.devs.map((dev) => this.userDetails(dev))}
-                </div>
+            </div>
         )
     }
 }
