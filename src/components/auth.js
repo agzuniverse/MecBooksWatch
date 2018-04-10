@@ -96,15 +96,18 @@ class Auth extends React.Component {
         return(
             <div className="topWrapper">
                 <GetAuthDetails/>
-                <Appbar />
-               {/* <div className="appbar">
-                    <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
+                    <div className="appbar">
+                        <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                    </div>
+                { !this.props.uid ?
+                    <div id="buttons">
+                        <button id="google-login" className="loginBtn loginBtn--google" onClick={ this.login }>Login with Google</button>
+                        {/* <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button> */}
+                    </div>
+                    :
                     <button id="logout" onClick={ this.logout }>Logout</button>
-        </div>*/}
-                <div id="buttons">
-                    <button id="google-login" className="loginBtn loginBtn--google" onClick={ this.login }>Login with Google</button>
-                    <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button>
-                </div>
+                }
+
             </div>
 
         );

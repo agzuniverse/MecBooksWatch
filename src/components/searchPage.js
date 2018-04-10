@@ -42,8 +42,6 @@ class SearchPage extends Component {
         <SideMenu isFilter={true}/>
         <div className="mainDiv">
           {books}
-
-
         </div>
       </div>
     );
