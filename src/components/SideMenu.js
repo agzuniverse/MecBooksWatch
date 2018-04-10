@@ -42,7 +42,9 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to='/'>
+              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            </Link>
             <div className="filterDiv">
               <br /><br />
               Semester<br />
@@ -87,7 +89,9 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to='/'>
+              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            </Link>
             <div className="userInfoDiv">
               <br /><br />
               <img src={this.props.proPic} className="profilePic" /><br /><br />

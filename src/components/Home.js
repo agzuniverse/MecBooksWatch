@@ -39,8 +39,8 @@ class Home extends Component {
                         <input id="input" type="text" placeholder="Search for Books" />
                       </form>
                       <div id="tagLine">An Official KTU book exchange platform For MECians!</div>
-                      <div id="bottom">Developed by Students of Govt. Model Engineering College
-                          <a href="/credits" style={{color:"#2ecc71"}}>BooksWatch Crew</a>
+                      <div id="bottom">
+                        <Link to='/credits' style={{textDecoration:'none', color:'white'}}>Developed by Students of Govt. Model Engineering College</Link>
                       </div>
                   </div>
               </div>

@@ -101,7 +101,9 @@ class Auth extends React.Component {
             <div className="topWrapper">
                 <GetAuthDetails/>
                     <div className="appbar">
-                        <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                        <Link to='/'>
+                            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                        </Link>
                     </div>
                 { !this.props.uid ?
                     <div id="buttons">
