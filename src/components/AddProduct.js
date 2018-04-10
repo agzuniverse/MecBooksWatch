@@ -89,7 +89,6 @@ class AddProduct extends Component {
         if(this.props.uid !== '' && this.props.uid !== null)
             return(
                 <div className='mainBackground sellWrapper'>
-                    <GetAuthDetails/>
                     <MuiThemeProvider>
                         <div className='appbar'>
                             <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
@@ -154,7 +153,10 @@ class AddProduct extends Component {
             );
         else
             return (
-                <h1> 403 Forbidden </h1>
+                <div>
+                    <GetAuthDetails/>
+                    <h1> 403 Forbidden </h1>
+                </div>
             );
     }
 }
