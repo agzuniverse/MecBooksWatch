@@ -13,6 +13,10 @@ const reducer = (state,action) => {
         return Object.assign({},state,{proPic:action.payload.propic});
     } else if(action.type == 'SEARCH_STRING'){
         return Object.assign({},state,{query:action.payload.query});
+    } else if(action.type == 'SEMFILTER'){
+        return Object.assign({},state,{semFilter:action.payload.sem});
+    } else if(action.type == 'BRANCHFILTER'){
+        return Object.assign({},state,{branchFilter:action.payload.branch});
     } else    
         return state;
 }
@@ -23,5 +27,7 @@ export default createStore(reducer,{
     name:'',
     proPic:'',
     email:'',
-    query:''
+    query:'',
+    semFilter:'Any semester',
+    branchFilter:'Any branch'
 })

@@ -14,8 +14,8 @@ class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semesterValue: "Semester 1",
-      branchValue:'Computer Science'
+      semesterValue: 'Any semester',
+      branchValue:'Any branch'
     };
   }
   componentWillMount() {
@@ -27,12 +27,14 @@ class SideMenu extends Component {
     this.setState({
         semesterValue:value
     });
+    this.props.update("SEMFILTER",{sem:value});
   }
 
   branchChange = (event, index, value) => {
       this.setState({
           branchValue:value
       });
+      this.props.update("BRANCHFILTER",{branch:value});
   }
 
   render() {
@@ -45,6 +47,7 @@ class SideMenu extends Component {
               <br /><br />
               Semester<br />
               <DropDownMenu onChange={this.semChange} value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+                <MenuItem value="Any semester" primaryText="Any semester" />
                 <MenuItem value="Semester 1" primaryText="Semester 1" />
                 <MenuItem value="Semester 2" primaryText="Semester 2" />
                 <MenuItem value="Semester 3" primaryText="Semester 3" />
@@ -57,6 +60,7 @@ class SideMenu extends Component {
               <br/>
               Branch<br />
               <DropDownMenu onChange={this.branchChange} value={this.state.branchValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+                <MenuItem value="Any branch" primaryText="Any branch" />
                 <MenuItem value="Computer Science" primaryText="Computer Science" />
                 <MenuItem value="Electrical" primaryText="Electrical" />
                 <MenuItem value="Electronics" primaryText="Electronics" />

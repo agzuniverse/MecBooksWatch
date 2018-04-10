@@ -43,11 +43,9 @@ class Userpage extends Component{
     }
     
     render(){
-        const books = Object.keys(this.state.bookData).map(key => { 
-            console.log(this.state.bookData[key],key);
+        const books = Object.keys(this.state.bookData).map(key => {
             return(
                 <ProductDiv details={this.state.bookData[key]}/>
-            
             );
         });
 

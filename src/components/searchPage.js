@@ -39,9 +39,20 @@ class SearchPage extends Component {
   render() {
     console.log(this.state.searchResults);
     const books = this.state.searchResults.map(book => {
-      return (
-        <ProductDiv details={book}/>
-      );
+      if(this.props.semFilter === 'Any semester' && this.props.branchFilter === 'Any branch')
+        return (<ProductDiv details={book}/>);
+      else if(this.props.semFilter !== 'Any semester' && this.props.branchFilter === 'Any branch'){
+        if(book.semester === this.props.semFilter)
+          return (<ProductDiv details={book}/>);
+      }
+      else if(this.props.semFilter === 'Any semester' && this.props.branchFilter !== 'Any branch'){
+        if(book.branch === this.props.branchFilter)
+          return (<ProductDiv details={book}/>);
+      }
+      else{
+        if(book.branch === this.props.branchFilter && book.semester === this.props.semFilter)
+          return (<ProductDiv details={book}/>);
+      }
     });
     return (
       <div className="App">
