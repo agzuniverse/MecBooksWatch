@@ -62,7 +62,7 @@ class Credits extends React.Component {
             </p>
             <b>Contact</b><br />
             <FaEnvelope key={dev.email} /> {dev.email}<br />
-            <FaGithub key={dev.githubID} /> <a href={dev.githubID} style={{color:"#2ecc71"}}>{dev.gitName}</a>
+            <FaGithub key={dev.githubID} /> <a href={dev.githubID} target="_blank" style={{color:"#2ecc71"}}>{dev.gitName}</a>
             </div>
         )
     }
