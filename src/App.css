@@ -692,7 +692,8 @@ footer{
     width: 100vw;
     background-image: url('img/night2.jpg');
     background-size: cover;
-    padding:60px;
+    overflow: hidden;
+    padding-top: 50px;
 }
 
 #credits-avatar{
@@ -721,8 +722,15 @@ footer{
     margin-bottom: 40px;
 }
 
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
 .credit-devs{
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.3s;
+    animation-delay: 0.1s;
 }
 
 .credit-devs a{
@@ -757,6 +765,11 @@ footer{
 
 .credits-desc:target{
     height: auto;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.2s;
+    animation-delay: 0.1s;
 }
 
 .credits-name{
