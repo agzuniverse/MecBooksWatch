@@ -771,9 +771,13 @@ footer{
 .credit-container h1{
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 60px;
     color: white;
     font-size: 40px;
+    margin: auto;
+}
+
+.credit-container h2{
+    text-align: center;
 }
 
 .credit-sep{
@@ -798,10 +802,6 @@ footer{
     border-radius: 50%;
 }
 
-.credit-devs a:hover{
-    transform: scaleX(50%);
-}
-
 .credit-devs a img{
     widows: 100%;
     filter: grayscale(100%);
@@ -810,7 +810,7 @@ footer{
 
 .credit-devs a:hover >img{
     filter:none;
-    transform: scale(1.5);
+    transform: scale(1.25);
 }
 
 .credits-desc{
