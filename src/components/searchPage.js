@@ -42,16 +42,7 @@ class SearchPage extends Component {
         <ProductDiv details={book} />
       );
     });
-    if (!this.state.loaded) {
-      return (
-        <div id="loading">
-          <GetAuthDetails />
-          <MuiThemeProvider>
-            <CircularProgress size={300} thickness={10} />
-          </MuiThemeProvider>
-        </div>
-      );
-    } else {
+
 
       return (
         <div className="App">
@@ -61,13 +52,19 @@ class SearchPage extends Component {
             <div id="searchDiv">
               <input id="input2" type="text" placeholder="Search for Books" />
             </div>
-            {books}
+
+            {this.state.loaded ? books :
+              <div id="loading">
+                <MuiThemeProvider>
+                  <CircularProgress size={200} thickness={9} />
+                </MuiThemeProvider>
+              </div>}
           </div>
         </div>
       );
     }
 
-  }
+  
 }
 
 export default connect(

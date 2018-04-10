@@ -44,36 +44,35 @@ class Userpage extends Component{
         });
     }
     
-    render(){
-        const books = Object.keys(this.state.bookData).map(key => { 
-            console.log(this.state.bookData[key],key);
-            return(
-                <ProductDiv details={this.state.bookData[key]}/>
-            
+    render() {
+        const books = Object.keys(this.state.bookData).map(key => {
+            console.log(this.state.bookData[key], key);
+            return (
+                <ProductDiv details={this.state.bookData[key]} />
+
             );
         });
 
-        if (!this.state.loaded) {
+
+        if (this.props.uid !== '' && this.props.uid !== null)
             return (
-                <div id="loading">
-                    <MuiThemeProvider>
-                        <CircularProgress size={300} thickness={10} />
-                    </MuiThemeProvider>
+                <div className="App">
+                    <SideMenu isFilter={false} userDetails={this.props} />
+                    <div className="mainDiv">
+                        {this.state.loaded ? books :
+                            <div id="loading">
+                                <GetAuthDetails />
+                                <MuiThemeProvider>
+                                    <CircularProgress size={200} thickness={9} />
+                                </MuiThemeProvider>
+                            </div>}
+
+                    </div>
                 </div>
             );
-        } else {
-            if (this.props.uid !== '' && this.props.uid !== null)
-                return (
-                    <div className="App">
-                        <SideMenu isFilter={false} userDetails={this.props} />
-                        <div className="mainDiv">
-                            {books}
-                        </div>
-                    </div>
-                );
-            else
-                return <h1>403 Forbidden</h1>
-        }
+        else
+            return <h1>403 Forbidden</h1>
+
     }
 }
 
