@@ -10,7 +10,7 @@ class Userpage extends Component{
     constructor(props){
         super(props);
         this.state={
-            bookData:[]
+            bookData:{}
         }
     }
 
