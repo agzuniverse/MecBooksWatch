@@ -126,7 +126,10 @@ footer{
 .linksDiv{
     align-self: end;
  }
-
+#loading{
+    text-align: center;
+    padding-top:5%;
+}
  .mainDiv{
     margin: 0px;
     padding: 0px;
@@ -390,8 +393,6 @@ footer{
     display: block;
     width: 100%;
     height: auto;
-    position: absolute;
-    top:20%;
  }
 
  .detailCard{
@@ -774,7 +775,8 @@ footer{
     width: 100vw;
     background-image: url('img/night2.jpg');
     background-size: cover;
-    padding:60px;
+    overflow: hidden;
+    padding-top: 50px;
 }
 
 #credits-avatar{
@@ -785,9 +787,13 @@ footer{
 .credit-container h1{
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 60px;
     color: white;
     font-size: 40px;
+    margin: auto;
+}
+
+.credit-container h2{
+    text-align: center;
 }
 
 .credit-sep{
@@ -799,8 +805,15 @@ footer{
     margin-bottom: 40px;
 }
 
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
 .credit-devs{
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.3s;
+    animation-delay: 0.1s;
 }
 
 .credit-devs a{
@@ -812,10 +825,6 @@ footer{
     border-radius: 50%;
 }
 
-.credit-devs a:hover{
-    transform: scaleX(50%);
-}
-
 .credit-devs a img{
     widows: 100%;
     filter: grayscale(100%);
@@ -824,7 +833,7 @@ footer{
 
 .credit-devs a:hover >img{
     filter:none;
-    transform: scale(1.5);
+    transform: scale(1.25);
 }
 
 .credits-desc{
@@ -839,6 +848,11 @@ footer{
 
 .credits-desc:target{
     height: auto;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.2s;
+    animation-delay: 0.1s;
 }
 
 .credits-name{
