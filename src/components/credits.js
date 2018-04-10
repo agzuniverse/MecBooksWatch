@@ -75,7 +75,7 @@ class Credits extends React.Component {
     render () {
         return (
             <div className="credit-container">
-                <a style={{'text-decoration': "none"}} href="/"><h1 id="credits-head">Books<span id="credits-watch">Watch</span></h1></a>
+                <a style={{'text-decoration': "none"}} href="/"><h2 id="credits-head">Books<span id="credits-watch">Watch</span></h2></a>
                 <h1 id="credits-aboutus">ABOUT US</h1>
                 <span className="credit-sep"></span>
                 <div className="credit-devs">

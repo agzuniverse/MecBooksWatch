@@ -708,6 +708,10 @@ footer{
     margin: auto;
 }
 
+.credit-container h2{
+    text-align: center;
+}
+
 .credit-sep{
     display: block;
     margin: auto;
