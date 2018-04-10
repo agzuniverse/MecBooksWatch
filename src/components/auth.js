@@ -54,8 +54,12 @@ class Auth extends React.Component {
                 localStorage.removeItem('LOCAL_NAME');
                 localStorage.removeItem('LOCAL_EMAIL');
                 localStorage.removeItem('LOCAL_PROPIC');
+                this.props.update('SET_UID',{uid:''});
+                this.props.update('SET_NAME',{name:''});
+                this.props.update('SET_EMAIL',{email:''});
+                this.props.update('SET_PROPIC',{propic:''});
                 console.log("Logout Successful");
-                this.props.history.push('/home');
+                this.props.history.push('/');
             });
     }
 

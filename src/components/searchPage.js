@@ -22,11 +22,18 @@ class SearchPage extends Component {
   }
 
   performSearch = async (query) => {
+    console.log(query);
     let data = await searchAll(query);
     console.log(data);
     this.setState({
       searchResults:data
     });
+  }
+
+  search = (e) => {
+    e.preventDefault();
+    let query = document.getElementById('input2').value;
+    this.performSearch(query);
   }
 
   render() {
@@ -42,7 +49,9 @@ class SearchPage extends Component {
         <SideMenu isFilter={true}/>
         <div className="mainDiv">
           <div id="searchDiv">
-            <input id="input2" type="text" placeholder="Search for Books" />
+            <form onSubmit={this.search}>
+              <input id="input2" type="text" placeholder="Search for Books" />
+            </form>
           </div>
           {books}
         </div>

@@ -65,9 +65,15 @@ class SideMenu extends Component {
               </DropDownMenu>
             </div>
             <div className="linksDiv">
+            {(this.props.uid !== '' && this.props.uid !== null) ?
               <Link to='/user'>
                 <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
               </Link>
+              :
+              <Link to='/login'>
+                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
+              </Link>
+            }
             </div>
           </MuiThemeProvider>
         </div>
