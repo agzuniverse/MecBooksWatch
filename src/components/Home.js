@@ -3,7 +3,6 @@ import '../App.css';
 import { connect } from 'react-redux';
 import GetAuthDetails from './GetAuthDetails';
 
-
 class Home extends Component {
 
   constructor(props){
@@ -25,14 +24,16 @@ class Home extends Component {
               <GetAuthDetails/>
               <div className="Container">
                   <div className="topWrapper">
-                    <button  id="button">Login</button>
-                    <h1 id="head">Books<span id="watch">Watch</span></h1>
-                    <form onSubmit={this.search}>
-                      <input id="input" type="text" placeholder="Search for Books" />
-                    </form>
-                    <div id="tagLine">An Official KTU book exchange platform For MECians!</div>
 
-                    <div id="bottom">Made by students of Govt. Model Engineering College</div>
+                      <button  id="button">Login</button>
+                      <center><h1 id="head">Books<span id="watch">Watch</span></h1></center>
+                      <form onSubmit={this.search}>
+                        <input id="input" type="text" placeholder="Search for Books" />
+                      </form>
+                      <div id="tagLine">An Official KTU book exchange platform For MECians!</div>
+                      <div id="bottom">Developed by Students of Govt. Model Engineering College
+                          <a href="/credits" style={{color:"#2ecc71"}}>BooksWatch Crew</a>
+                      </div>
                   </div>
               </div>
             </div>

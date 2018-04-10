@@ -2,7 +2,6 @@
     overflow: hidden;
 }
 
-
 .Container{
     height: 100vh;
     width: 100%;
@@ -753,4 +752,99 @@ footer{
     width: 200px;
     height: 200px;
     border-radius:50%;
+}
+
+.credit-container{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/night2.jpg');
+    background-size: cover;
+    padding:60px;
+}
+
+#credits-avatar{
+    max-width: 200px;
+    height: 200px;
+}
+
+.credit-container h1{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+    font-size: 40px;
+}
+
+.credit-sep{
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 3px;
+    background: #2ecc71;
+    margin-bottom: 40px;
+}
+
+.credit-devs{
+    margin-bottom: 40px;
+}
+
+.credit-devs a{
+    display: inline-block;
+    margin: 0 30px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.credit-devs a:hover{
+    transform: scaleX(50%);
+}
+
+.credit-devs a img{
+    widows: 100%;
+    filter: grayscale(100%);
+    transition: 0.4s all;
+}
+
+.credit-devs a:hover >img{
+    filter:none;
+    transform: scale(1.5);
+}
+
+.credits-desc{
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color: white;
+    text-align: justify;
+    height: 0;
+    overflow:hidden;
+}
+
+.credits-desc:target{
+    height: auto;
+}
+
+.credits-name{
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#credits-head{
+    color: white;
+    width: 22.5%;
+    margin: auto;
+    font-size: 43px;
+}   
+#credits-watch{
+    color: #00c853 ;
+}
+#credits-aboutus{
+    color:#f39c12;
+    font-size:20px;
 }
