@@ -104,7 +104,7 @@ footer{
  .SideMenu{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 7fr 2fr;
+    grid-template-rows: 1fr 6fr 3fr;
     padding:20px 10px;
     text-align: center;
     grid-row: 1/2
@@ -133,9 +133,25 @@ footer{
     padding: 0px;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(5fr);
     overflow-y: scroll;
     overflow-x: hidden;
 
+}
+#searchDiv{
+    height: 30px;
+    padding:10px;
+    text-align: center;
+}
+#input2{
+    height: 80%;
+    width: 90%;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    border-radius: 17px;
+    text-indent: 5%;
+    padding: 3px;
 }
 .ProductDiv{
     display: grid;
@@ -331,7 +347,7 @@ footer{
  }
 
  .imageHolder{
-     background-color: grey;
+     background-color: rgb(236,239,241);
      width: 25%;
      height: 75vh;
      position: absolute;
@@ -340,8 +356,11 @@ footer{
  }
 
  #textbook{
-     height: 100%;
-     width: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top:20%;
  }
 
  .detailCard{
