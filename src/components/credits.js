@@ -12,7 +12,7 @@ class Credits extends React.Component {
                 sub:"Project Lead",
                 githubID:"https://github.com/agzuniverse",
                 avatar: 'https://avatars1.githubusercontent.com/u/22353313?s=400&u=0e8dde806ccb9763ccfdcef69a3a90d45905bbd5&v=4',
-                desc: 'Thinker, Coder, Blogger',
+                desc: "Thinker, Coder, Blogger. Live life like it's meant to be =)",
                 gitName: 'agzuniverse',
             },
             {
@@ -38,8 +38,8 @@ class Credits extends React.Component {
                 email:"123vivekr@gmail.com",
                 sub:"Back End",
                 githubID:"https://github.com/123vivekr",
-                avatar: require("../img/devpic/123vivekr.jpeg"),
-                desc:'Studying Computer Science and Engineering at Model Engineering College (2017-2021 batch).',
+                avatar: 'https://s18.postimg.org/6z4ejcq09/123vivekr.jpg',
+                desc:'Problem solver, programmer, gamer and fitness enthusiast',
                 gitName: '123vivekr',
             },
         ];
