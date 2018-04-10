@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Userpage from './Userpage';
 import GetAuthDetails from './GetAuthDetails';
+import Appbar from './appBar';
 
 
 class Auth extends React.Component {
@@ -106,6 +107,7 @@ class Auth extends React.Component {
                     :
                     <button id="logout" onClick={ this.logout }>Logout</button>
                 }
+
             </div>
 
         );

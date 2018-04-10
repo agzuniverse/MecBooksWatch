@@ -8,6 +8,7 @@ import ProductDisplay from './components/ProductDisplay';
 import SearchPage from './components/searchPage';
 import Auth from './components/auth';
 import Userpage from './components/Userpage';
+import Appbar from './components/appBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Credits from './components/credits';
 
