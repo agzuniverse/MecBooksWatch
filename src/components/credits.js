@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import {FaEnvelope, FaGithub} from 'react-icons/lib/fa'
+import {FaEnvelope, FaGithub} from 'react-icons/lib/fa';
 
 class Credits extends React.Component {
     constructor(props) {
@@ -39,7 +39,7 @@ class Credits extends React.Component {
                 sub:"Back End",
                 githubID:"https://github.com/123vivekr",
                 avatar: require("../img/devpic/123vivekr.jpeg"),
-                desc:'Lorem ipsum dolor',
+                desc:'Studying Computer Science and Engineering at Model Engineering College (2017-2021 batch).',
                 gitName: '123vivekr',
             },
         ];
