@@ -28,10 +28,9 @@ class Home extends Component {
                       <form onSubmit={this.search}>
                         <input id="input" type="text" placeholder="Search for Books" />
                       </form>
-                      <div id="tagLine">An official KTU Book exchange platform For Mecians!</div>
-
-                      <div id="bottom">@Copyright Original from Model Engineering College. <br />
-                        <a href="/credits" style={{color:"#2ecc71"}}>BooksWatch Crew</a>
+                      <div id="tagLine">A book exchange platform For MECians!</div>
+                      <div id="bottom">Made by students of Govt. Model Engineering College
+                          <a href="/credits" style={{color:"#2ecc71"}}>BooksWatch Crew</a>
                       </div>
                   </div>
               </div>
