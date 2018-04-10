@@ -14,8 +14,8 @@ class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semesterValue: "Semester 1",
-      branchValue:'Computer Science'
+      semesterValue: 'Any semester',
+      branchValue:'Any branch'
     };
   }
   componentWillMount() {
@@ -27,12 +27,14 @@ class SideMenu extends Component {
     this.setState({
         semesterValue:value
     });
+    this.props.update("SEMFILTER",{sem:value});
   }
 
   branchChange = (event, index, value) => {
       this.setState({
           branchValue:value
       });
+      this.props.update("BRANCHFILTER",{branch:value});
   }
 
   render() {
@@ -40,11 +42,14 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to='/'>
+              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            </Link>
             <div className="filterDiv">
               <br /><br />
               Semester<br />
               <DropDownMenu onChange={this.semChange} value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+                <MenuItem value="Any semester" primaryText="Any semester" />
                 <MenuItem value="Semester 1" primaryText="Semester 1" />
                 <MenuItem value="Semester 2" primaryText="Semester 2" />
                 <MenuItem value="Semester 3" primaryText="Semester 3" />
@@ -57,6 +62,7 @@ class SideMenu extends Component {
               <br/>
               Branch<br />
               <DropDownMenu onChange={this.branchChange} value={this.state.branchValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+                <MenuItem value="Any branch" primaryText="Any branch" />
                 <MenuItem value="Computer Science" primaryText="Computer Science" />
                 <MenuItem value="Electrical" primaryText="Electrical" />
                 <MenuItem value="Electronics" primaryText="Electronics" />
@@ -65,9 +71,15 @@ class SideMenu extends Component {
               </DropDownMenu>
             </div>
             <div className="linksDiv">
+            {(this.props.uid !== '' && this.props.uid !== null) ?
               <Link to='/user'>
                 <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
               </Link>
+              :
+              <Link to='/login'>
+                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
+              </Link>
+            }
             </div>
           </MuiThemeProvider>
         </div>
@@ -77,7 +89,9 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to='/'>
+              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            </Link>
             <div className="userInfoDiv">
               <br /><br />
               <img src={this.props.proPic} className="profilePic" /><br /><br />

@@ -80,9 +80,6 @@ class ProductDisplay extends Component{
                             </ul>
                             </div>:null}
                          </div>
-                        <footer>
-                            @Copyright Original From Model Engineering College
-                        </footer>
                     </div>
                     :
                     <h1 style={{color:'white'}}>403 Forbidden</h1>}
