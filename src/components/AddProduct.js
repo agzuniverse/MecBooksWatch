@@ -13,6 +13,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import { addToStorage } from '../firebase/firebase';
 import Dialog from 'material-ui/Dialog';
+import CircularProgress from 'material-ui/CircularProgress';
 
 
 class AddProduct extends Component {
@@ -25,6 +26,7 @@ class AddProduct extends Component {
             open: false,
             classNames: [], //uncomment class validator
             invalid: [],
+            uploading:false
         };
     }
 
@@ -121,9 +123,27 @@ class AddProduct extends Component {
                 }
     
                 console.log("Adding book");
-                addToStorage(file,data);
+                document.getElementById('bookTitle').value='';
+                document.getElementById('bookAuthor').value='';
+                document.getElementById('bookPrice').value='';
+                document.getElementById('mobile').value='';
+                document.getElementById('userClass').value='';
+                this.setState({
+                    uploading:true
+                });
+                console.log("before uploading");
+                this.addToStorageAsync(file,data);
             }
         }
+    }
+
+    addToStorageAsync = async (file,data) => {
+        await addToStorage(file,data);
+        this.setState({
+            uploading:false
+        });
+        console.log("AFTER");
+        this.props.history.push('/user');
     }
 
     render() {
@@ -156,16 +176,6 @@ class AddProduct extends Component {
                         <TextField style={{width:'65%'}} id="bookPrice" hintText="Enter your expected price"/>
                         <TextField type='number' style={{width:'65%'}} id="mobile" hintText="Enter your contact number"/>
                         <TextField style={{width:'65%'}} id="userClass" hintText="Enter your class (eg: CS4A, EE6 etc..)"/>
-                        {/* <SelectField
-                            floatingLabelText="Select Class"
-                            value={this.state.selectedClass}
-                            onChange={this.handleChange}
-                            id="userClass"
-                        >
-                            <MenuItem value={CS1A} primaryText="CS1A" />
-                            <MenuItem value={} primaryText="" />
-                            <MenuItem value={} primaryText="" />
-                        </SelectField> */}
                         <br/>
                         <div>
                             <Checkbox

@@ -11,29 +11,32 @@ var config = {
 firebase.initializeApp(config);
 
 export function addToStorage(file,data){
-    function guid() {
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        s4() + '-' + s4() + s4() + s4();
-    }
-    function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
+    return new Promise ((resolve, reject) => {
+        function guid() {
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+        }
+        function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
 
-    let uuid=guid();
+        let uuid=guid();
 
-    var storageRef = firebase.storage().ref();
-    var storageAdd = storageRef.child(uuid+file.name);
+        var storageRef = firebase.storage().ref();
+        var storageAdd = storageRef.child(uuid+file.name);
 
-    storageAdd.put(file).then(function(snapshot) {
-        data.imageURL=snapshot.downloadURL;
-        console.log(data);
+        storageAdd.put(file).then(function(snapshot) {
+            data.imageURL=snapshot.downloadURL;
+            console.log(data);
 
-        var database = firebase.database();
-        database.ref('store/textbooks/'+data.uid).push(data).then((snapshot) => {
-            console.log("Book added successfully");
-        })
+            var database = firebase.database();
+            database.ref('store/textbooks/'+data.uid).push(data).then((snapshot) => {
+                console.log("Book added successfully");
+                resolve();
+            })
+        });
     });
 }
 

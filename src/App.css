@@ -44,7 +44,8 @@
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
-}    
+    outline-width:0;
+}
 
 #tagLine{
     color: white;
@@ -130,6 +131,7 @@ footer{
     text-align: center;
     padding-top:5%;
 }
+
  .mainDiv{
     margin: 0px;
     padding: 0px;
@@ -156,18 +158,18 @@ footer{
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
+    outline-width: 0;
 }
 .ProductDiv{
     display: grid;
     grid-template-columns: 1fr 4fr;
     min-height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin:15px;
+    margin:20px;
     transition: 0.3s;
 }
 .ProductDiv:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    margin:5px;
 }
 .imgDiv{
     padding: 10px;
