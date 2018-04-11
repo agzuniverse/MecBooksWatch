@@ -61,7 +61,7 @@ class Userpage extends Component{
                     <SideMenu isFilter={false} userDetails={this.props} />
                     <div className="mainDiv">
                         {this.state.loaded ? books :
-                            <div id="loading">
+                            <div id="loading2">
                                 <MuiThemeProvider>
                                     <CircularProgress size={200} thickness={9} />
                                 </MuiThemeProvider>

@@ -129,7 +129,11 @@ footer{
  }
 #loading{
     text-align: center;
-    padding-top:5%;
+    padding-top:10%;
+}
+#loading2{
+    text-align: center;
+    padding-top:25%;
 }
 
  .mainDiv{
@@ -145,9 +149,7 @@ footer{
 #searchDiv{
     height: 30px;
     padding:10px;
-    padding-bottom: 17px;
     text-align: center;
-    background-color: #021230;
 }
 #input2{
     height: 80%;
