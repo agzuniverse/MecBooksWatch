@@ -15,7 +15,7 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       searchResults:[],
-      loaded:false
+      loaded:true
     }
   }
 
@@ -27,6 +27,10 @@ class SearchPage extends Component {
   
 
   performSearch = async (query) => {
+    this.setState({
+      loaded:false
+    })
+    console.log(query);
     let data = await searchAll(query);
     console.log(data);
     this.setState({
@@ -35,32 +39,50 @@ class SearchPage extends Component {
     });
   }
 
+  search = (e) => {
+    e.preventDefault();
+    let query = document.getElementById('input2').value;
+    this.performSearch(query);
+  }
+
   render() {
     console.log(this.state.searchResults);
     const books = this.state.searchResults.map(book => {
-      return (
-        <ProductDiv details={book} />
-      );
+      if(this.props.semFilter === 'Any semester' && this.props.branchFilter === 'Any branch')
+        return (<ProductDiv details={book}/>);
+      else if(this.props.semFilter !== 'Any semester' && this.props.branchFilter === 'Any branch'){
+        if(book.semester === this.props.semFilter)
+          return (<ProductDiv details={book}/>);
+      }
+      else if(this.props.semFilter === 'Any semester' && this.props.branchFilter !== 'Any branch'){
+        if(book.branch === this.props.branchFilter)
+          return (<ProductDiv details={book}/>);
+      }
+      else{
+        if(book.branch === this.props.branchFilter && book.semester === this.props.semFilter)
+          return (<ProductDiv details={book}/>);
+      }
     });
-
-
-      return (
-        <div className="App">
-          <GetAuthDetails />
-          <SideMenu isFilter={true} />
-          <div className="mainDiv">
-            <div id="searchDiv">
+    return (
+      <div className="App">
+        <GetAuthDetails/>
+        <SideMenu isFilter={true}/>
+        <div className="mainDiv">
+          <div id="searchDiv">
+            <form onSubmit={this.search}>
               <input id="input2" type="text" placeholder="Search for Books" />
-            </div>
-
-            {this.state.loaded ? books :
+            </form>
+            {
+              this.state.loaded ? books :
               <div id="loading">
                 <MuiThemeProvider>
                   <CircularProgress size={200} thickness={9} />
                 </MuiThemeProvider>
-              </div>}
+              </div>
+            }
           </div>
         </div>
+      </div>
       );
     }
 

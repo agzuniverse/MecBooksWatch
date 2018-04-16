@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Userpage from './Userpage';
 import GetAuthDetails from './GetAuthDetails';
+import Appbar from './appBar';
 
 
 class Auth extends React.Component {
@@ -53,8 +54,12 @@ class Auth extends React.Component {
                 localStorage.removeItem('LOCAL_NAME');
                 localStorage.removeItem('LOCAL_EMAIL');
                 localStorage.removeItem('LOCAL_PROPIC');
+                this.props.update('SET_UID',{uid:''});
+                this.props.update('SET_NAME',{name:''});
+                this.props.update('SET_EMAIL',{email:''});
+                this.props.update('SET_PROPIC',{propic:''});
                 console.log("Logout Successful");
-                this.props.history.push('/home');
+                this.props.history.push('/');
             });
     }
 
@@ -96,7 +101,9 @@ class Auth extends React.Component {
             <div className="topWrapper">
                 <GetAuthDetails/>
                     <div className="appbar">
-                        <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                        <Link to='/'>
+                            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                        </Link>
                     </div>
                 { !this.props.uid ?
                     <div id="buttons">
@@ -106,6 +113,7 @@ class Auth extends React.Component {
                     :
                     <button id="logout" onClick={ this.logout }>Logout</button>
                 }
+
             </div>
 
         );

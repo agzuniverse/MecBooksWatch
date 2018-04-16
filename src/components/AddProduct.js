@@ -12,6 +12,8 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import { addToStorage } from '../firebase/firebase';
+import Dialog from 'material-ui/Dialog';
+import CircularProgress from 'material-ui/CircularProgress';
 
 
 class AddProduct extends Component {
@@ -20,9 +22,21 @@ class AddProduct extends Component {
         this.state = {
             semesterValue: "Semester 1",
             branchValue:"Computer Science",
-            isOnWa:true
+            isOnWa:true,
+            open: false,
+            classNames: [], //uncomment class validator
+            invalid: [],
+            uploading:false
         };
     }
+
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+    
+    handleClose = () => {
+        this.setState({open: false});
+    };
 
     updateCheckmark = () => {
         this.setState({
@@ -46,6 +60,12 @@ class AddProduct extends Component {
         });
     }
 
+    setInvalid = (field) => {
+        var state = this.state;
+        state.invalid.push(field);
+        this.setState(state);
+    }
+
     handeSubmit = () => {
         if(this.props.uid == '' || this.props.uid == null){
             alert("You need to log in to add a book!");
@@ -62,37 +82,89 @@ class AddProduct extends Component {
             let file = document.getElementById('fileUpload').files[0];
             let tags = title.split(' ').concat(author.split(' '));
 
+            this.state.invalid = [];
             //Generate tags for searching
+            if(title.replace(/\s/g,"") == "")
+                this.setInvalid('Title field is blank');
+            
+            if(author.replace(/\s/g,"") == "")
+                this.setInvalid('Author field is blank');
+            
+            if(!(parseFloat(price) > 0))
+                this.setInvalid('Price should be numeric and >0.');
 
+            if (!(parseFloat(contact) > 0 && contact.length === 10))
+                this.setInvalid('Contact number is invalid. We only accept Indian Mobile Numbers. format eg: xxxxxxxxxx');
 
-            let data = {
-                "title":title,
-                "author":author,
-                "price":price,
-                "contact":contact,
-                "userClass":userClass,
-                "isOnWa":isOnWa,
-                "uid":this.props.uid,
-                "email":this.props.email,
-                "username":this.props.name,
-                "semester":semester,
-                "branch":branch,
-                "tags":tags
+            if(!(file && file.type.slice(0, 5) == "image"))
+                this.setInvalid('Image is invalid.');
+            
+            //add all classes to state
+            //if(!this.classNames.includes(userClass)) 
+            //  this.setInvalid('class');
+            if(!this.state.invalid.length == 0) {
+                console.log("Form field error");
+                this.handleOpen();
             }
-
-            addToStorage(file,data);
-            this.goToUserPage();
+            else {
+                let data = {
+                    "title":title,
+                    "author":author,
+                    "price":price,
+                    "contact":contact,
+                    "userClass":userClass,
+                    "isOnWa":isOnWa,
+                    "uid":this.props.uid,
+                    "email":this.props.email,
+                    "username":this.props.name,
+                    "semester":semester,
+                    "branch":branch,
+                    "tags":tags
+                }
+    
+                console.log("Adding book");
+                document.getElementById('bookTitle').value='';
+                document.getElementById('bookAuthor').value='';
+                document.getElementById('bookPrice').value='';
+                document.getElementById('mobile').value='';
+                document.getElementById('userClass').value='';
+                this.setState({
+                    uploading:true
+                });
+                console.log("before uploading");
+                this.addToStorageAsync(file,data);
+            }
         }
     }
 
-    render(){
-        if(this.props.uid !== '' && this.props.uid !== null)
-            return(
-                <div className='mainBackground sellWrapper'>
-                    <MuiThemeProvider>
-                        <div className='appbar'>
-                            <a href="" className="logo">Books<span id="watchPart">Watch</span></a>
-                        </div>
+    addToStorageAsync = async (file,data) => {
+        await addToStorage(file,data);
+        this.setState({
+            uploading:false
+        });
+        console.log("AFTER");
+        this.props.history.push('/user');
+    }
+
+    render() {
+
+        const actions = [
+            <FlatButton
+              label="Ok"
+              primary={true}
+              keyboardFocused={true}
+              onClick={this.handleClose}
+            />,
+        ];
+      if(this.props.uid !== '' && this.props.uid !== null)
+          return(
+            <div className='mainBackground sellWrapper'>
+                <GetAuthDetails/>
+                <MuiThemeProvider>
+                    <div className='appbar'>
+                        <a href="/" className="logo">Books<span id="watchPart">Watch</span></a>
+                    </div>
+                    {!this.state.uploading ?
                         <div className="centerTotal">
                             <div className='backToButton'>
                                 <RaisedButton style={{float:'right', marginRight:'2vw'}} label="Back to Profile" onClick={this.goToUserPage} primary={true}/>
@@ -146,11 +218,30 @@ class AddProduct extends Component {
                             </RaisedButton>
                             <div style={{height:'5vh'}}/>
                             <RaisedButton onClick={() => this.handeSubmit()} label="Submit" primary={true}/>
-                        
+                            <Dialog
+                                title="Some fields require attention!"
+                                actions={actions}
+                                modal={true}
+                                open={this.state.open}
+                            >  
+                                {this.state.invalid.map((value) => {
+                                    return <p key={ value }>{value}</p>;
+                                })}
+                            </Dialog>
                         </div>
-                    </MuiThemeProvider>
-                </div>
-            );
+                    :
+                        <div id="loading">
+                            <MuiThemeProvider>
+                                <CircularProgress size={200} thickness={9} />
+                                <h2 style={{color:'white'}}> Uploading, please wait. </h2>
+                            </MuiThemeProvider>
+                        </div>
+                    }
+                </MuiThemeProvider>
+
+            </div>
+        );
+
         else
             return (
                 <div>

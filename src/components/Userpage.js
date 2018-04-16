@@ -6,6 +6,7 @@ import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
 import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import GetAuthDetails from './GetAuthDetails';
 
 class Userpage extends Component{
 
@@ -38,6 +39,8 @@ class Userpage extends Component{
     fetchUserBooks = async (uid) => {
         var bookData = await readFromStorage(uid);
         console.log(bookData);
+        if(bookData == null)
+            bookData = {};
         this.setState({
             bookData:bookData,
             loaded:true
@@ -46,10 +49,8 @@ class Userpage extends Component{
     
     render() {
         const books = Object.keys(this.state.bookData).map(key => {
-            console.log(this.state.bookData[key], key);
             return (
                 <ProductDiv details={this.state.bookData[key]} />
-
             );
         });
 
@@ -60,8 +61,7 @@ class Userpage extends Component{
                     <SideMenu isFilter={false} userDetails={this.props} />
                     <div className="mainDiv">
                         {this.state.loaded ? books :
-                            <div id="loading">
-                                <GetAuthDetails />
+                            <div id="loading2">
                                 <MuiThemeProvider>
                                     <CircularProgress size={200} thickness={9} />
                                 </MuiThemeProvider>

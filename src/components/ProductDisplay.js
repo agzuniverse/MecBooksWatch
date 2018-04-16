@@ -30,66 +30,61 @@ class ProductDisplay extends Component{
     render(){
         return(
             <div className="mainBackground sellWrapper">
-            <GetAuthDetails/>
-            {this.props.location.state ?
-                <div>
-                    <div className="appbar">
-                        <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
-                        { !this.props.uid ?
-                            <Link to='/login'>
+                <GetAuthDetails/>
+                {this.props.location.state ?
+                    <div>
+                        <div className="appbar">
+                            <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+                            { !this.props.uid ?
+                                <Link to='/login'>
                                 <button id="logoutAppBar">Login</button>
-                            </Link>
+                                </Link>
                             :
-                            <Link to='/user'>
+                                <Link to='/user'>
                                 <button id="logoutAppBar">Profile</button>
-                            </Link>
-                        }
-                    </div>
+                                </Link>
+                            }
+                        </div>
                 
-                    <div id="centerTotal">
-                        <div className="imageHolder">
-                            <img id="textbook" src={this.props.location.state.imageURL} />
-                    </div>
+                        <div id="centerTotal">
+                            <div className="imageHolder">
+                                <img id="textbook" src={this.props.location.state.imageURL} />
+                            </div>
                 
-                        <div className="detailCard">
-                            <div id="textName">{this.props.location.state.title}</div>
-                            <div id="author">{this.props.location.state.author}</div>
-                            <div id="amount"><span id="priceTag">Price</span>: Rs {this.props.location.state.price} </div>
-                            <div id="details">
+                            <div className="detailCard">
+                                <div id="textName">{this.props.location.state.title}</div>
+                                <div id="author">{this.props.location.state.author}</div>
+                                <div id="amount"><span id="priceTag">Price</span>: Rs {this.props.location.state.price} </div>
+                                <div id="details">
                                 Buyers are required to contact the sellers 
                                 and set up a meeting place for themselves
+                                </div>
+                                <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
                             </div>
-                            <button type="submit" id="sellerInfo" onClick={() => this.toggleSellerInfoHidden()}>Seller Info</button>
-                        </div>
                         
-                        {!this.state.hidden ? <div id="sellerInfoCard">
+                            {!this.state.hidden ? <div id="sellerInfoCard">
                             <h2>Seller Info</h2>
                             <ul>
                                 <li>Name: <span>{this.props.location.state.username}</span></li>
                                 <li>Semester: <span>4</span></li>
                                 <li>Branch: <span>Computer Science</span></li>
                                 <li>Mobile No: <span>{this.props.location.state.contact}</span></li>
-                                {
-                                this.props.location.state.isOnWa?
+                                {this.props.location.state.isOnWa?
                                 <li>Is on Whatsapp: <span>Yes</span></li>
                                 :
                                 <li>Is on Whatsapp: <span>No</span></li>
                                 }
-                                <li>Email: <span>{this.props.location.state.email}</span></li>
+                                <li>Email: 
+                                <span>{this.props.location.state.email}</span></li>
                                 <button type="submit" onClick={() => this.toggleSellerInfoHidden()}>Done</button>
                             </ul>
-                        </div>:null}
-                        
+                            </div>:null}
+                         </div>
                     </div>
-                <footer>
-                        @Copyright Original From Model Engineering College
-                    </footer>
+                    :
+                    <h1 style={{color:'white'}}>403 Forbidden</h1>}
                 </div>
-                :
-                <h1 style={{color:'white'}}>403 Forbidden</h1>
-            }
-            </div>
-        )
+        );
     }
 
 

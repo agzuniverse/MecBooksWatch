@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import GetAuthDetails from './GetAuthDetails';
-
 
 class Home extends Component {
 
@@ -25,13 +25,23 @@ class Home extends Component {
               <GetAuthDetails/>
               <div className="Container">
                   <div className="topWrapper">
-                      <h1 id="head">Books<span id="watch">Watch</span></h1>
+                    { !this.props.uid ?
+                      <Link to='/login'>
+                          <button id="button">Login</button>
+                      </Link>
+                      :
+                      <Link to='/user'>
+                          <button id="button">Profile</button>
+                      </Link>
+                    }
+                      <center><h1 id="head">Books<span id="watch">Watch</span></h1></center>
                       <form onSubmit={this.search}>
                         <input id="input" type="text" placeholder="Search for Books" />
                       </form>
-                      <div id="tagLine">A book exchange platform For MECians!</div>
-
-                      <div id="bottom">Made by students of Govt. Model Engineering College</div>
+                      <div id="tagLine">An Official KTU book exchange platform For MECians!</div>
+                      <div id="bottom">
+                        <Link to='/credits' style={{textDecoration:'none', color:'white'}}>Developed by Students of Govt. Model Engineering College</Link>
+                      </div>
                   </div>
               </div>
             </div>

@@ -2,7 +2,6 @@
     overflow: hidden;
 }
 
-
 .Container{
     height: 100vh;
     width: 100%;
@@ -45,7 +44,8 @@
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
-}    
+    outline-width:0;
+}
 
 #tagLine{
     color: white;
@@ -129,8 +129,13 @@ footer{
  }
 #loading{
     text-align: center;
-    padding-top:5%;
+    padding-top:10%;
 }
+#loading2{
+    text-align: center;
+    padding-top:25%;
+}
+
  .mainDiv{
     margin: 0px;
     padding: 0px;
@@ -155,18 +160,18 @@ footer{
     border-radius: 17px;
     text-indent: 5%;
     padding: 3px;
+    outline-width: 0;
 }
 .ProductDiv{
     display: grid;
     grid-template-columns: 1fr 4fr;
     min-height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin:15px;
+    margin:20px;
     transition: 0.3s;
 }
 .ProductDiv:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    margin:5px;
 }
 .imgDiv{
     padding: 10px;
@@ -310,7 +315,11 @@ footer{
 
  /* This is not yours agz */
  #centerTotal{
-    height: 100vh;
+     position: relative;
+     left: 0;
+     right: 0;
+     margin: auto;
+    height: 84vh;
     padding: 20px 0px 20px 0px;
     width: 85%;
     background-color: white;
@@ -321,6 +330,32 @@ footer{
     box-shadow: 2px 2px 20px rgb(66,66,66);
     background-color: rgb(236,239,241);
  }
+
+ #button{
+     position: absolute;
+     right: 2em;
+     top: 2em;
+     padding: 6px;
+     font-size: 18px;
+     width: 8%;
+     background-color: #4CAF50; 
+     color: white;
+     border: none;
+     border-radius: 5px;
+     display: inline-block;
+     cursor: pointer;
+     outline: none;
+     transition-duration: 0.4s;
+ }
+
+ #button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+ #button:focus{
+     outline: none;
+     border: none;
+    }
  
  .materialBlack{
      color:rgba(0,0,0,0.87);
@@ -366,11 +401,11 @@ footer{
 
  .detailCard{
      background-color: white;
-     width: 32%;
+     width: 34%;
      height: 62%;
      position: absolute;
-     top: 23%;
-     right: 17%;
+     top: 21%;
+     right: 9%;
      float: left;
      border-radius: 2%;
      padding-left: 1.7em;
@@ -381,7 +416,7 @@ footer{
 
 #textName{
     width: 100%;
-    height: 15%;
+    height: 12%;
     font-size: 22px;
     padding-top: 9px;
     margin-top: 1em;
@@ -392,13 +427,14 @@ footer{
     width: 100%;
     height: 6%;
     padding: 1px;
+    font-size: 17px;
 }
 
 #amount{
     width: 100%;
     height: 17%;
     font-size: 27px;
-    padding-top: 9px;
+    padding-top: 0.8em;
 
 }
 
@@ -419,25 +455,33 @@ footer{
 #sellerInfo{
     justify-content: center;
     position: absolute;
-    top: 80%;
-    left: 30%;
+    top: 75%;
+    left: 0;
+    right: 1%;
+    margin: auto;
+    cursor: pointer;
     padding: 10px;
-    font-size: 18px;
-    background: none;
-    width: 30%;
+    font-size: 20px;
+    background-color: #00c853;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: white;
+    width: 50%;
     border-radius: 1em;
+    outline: none;
+    border: none;
 }
 
 #sellerInfoCard{
-    height: 65%;
+    height: 69%;
     width: 40%;
     position: absolute;
-    top: 20%;
-    right: 14%;
+    top: 18%;
+    right: 7%;
     background-color: rgba(0,0,0,0.92);
     color: white;
     font-size: 18px;
     line-height: 2.1em;
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 0.5em;
@@ -451,12 +495,13 @@ footer{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 12%;
+    bottom: 9%;
     margin: auto;
     border-radius: 1em;
     width: 20%;
     padding: 3px;
     font-size: 18px;
+    outline: none;
 }
 
 #sellerInfoCard button:hover{
@@ -728,4 +773,112 @@ footer{
     width: 200px;
     height: 200px;
     border-radius:50%;
+}
+
+.credit-container{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/night2.jpg');
+    background-size: cover;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+#credits-avatar{
+    max-width: 200px;
+    height: 200px;
+}
+
+.credit-container h1{
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin: auto;
+}
+
+.credit-container h2{
+    text-align: center;
+}
+
+.credit-sep{
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 3px;
+    background: #2ecc71;
+    margin-bottom: 40px;
+}
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.credit-devs{
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.3s;
+    animation-delay: 0.1s;
+}
+
+.credit-devs a{
+    display: inline-block;
+    margin: 0 30px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.credit-devs a img{
+    widows: 100%;
+    filter: grayscale(100%);
+    transition: 0.4s all;
+}
+
+.credit-devs a:hover >img{
+    filter:none;
+    transform: scale(1.25);
+}
+
+.credits-desc{
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color: white;
+    text-align: justify;
+    height: 0;
+    overflow:hidden;
+}
+
+.credits-desc:target{
+    height: auto;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode:forwards;
+    animation-duration:0.2s;
+    animation-delay: 0.1s;
+}
+
+.credits-name{
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#credits-head{
+    color: white;
+    width: 22.5%;
+    margin: auto;
+    font-size: 43px;
+}   
+#credits-watch{
+    color: #00c853 ;
+}
+#credits-aboutus{
+    color:#f39c12;
+    font-size:20px;
 }
