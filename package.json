@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "./node_modules/.bin/eslint src/*",
+    "test": "./node_modules/.bin/eslint src/ && ./node_modules/.bin/prettier --list-different src/**/*.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
