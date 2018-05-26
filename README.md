@@ -1,5 +1,7 @@
 # MEC-BooksWatch
 
+[![Build Status](https://travis-ci.org/agzuniverse/MecBooksWatch.svg?branch=master)](https://travis-ci.org/agzuniverse/MecBooksWatch)
+
 Project to create a textbook exchange website for college students
 
 ### Introduction:
