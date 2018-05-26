@@ -21,7 +21,7 @@ class Credits extends React.Component {
                 sub:"Front End",
                 githubID:"https://github.com/aswin1999",
                 avatar: 'https://avatars2.githubusercontent.com/u/31558262?s=400&v=4',
-                desc:'I enjoy hacking and learning.',
+                desc:'Bibliophile and Enthusiastic Hacker',
                 gitName: 'aswin1999',
             },
             {
@@ -38,7 +38,7 @@ class Credits extends React.Component {
                 email:"123vivekr@gmail.com",
                 sub:"Back End",
                 githubID:"https://github.com/123vivekr",
-                avatar: 'https://s18.postimg.org/6z4ejcq09/123vivekr.jpg',
+                avatar: 'https://lh5.googleusercontent.com/PrhjpLoNw-QynOGbSv0gqgbBbP0F78hz-IbK8KukbtOoKKXgdt4AkbegomKQLW6GLuUm35ie1Oxzggz78x7I=w1366-h656',
                 desc:'Problem solver, programmer, gamer and fitness enthusiast',
                 gitName: '123vivekr',
             },
