@@ -1,26 +1,27 @@
-# MEC-BooksWatch
+# BooksWatch
 
 [![Build Status](https://travis-ci.org/agzuniverse/MecBooksWatch.svg?branch=master)](https://travis-ci.org/agzuniverse/MecBooksWatch)
 
-Project to create a textbook exchange website for college students
+Project to create a textbook buy/sell website for college students
+
 
 ### Introduction:
 
-This is a project to create a textbook exchange website for college students, starting with the students of Govt. Model Engineering College.
+This is a project to create a textbook buy/sell website for college students, starting with the students of Govt. Model Engineering College.
 
 ### Concept
 
-* One of the most significant difficulties faced by students at the beginning of a semester (Especially freshers) is getting the required reference material for that semester. We aim to solve this by an online textbook exchange platform.
-* This will be a web app that consists of two sections: for the buyer and the seller. Students who are looking to give away their textbooks can put up details of the book, the author and the amount they want for it. Students looking to buy can search/sort books by subject, topic, author etc.
+* One of the most significant difficulties faced by students at the beginning of a semester (Especially freshers) is getting the required reference material for that semester. We aim to solve this by an online textbook buy/sell platform.
+* This will be a web app that consists of two sections: for the buyer and the seller. Students who are looking to sell their textbooks can put up details of the book, the author and the amount they want for it. Students looking to buy can search/sort books by subject, topic, author etc.
 * Once they have picked a buyer they can exchange contacts and set a time and meet up place within the campus to exchange the book.
 * If this project succeeds it can be easily extended to include students from other campuses as well.
 
 ### Technical outline:
 
-* Stack used: MERN (MongoDB, Express, ReactJS, NodeJS)
+* Stack used: ReactJS, NodeJS, Firebase Realtime Database and cloud functions
 * Frontend will be mainly created using ReactJS and associated technologies. 
-* Backend will be done in NodeJS with Express.
-* The app will be using a MongoDB database the app will hosted on Google Firebase or a similar hosting platform, which will also run the NodeJS server script.
+* Backend will be created using Firebase
+* The app will be using the Firebase Realtime Database and Firebase's built in Cloud Functions
 * Students will be able to access the app through any browser, and will have to create an account on the site for buying/selling.
 * The website will be developed in a mobile first fashion so as to optimize it for smartphones.
 
