@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import '../App.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import RaisedButton from 'material-ui/RaisedButton';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
-import Checkbox from 'material-ui/Checkbox';
-
-
+import React, { Component } from "react";
+import "../App.css";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import RaisedButton from "material-ui/RaisedButton";
+import DropDownMenu from "material-ui/DropDownMenu";
+import MenuItem from "material-ui/MenuItem";
+import Checkbox from "material-ui/Checkbox";
 
 class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semesterValue: 'Any semester',
-      branchValue:'Any branch'
+      semesterValue: "Any semester",
+      branchValue: "Any branch"
     };
   }
   componentWillMount() {
@@ -25,30 +23,39 @@ class SideMenu extends Component {
   }
   semChange = (event, index, value) => {
     this.setState({
-        semesterValue:value
+      semesterValue: value
     });
-    this.props.update("SEMFILTER",{sem:value});
-  }
+    this.props.update("SEMFILTER", { sem: value });
+  };
 
   branchChange = (event, index, value) => {
-      this.setState({
-          branchValue:value
-      });
-      this.props.update("BRANCHFILTER",{branch:value});
-  }
+    this.setState({
+      branchValue: value
+    });
+    this.props.update("BRANCHFILTER", { branch: value });
+  };
 
   render() {
     if (this.props.isFilter == true) {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <Link to='/'>
-              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to="/">
+              <a href="#" className="logo">
+                Books<span id="watchPart">Watch</span>
+              </a>
             </Link>
             <div className="filterDiv">
-              <br /><br />
+              <br />
+              <br />
               Semester<br />
-              <DropDownMenu onChange={this.semChange} value={this.state.semesterValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+              <DropDownMenu
+                onChange={this.semChange}
+                value={this.state.semesterValue}
+                autoWidth={false}
+                className="dropDownMenu"
+                labelStyle={{ color: "rgba(255,255,255,0.87)" }}
+              >
                 <MenuItem value="Any semester" primaryText="Any semester" />
                 <MenuItem value="Semester 1" primaryText="Semester 1" />
                 <MenuItem value="Semester 2" primaryText="Semester 2" />
@@ -59,11 +66,20 @@ class SideMenu extends Component {
                 <MenuItem value="Semester 7" primaryText="Semester 7" />
                 <MenuItem value="Semester 8" primaryText="Semester 8" />
               </DropDownMenu>
-              <br/>
+              <br />
               Branch<br />
-              <DropDownMenu onChange={this.branchChange} value={this.state.branchValue} autoWidth={false} className="dropDownMenu" labelStyle={{ "color": "rgba(255,255,255,0.87)" }}>
+              <DropDownMenu
+                onChange={this.branchChange}
+                value={this.state.branchValue}
+                autoWidth={false}
+                className="dropDownMenu"
+                labelStyle={{ color: "rgba(255,255,255,0.87)" }}
+              >
                 <MenuItem value="Any branch" primaryText="Any branch" />
-                <MenuItem value="Computer Science" primaryText="Computer Science" />
+                <MenuItem
+                  value="Computer Science"
+                  primaryText="Computer Science"
+                />
                 <MenuItem value="Electrical" primaryText="Electrical" />
                 <MenuItem value="Electronics" primaryText="Electronics" />
                 <MenuItem value="Mechanical" primaryText="Mechanical" />
@@ -71,42 +87,62 @@ class SideMenu extends Component {
               </DropDownMenu>
             </div>
             <div className="linksDiv">
-            {(this.props.uid !== '' && this.props.uid !== null) ?
-              <Link to='/user'>
-                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
-              </Link>
-              :
-              <Link to='/login'>
-                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Sell Books</RaisedButton>
-              </Link>
-            }
+              {this.props.uid !== "" && this.props.uid !== null ? (
+                <Link to="/user">
+                  <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                    Sell Books
+                  </RaisedButton>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                    Sell Books
+                  </RaisedButton>
+                </Link>
+              )}
             </div>
           </MuiThemeProvider>
         </div>
-
       );
     } else {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <Link to='/'>
-              <a href="#" className="logo">Books<span id="watchPart">Watch</span></a>
+            <Link to="/">
+              <a href="#" className="logo">
+                Books<span id="watchPart">Watch</span>
+              </a>
             </Link>
             <div className="userInfoDiv">
-              <br /><br />
-              <img src={this.props.proPic} className="profilePic" /><br /><br />
-              {this.props.userDetails.name}<br />
-              {this.props.userDetails.email}<br />
+              <br />
+              <br />
+              <img src={this.props.proPic} className="profilePic" />
+              <br />
+              <br />
+              {this.props.userDetails.name}
+              <br />
+              {this.props.userDetails.email}
+              <br />
             </div>
             <div className="linksDiv">
-              <Link to='/addproduct'>
-                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>Add Book</RaisedButton><br /><br/>
+              <Link to="/addproduct">
+                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                  Add Book
+                </RaisedButton>
+                <br />
+                <br />
               </Link>
-              <Link to='/search'>
-                <RaisedButton backgroundColor="lightblue" fullWidth={true}>Search for books</RaisedButton><br /><br/>
+              <Link to="/search">
+                <RaisedButton backgroundColor="lightblue" fullWidth={true}>
+                  Search for books
+                </RaisedButton>
+                <br />
+                <br />
               </Link>
-              <Link to='/login'>
-                <RaisedButton backgroundColor="red" fullWidth={true}>Logout</RaisedButton>
+              <Link to="/login">
+                <RaisedButton backgroundColor="red" fullWidth={true}>
+                  Logout
+                </RaisedButton>
               </Link>
             </div>
           </MuiThemeProvider>
@@ -117,14 +153,14 @@ class SideMenu extends Component {
 }
 
 export default connect(
-  (store) => {
+  store => {
     return store;
   },
-  (dispatch) => {
+  dispatch => {
     return {
       update: (dispatchType, dispatchPayload) => {
         dispatch({ type: dispatchType, payload: dispatchPayload });
       }
-    }
+    };
   }
 )(SideMenu);
