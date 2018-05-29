@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import "../assets/book1.jpg";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import RaisedButton from "material-ui/RaisedButton";
+import PropTypes from "prop-types";
 
 class ProductDiv extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class ProductDiv extends Component {
       <div className="ProductDiv">
         <MuiThemeProvider>
           <div className="imgDiv">
-            <img src={this.props.details.imageURL} id="productImg" />
+            <img src={this.props.details.imageURL} id="productImg" alt="" />
           </div>
           <Link
             to={{ pathname: "/productdisplay", state: this.props.details }}
