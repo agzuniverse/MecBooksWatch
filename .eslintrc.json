@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb", "prettier"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/first": [ "error", "DISABLE-absolute-first" ]
   }
 }
