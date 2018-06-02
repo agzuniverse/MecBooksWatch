@@ -24,6 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
