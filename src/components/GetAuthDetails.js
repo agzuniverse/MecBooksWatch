@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 class GetAuthDetails extends React.Component {
@@ -25,7 +25,7 @@ class GetAuthDetails extends React.Component {
 
 GetAuthDetails.propTypes = {
   uid: PropTypes.string.isRequired,
-  update: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired
 };
 
 export default connect(

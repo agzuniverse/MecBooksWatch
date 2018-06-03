@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import { readFromStorage } from "../firebase/firebase";
@@ -50,7 +50,9 @@ class Userpage extends Component {
   };
 
   render() {
-    const books = Object.keys(this.state.bookData).map(key => <ProductDiv details={this.state.bookData[key]} />);
+    const books = Object.keys(this.state.bookData).map(key => (
+      <ProductDiv details={this.state.bookData[key]} />
+    ));
 
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
@@ -75,14 +77,14 @@ class Userpage extends Component {
 
 Userpage.propTypes = {
   uid: PropTypes.string.isRequired,
-  update: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired
 };
 
 export default connect(
   store => store,
   dispatch => ({
-      update: (dispatchType, dispatchPayload) => {
-        dispatch({ type: dispatchType, payload: dispatchPayload });
-      }
-    })
+    update: (dispatchType, dispatchPayload) => {
+      dispatch({ type: dispatchType, payload: dispatchPayload });
+    }
+  })
 )(Userpage);

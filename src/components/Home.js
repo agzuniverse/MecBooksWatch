@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -56,14 +56,14 @@ class Home extends Component {
 Home.propTypes = {
   uid: PropTypes.string.isRequired,
   update: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default connect(
   store => store,
   dispatch => ({
-      update: (dispatchType, dispatchPayload) => {
-        dispatch({ type: dispatchType, payload: dispatchPayload });
-      }
-    })
+    update: (dispatchType, dispatchPayload) => {
+      dispatch({ type: dispatchType, payload: dispatchPayload });
+    }
+  })
 )(Home);

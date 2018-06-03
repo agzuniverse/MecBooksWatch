@@ -1,5 +1,5 @@
 import { auth, provider } from "../firebase/firebase";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -114,14 +114,14 @@ class Auth extends React.Component {
 Auth.propTypes = {
   uid: PropTypes.string.isRequired,
   update: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-}
+  history: PropTypes.object.isRequired
+};
 
 export default connect(
   store => store,
   dispatch => ({
-      update: (dispatchType, dispatchPayload) => {
-        dispatch({ type: dispatchType, payload: dispatchPayload });
-      }
-    })
-)(Auth)
+    update: (dispatchType, dispatchPayload) => {
+      dispatch({ type: dispatchType, payload: dispatchPayload });
+    }
+  })
+)(Auth);

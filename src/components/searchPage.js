@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import { searchAll } from "../firebase/firebase";
@@ -64,10 +64,10 @@ class SearchPage extends Component {
         if (book.branch === this.props.branchFilter)
           return <ProductDiv details={book} />;
       } else if (
-          book.branch === this.props.branchFilter &&
-          book.semester === this.props.semFilter
-        )
-          return <ProductDiv details={book} />;
+        book.branch === this.props.branchFilter &&
+        book.semester === this.props.semFilter
+      )
+        return <ProductDiv details={book} />;
     });
     return (
       <div className="App">
@@ -97,7 +97,7 @@ class SearchPage extends Component {
 SearchPage.propTypes = {
   query: PropTypes.string.isRequired,
   semFilter: PropTypes.string.isRequired,
-  branchFilter: PropTypes.string.isRequired,
+  branchFilter: PropTypes.string.isRequired
 };
 
 export default connect(store => store)(SearchPage);

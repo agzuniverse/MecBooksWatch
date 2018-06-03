@@ -38,8 +38,7 @@ export function addToStorage(file, data) {
             resolve();
           });
       });
-    }
-    catch(e) {
+    } catch (e) {
       reject();
     }
   });
@@ -54,8 +53,7 @@ export function readFromStorage(uid) {
         .once("value", snapshot => {
           resolve(snapshot.val());
         });
-    }
-    catch(e) {
+    } catch (e) {
       reject();
     }
   });
@@ -91,8 +89,7 @@ export function searchAll(query) {
           }
           resolve(results);
         });
-    }
-    catch(e) {
+    } catch (e) {
       reject();
     }
   });

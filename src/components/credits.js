@@ -50,10 +50,10 @@ class Credits extends React.Component {
   }
 
   userPic = dev => (
-    <a key={`${dev.name  }pic`} href={`#${  dev.name}`}>
-      <img id="credits-avatar" src={dev.avatar} alt={`${dev.name  } pic`} />
+    <a key={`${dev.name}pic`} href={`#${dev.name}`}>
+      <img id="credits-avatar" src={dev.avatar} alt={`${dev.name} pic`} />
     </a>
-    );
+  );
 
   userDetails = dev => (
     <div id={dev.name} className="credits-desc">
@@ -72,7 +72,7 @@ class Credits extends React.Component {
         {dev.gitName}
       </a>
     </div>
-    );
+  );
 
   render() {
     return (

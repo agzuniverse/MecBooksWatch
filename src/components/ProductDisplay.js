@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -47,7 +47,11 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img id="textbook" src={this.props.location.state.imageURL} alt="Fetching error" />
+                <img
+                  id="textbook"
+                  src={this.props.location.state.imageURL}
+                  alt="Fetching error"
+                />
               </div>
 
               <div className="detailCard">
@@ -121,7 +125,7 @@ class ProductDisplay extends Component {
 
 ProductDisplay.propTypes = {
   uid: PropTypes.string.isRequired,
-  location: PropTypes.object.isRequired,
-}
+  location: PropTypes.object.isRequired
+};
 
 export default connect(store => store)(ProductDisplay);

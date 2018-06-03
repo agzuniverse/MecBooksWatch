@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import GetAuthDetails from "./GetAuthDetails";
@@ -27,11 +27,10 @@ class AddProduct extends Component {
     };
   }
 
-
   setInvalid = field => {
     const { invalid } = this.state;
     invalid.push(field);
-    this.setState({invalid});
+    this.setState({ invalid });
   };
 
   handleOpen = () => {
@@ -303,7 +302,7 @@ class AddProduct extends Component {
         <GetAuthDetails />
         <h1> 403 Forbidden </h1>
       </div>
-      );
+    );
   }
 }
 
@@ -311,7 +310,7 @@ AddProduct.propTypes = {
   uid: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
   email: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default connect(store => store)(AddProduct);

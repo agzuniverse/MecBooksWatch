@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
@@ -100,51 +100,54 @@ class SideMenu extends Component {
           </MuiThemeProvider>
         </div>
       );
-    } 
-      return (
-        <div className="SideMenu mainBackground mainColor">
-          <MuiThemeProvider>
-            <Link to="/">
-              <a href="#" className="logo">
-                Books<span id="watchPart">Watch</span>
-              </a>
+    }
+    return (
+      <div className="SideMenu mainBackground mainColor">
+        <MuiThemeProvider>
+          <Link to="/">
+            <a href="#" className="logo">
+              Books<span id="watchPart">Watch</span>
+            </a>
+          </Link>
+          <div className="userInfoDiv">
+            <br />
+            <br />
+            <img
+              src={this.props.proPic}
+              className="profilePic"
+              alt="Fetch error"
+            />
+            <br />
+            <br />
+            {this.props.userDetails.name}
+            <br />
+            {this.props.userDetails.email}
+            <br />
+          </div>
+          <div className="linksDiv">
+            <Link to="/addproduct">
+              <RaisedButton backgroundColor="lawngreen" fullWidth>
+                Add Book
+              </RaisedButton>
+              <br />
+              <br />
             </Link>
-            <div className="userInfoDiv">
+            <Link to="/search">
+              <RaisedButton backgroundColor="lightblue" fullWidth>
+                Search for books
+              </RaisedButton>
               <br />
               <br />
-              <img src={this.props.proPic} className="profilePic" alt="Fetch error" />
-              <br />
-              <br />
-              {this.props.userDetails.name}
-              <br />
-              {this.props.userDetails.email}
-              <br />
-            </div>
-            <div className="linksDiv">
-              <Link to="/addproduct">
-                <RaisedButton backgroundColor="lawngreen" fullWidth>
-                  Add Book
-                </RaisedButton>
-                <br />
-                <br />
-              </Link>
-              <Link to="/search">
-                <RaisedButton backgroundColor="lightblue" fullWidth>
-                  Search for books
-                </RaisedButton>
-                <br />
-                <br />
-              </Link>
-              <Link to="/login">
-                <RaisedButton backgroundColor="red" fullWidth>
-                  Logout
-                </RaisedButton>
-              </Link>
-            </div>
-          </MuiThemeProvider>
-        </div>
-      );
-    
+            </Link>
+            <Link to="/login">
+              <RaisedButton backgroundColor="red" fullWidth>
+                Logout
+              </RaisedButton>
+            </Link>
+          </div>
+        </MuiThemeProvider>
+      </div>
+    );
   }
 }
 
@@ -153,14 +156,14 @@ SideMenu.propTypes = {
   update: PropTypes.func.isRequired,
   proPic: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
-  userDetails: PropTypes.object.isRequired,
+  userDetails: PropTypes.object.isRequired
 };
 
 export default connect(
   store => store,
   dispatch => ({
-      update: (dispatchType, dispatchPayload) => {
-        dispatch({ type: dispatchType, payload: dispatchPayload });
-      }
-    })
+    update: (dispatchType, dispatchPayload) => {
+      dispatch({ type: dispatchType, payload: dispatchPayload });
+    }
+  })
 )(SideMenu);
