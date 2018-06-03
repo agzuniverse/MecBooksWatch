@@ -1,21 +1,15 @@
 import { auth, provider } from "../firebase/firebase";
+import PropTypes from 'prop-types';
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
-// import Userpage from "./Userpage";
 import GetAuthDetails from "./GetAuthDetails";
-// import Appbar from "./appBar";
 
 class Auth extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      uData: {},
-      isNewUser: 0,
-      isLoggedIn: 0,
-      uToken: "",
       uid: "",
       userName: "",
       userProPic: "",
@@ -37,10 +31,6 @@ class Auth extends React.Component {
   logout = () => {
     auth.signOut().then(() => {
       this.setState({
-        uData: {},
-        isNewUser: false,
-        isLoggedIn: false,
-        uToken: "",
         uid: "",
         userEmail: "",
         userName: "",
@@ -61,20 +51,16 @@ class Auth extends React.Component {
 
   login = () => {
     auth.signInWithPopup(provider).then(result => {
-      const token = result.credential.accessToken;
       const pData = result.user.providerData[0];
       console.log(result);
-      const isNewUser = result.additionalUserInfo.isNewUser;
+      // Check if user is a new user
+      // const isNewUser = result.additionalUserInfo.isNewUser;
       this.setState(
         {
-          uData: pData,
-          isNewUser,
-          isLoggedIn: true,
-          uToken: token,
-          uid: result.user.providerData[0].uid,
-          userEmail: result.user.providerData[0].email,
-          userName: result.user.providerData[0].displayName,
-          userProPic: result.user.providerData[0].photoURL
+          uid: pData.uid,
+          userEmail: pData.email,
+          userName: pData.displayName,
+          userProPic: pData.photoURL
         },
         () => {
           this.props.update("SET_UID", { uid: this.state.uid });
@@ -125,13 +111,17 @@ class Auth extends React.Component {
   }
 }
 
-export default withRouter(
-  connect(
-    store => store,
-    dispatch => ({
-        update: (dispatchType, dispatchPayload) => {
-          dispatch({ type: dispatchType, payload: dispatchPayload });
-        }
-      })
-  )(Auth)
-);
+Auth.propTypes = {
+  uid: PropTypes.string.isRequired,
+  update: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+}
+
+export default connect(
+  store => store,
+  dispatch => ({
+      update: (dispatchType, dispatchPayload) => {
+        dispatch({ type: dispatchType, payload: dispatchPayload });
+      }
+    })
+)(Auth)
