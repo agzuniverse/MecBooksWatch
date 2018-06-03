@@ -1,13 +1,12 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../App.css";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import GetAuthDetails from "./GetAuthDetails";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
-import AppBar from "material-ui/AppBar";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import Checkbox from "material-ui/Checkbox";
@@ -19,15 +18,21 @@ class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semesterValue: "Semester 1",
-      branchValue: "Computer Science",
+      semester: "Semester 1",
+      branch: "Computer Science",
       isOnWa: true,
       open: false,
-      classNames: [], // uncomment class validator
       invalid: [],
       uploading: false
     };
   }
+
+
+  setInvalid = field => {
+    const { invalid } = this.state;
+    invalid.push(field);
+    this.setState({invalid});
+  };
 
   handleOpen = () => {
     this.setState({ open: true });
@@ -49,24 +54,18 @@ class AddProduct extends Component {
 
   semChange = (event, index, value) => {
     this.setState({
-      semesterValue: value
+      semester: value
     });
   };
 
   branchChange = (event, index, value) => {
     this.setState({
-      branchValue: value
+      branch: value
     });
   };
 
-  setInvalid = field => {
-    const state = this.state;
-    state.invalid.push(field);
-    this.setState(state);
-  };
-
   handeSubmit = () => {
-    if (this.props.uid == "" || this.props.uid == null) {
+    if (this.props.uid === "" || this.props.uid === null) {
       alert("You need to log in to add a book!");
     } else {
       const title = document.getElementById("bookTitle").value;
@@ -74,18 +73,16 @@ class AddProduct extends Component {
       const price = document.getElementById("bookPrice").value;
       const contact = document.getElementById("mobile").value;
       const userClass = document.getElementById("userClass").value;
-      const isOnWa = this.state.isOnWa;
-      const semester = this.state.semesterValue;
-      const branch = this.state.branchValue;
+      const { isOnWa, semester, branch } = this.state;
       const file = document.getElementById("fileUpload").files[0];
       const tags = title.split(" ").concat(author.split(" "));
 
       this.state.invalid = [];
       // Generate tags for searching
-      if (title.replace(/\s/g, "") == "")
+      if (title.replace(/\s/g, "") === "")
         this.setInvalid("Title field is blank");
 
-      if (author.replace(/\s/g, "") == "")
+      if (author.replace(/\s/g, "") === "")
         this.setInvalid("Author field is blank");
 
       if (!(parseFloat(price) > 0))
@@ -96,13 +93,13 @@ class AddProduct extends Component {
           "Contact number is invalid. We only accept Indian Mobile Numbers. format eg: xxxxxxxxxx"
         );
 
-      if (!(file && file.type.slice(0, 5) == "image"))
+      if (!(file && file.type.slice(0, 5) === "image"))
         this.setInvalid("Image is invalid.");
 
       // add all classes to state
       // if(!this.classNames.includes(userClass))
       //  this.setInvalid('class');
-      if (!this.state.invalid.length == 0) {
+      if (!this.state.invalid.length === 0) {
         console.log("Form field error");
         this.handleOpen();
       } else {
@@ -224,7 +221,7 @@ class AddProduct extends Component {
                 <DropDownMenu
                   onChange={this.semChange}
                   style={{ width: "65%" }}
-                  value={this.state.semesterValue}
+                  value={this.state.semester}
                   autoWidth={false}
                   className="dropDownMenu"
                 >
@@ -244,7 +241,7 @@ class AddProduct extends Component {
                 <DropDownMenu
                   onChange={this.branchChange}
                   style={{ width: "65%" }}
-                  value={this.state.branchValue}
+                  value={this.state.branch}
                   autoWidth={false}
                   className="dropDownMenu"
                 >
@@ -309,5 +306,12 @@ class AddProduct extends Component {
       );
   }
 }
+
+AddProduct.propTypes = {
+  uid: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+  email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default connect(store => store)(AddProduct);
