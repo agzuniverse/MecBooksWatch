@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import "../App.css";
 import "../assets/book1.jpg";
@@ -37,5 +38,9 @@ class ProductDiv extends Component {
     );
   }
 }
+
+ProductDiv.propTypes = {
+  details: PropTypes.object.isRequired,
+};
 
 export default ProductDiv;
