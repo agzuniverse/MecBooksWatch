@@ -14,7 +14,8 @@
     "import/first": [ "off", "DISABLE-absolute-first" ],
     "jsx-a11y/anchor-is-valid": ["off"],
     "no-param-reassign": ["off"],
-    "no-inner-declarations": ["off"]
+    "no-inner-declarations": ["off"],
+    "react/forbid-prop-types": ["off"]
   },
   "env": {
     "browser": true,

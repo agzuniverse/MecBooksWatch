@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
@@ -6,7 +7,6 @@ import { Link } from "react-router-dom";
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
-import Checkbox from "material-ui/Checkbox";
 
 class SideMenu extends Component {
   constructor(props) {
@@ -16,11 +16,7 @@ class SideMenu extends Component {
       branchValue: "Any branch"
     };
   }
-  componentWillMount() {
-    if (this.props.isFilter == false) {
-      this.setState({ imgURL: this.props.userDetails.imgURL });
-    }
-  }
+
   semChange = (event, index, value) => {
     this.setState({
       semesterValue: value
@@ -36,7 +32,7 @@ class SideMenu extends Component {
   };
 
   render() {
-    if (this.props.isFilter == true) {
+    if (this.props.isFilter === true) {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
@@ -116,7 +112,7 @@ class SideMenu extends Component {
             <div className="userInfoDiv">
               <br />
               <br />
-              <img src={this.props.proPic} className="profilePic" />
+              <img src={this.props.proPic} className="profilePic" alt="Fetch error" />
               <br />
               <br />
               {this.props.userDetails.name}
@@ -151,6 +147,14 @@ class SideMenu extends Component {
     
   }
 }
+
+SideMenu.propTypes = {
+  isFilter: PropTypes.bool.isRequired,
+  update: PropTypes.func.isRequired,
+  proPic: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
+  userDetails: PropTypes.object.isRequired,
+};
 
 export default connect(
   store => store,
