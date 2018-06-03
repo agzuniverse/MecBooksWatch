@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import { Provider } from "react-redux";
 import Store from "./components/Store";
@@ -8,13 +8,10 @@ import ProductDisplay from "./components/ProductDisplay";
 import SearchPage from "./components/searchPage";
 import Auth from "./components/auth";
 import Userpage from "./components/Userpage";
-import Appbar from "./components/appBar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Credits from "./components/credits";
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
       <Provider store={Store}>
         <Router>
           <div>
@@ -28,8 +25,6 @@ class App extends Component {
           </div>
         </Router>
       </Provider>
-    );
-  }
-}
+);
 
 export default App;
