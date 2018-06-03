@@ -15,5 +15,9 @@
     "jsx-a11y/anchor-is-valid": ["off"],
     "no-param-reassign": ["off"],
     "no-inner-declarations": ["off"]
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
