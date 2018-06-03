@@ -126,6 +126,4 @@ class ProductDisplay extends Component {
   }
 }
 
-export default connect(store => {
-  return store;
-})(ProductDisplay);
+export default connect(store => store)(ProductDisplay);

@@ -40,19 +40,17 @@ class Userpage extends Component {
   };
 
   fetchUserBooks = async uid => {
-    var bookData = await readFromStorage(uid);
+    let bookData = await readFromStorage(uid);
     console.log(bookData);
     if (bookData == null) bookData = {};
     this.setState({
-      bookData: bookData,
+      bookData,
       loaded: true
     });
   };
 
   render() {
-    const books = Object.keys(this.state.bookData).map(key => {
-      return <ProductDiv details={this.state.bookData[key]} />;
-    });
+    const books = Object.keys(this.state.bookData).map(key => <ProductDiv details={this.state.bookData[key]} />);
 
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
@@ -71,19 +69,15 @@ class Userpage extends Component {
           </div>
         </div>
       );
-    else return <h1>403 Forbidden</h1>;
+    return <h1>403 Forbidden</h1>;
   }
 }
 
 export default connect(
-  store => {
-    return store;
-  },
-  dispatch => {
-    return {
+  store => store,
+  dispatch => ({
       update: (dispatchType, dispatchPayload) => {
         dispatch({ type: dispatchType, payload: dispatchPayload });
       }
-    };
-  }
+    })
 )(Userpage);

@@ -12,19 +12,19 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Credits from "./components/credits";
 
 const App = () => (
-      <Provider store={Store}>
-        <Router>
-          <div>
-            <Route exact path="/" component={Home} />
-            <Route path="/addproduct" component={AddProduct} />
-            <Route path="/search" component={SearchPage} />
-            <Route path="/productdisplay" component={ProductDisplay} />
-            <Route path="/login" component={Auth} />
-            <Route path="/user" component={Userpage} />
-            <Route path="/credits" component={Credits} />
-          </div>
-        </Router>
-      </Provider>
+  <Provider store={Store}>
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/addproduct" component={AddProduct} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/productdisplay" component={ProductDisplay} />
+        <Route path="/login" component={Auth} />
+        <Route path="/user" component={Userpage} />
+        <Route path="/credits" component={Credits} />
+      </div>
+    </Router>
+  </Provider>
 );
 
 export default App;

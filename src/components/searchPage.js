@@ -28,7 +28,7 @@ class SearchPage extends Component {
       loaded: false
     });
     console.log(query);
-    let data = await searchAll(query);
+    const data = await searchAll(query);
     console.log(data);
     this.setState({
       searchResults: data,
@@ -38,7 +38,7 @@ class SearchPage extends Component {
 
   search = e => {
     e.preventDefault();
-    let query = document.getElementById("input2").value;
+    const query = document.getElementById("input2").value;
     this.performSearch(query);
   };
 
@@ -62,18 +62,16 @@ class SearchPage extends Component {
       ) {
         if (book.branch === this.props.branchFilter)
           return <ProductDiv details={book} />;
-      } else {
-        if (
+      } else if (
           book.branch === this.props.branchFilter &&
           book.semester === this.props.semFilter
         )
           return <ProductDiv details={book} />;
-      }
     });
     return (
       <div className="App">
         <GetAuthDetails />
-        <SideMenu isFilter={true} />
+        <SideMenu isFilter />
         <div className="mainDiv">
           <div id="searchDiv">
             <form onSubmit={this.search}>
@@ -95,6 +93,4 @@ class SearchPage extends Component {
   }
 }
 
-export default connect(store => {
-  return store;
-})(SearchPage);
+export default connect(store => store)(SearchPage);

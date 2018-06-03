@@ -23,7 +23,7 @@ class AddProduct extends Component {
       branchValue: "Computer Science",
       isOnWa: true,
       open: false,
-      classNames: [], //uncomment class validator
+      classNames: [], // uncomment class validator
       invalid: [],
       uploading: false
     };
@@ -60,7 +60,7 @@ class AddProduct extends Component {
   };
 
   setInvalid = field => {
-    var state = this.state;
+    const state = this.state;
     state.invalid.push(field);
     this.setState(state);
   };
@@ -69,19 +69,19 @@ class AddProduct extends Component {
     if (this.props.uid == "" || this.props.uid == null) {
       alert("You need to log in to add a book!");
     } else {
-      let title = document.getElementById("bookTitle").value;
-      let author = document.getElementById("bookAuthor").value;
-      let price = document.getElementById("bookPrice").value;
-      let contact = document.getElementById("mobile").value;
-      let userClass = document.getElementById("userClass").value;
-      let isOnWa = this.state.isOnWa;
-      let semester = this.state.semesterValue;
-      let branch = this.state.branchValue;
-      let file = document.getElementById("fileUpload").files[0];
-      let tags = title.split(" ").concat(author.split(" "));
+      const title = document.getElementById("bookTitle").value;
+      const author = document.getElementById("bookAuthor").value;
+      const price = document.getElementById("bookPrice").value;
+      const contact = document.getElementById("mobile").value;
+      const userClass = document.getElementById("userClass").value;
+      const isOnWa = this.state.isOnWa;
+      const semester = this.state.semesterValue;
+      const branch = this.state.branchValue;
+      const file = document.getElementById("fileUpload").files[0];
+      const tags = title.split(" ").concat(author.split(" "));
 
       this.state.invalid = [];
-      //Generate tags for searching
+      // Generate tags for searching
       if (title.replace(/\s/g, "") == "")
         this.setInvalid("Title field is blank");
 
@@ -99,26 +99,26 @@ class AddProduct extends Component {
       if (!(file && file.type.slice(0, 5) == "image"))
         this.setInvalid("Image is invalid.");
 
-      //add all classes to state
-      //if(!this.classNames.includes(userClass))
+      // add all classes to state
+      // if(!this.classNames.includes(userClass))
       //  this.setInvalid('class');
       if (!this.state.invalid.length == 0) {
         console.log("Form field error");
         this.handleOpen();
       } else {
-        let data = {
-          title: title,
-          author: author,
-          price: price,
-          contact: contact,
-          userClass: userClass,
-          isOnWa: isOnWa,
+        const data = {
+          title,
+          author,
+          price,
+          contact,
+          userClass,
+          isOnWa,
           uid: this.props.uid,
           email: this.props.email,
           username: this.props.name,
-          semester: semester,
-          branch: branch,
-          tags: tags
+          semester,
+          branch,
+          tags
         };
 
         console.log("Adding book");
@@ -149,8 +149,8 @@ class AddProduct extends Component {
     const actions = [
       <FlatButton
         label="Ok"
-        primary={true}
-        keyboardFocused={true}
+        primary
+        keyboardFocused
         onClick={this.handleClose}
       />
     ];
@@ -171,7 +171,7 @@ class AddProduct extends Component {
                     style={{ float: "right", marginRight: "2vw" }}
                     label="Back to Profile"
                     onClick={this.goToUserPage}
-                    primary={true}
+                    primary
                   />
                 </div>
                 <h2 className="materialBlack">Add New Book</h2>
@@ -279,17 +279,15 @@ class AddProduct extends Component {
                 <RaisedButton
                   onClick={() => this.handeSubmit()}
                   label="Submit"
-                  primary={true}
+                  primary
                 />
                 <Dialog
                   title="Some fields require attention!"
                   actions={actions}
-                  modal={true}
+                  modal
                   open={this.state.open}
                 >
-                  {this.state.invalid.map(value => {
-                    return <p key={value}>{value}</p>;
-                  })}
+                  {this.state.invalid.map(value => <p key={value}>{value}</p>)}
                 </Dialog>
               </div>
             ) : (
@@ -303,16 +301,13 @@ class AddProduct extends Component {
           </MuiThemeProvider>
         </div>
       );
-    else
-      return (
-        <div>
-          <GetAuthDetails />
-          <h1> 403 Forbidden </h1>
-        </div>
+    return (
+      <div>
+        <GetAuthDetails />
+        <h1> 403 Forbidden </h1>
+      </div>
       );
   }
 }
 
-export default connect(store => {
-  return store;
-})(AddProduct);
+export default connect(store => store)(AddProduct);

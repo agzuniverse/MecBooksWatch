@@ -3,9 +3,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-//import Userpage from "./Userpage";
+// import Userpage from "./Userpage";
 import GetAuthDetails from "./GetAuthDetails";
-//import Appbar from "./appBar";
+// import Appbar from "./appBar";
 
 class Auth extends React.Component {
   constructor(props) {
@@ -61,14 +61,14 @@ class Auth extends React.Component {
 
   login = () => {
     auth.signInWithPopup(provider).then(result => {
-      var token = result.credential.accessToken;
-      var pData = result.user.providerData[0];
+      const token = result.credential.accessToken;
+      const pData = result.user.providerData[0];
       console.log(result);
-      var isNewUser = result.additionalUserInfo.isNewUser;
+      const isNewUser = result.additionalUserInfo.isNewUser;
       this.setState(
         {
           uData: pData,
-          isNewUser: isNewUser,
+          isNewUser,
           isLoggedIn: true,
           uToken: token,
           uid: result.user.providerData[0].uid,
@@ -127,15 +127,11 @@ class Auth extends React.Component {
 
 export default withRouter(
   connect(
-    store => {
-      return store;
-    },
-    dispatch => {
-      return {
+    store => store,
+    dispatch => ({
         update: (dispatchType, dispatchPayload) => {
           dispatch({ type: dispatchType, payload: dispatchPayload });
         }
-      };
-    }
+      })
   )(Auth)
 );

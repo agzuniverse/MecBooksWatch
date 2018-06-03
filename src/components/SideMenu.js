@@ -89,13 +89,13 @@ class SideMenu extends Component {
             <div className="linksDiv">
               {this.props.uid !== "" && this.props.uid !== null ? (
                 <Link to="/user">
-                  <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                  <RaisedButton backgroundColor="lawngreen" fullWidth>
                     Sell Books
                   </RaisedButton>
                 </Link>
               ) : (
                 <Link to="/login">
-                  <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                  <RaisedButton backgroundColor="lawngreen" fullWidth>
                     Sell Books
                   </RaisedButton>
                 </Link>
@@ -104,7 +104,7 @@ class SideMenu extends Component {
           </MuiThemeProvider>
         </div>
       );
-    } else {
+    } 
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
@@ -126,21 +126,21 @@ class SideMenu extends Component {
             </div>
             <div className="linksDiv">
               <Link to="/addproduct">
-                <RaisedButton backgroundColor="lawngreen" fullWidth={true}>
+                <RaisedButton backgroundColor="lawngreen" fullWidth>
                   Add Book
                 </RaisedButton>
                 <br />
                 <br />
               </Link>
               <Link to="/search">
-                <RaisedButton backgroundColor="lightblue" fullWidth={true}>
+                <RaisedButton backgroundColor="lightblue" fullWidth>
                   Search for books
                 </RaisedButton>
                 <br />
                 <br />
               </Link>
               <Link to="/login">
-                <RaisedButton backgroundColor="red" fullWidth={true}>
+                <RaisedButton backgroundColor="red" fullWidth>
                   Logout
                 </RaisedButton>
               </Link>
@@ -148,19 +148,15 @@ class SideMenu extends Component {
           </MuiThemeProvider>
         </div>
       );
-    }
+    
   }
 }
 
 export default connect(
-  store => {
-    return store;
-  },
-  dispatch => {
-    return {
+  store => store,
+  dispatch => ({
       update: (dispatchType, dispatchPayload) => {
         dispatch({ type: dispatchType, payload: dispatchPayload });
       }
-    };
-  }
+    })
 )(SideMenu);

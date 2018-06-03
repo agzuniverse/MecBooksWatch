@@ -13,8 +13,8 @@ class Home extends Component {
   }
 
   search = () => {
-    let query = document.getElementById("input").value;
-    this.props.update("SEARCH_STRING", { query: query });
+    const query = document.getElementById("input").value;
+    this.props.update("SEARCH_STRING", { query });
     this.props.history.push("/search");
   };
 
@@ -60,14 +60,10 @@ class Home extends Component {
 }
 
 export default connect(
-  store => {
-    return store;
-  },
-  dispatch => {
-    return {
+  store => store,
+  dispatch => ({
       update: (dispatchType, dispatchPayload) => {
         dispatch({ type: dispatchType, payload: dispatchPayload });
       }
-    };
-  }
+    })
 )(Home);

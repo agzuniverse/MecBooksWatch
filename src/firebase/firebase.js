@@ -28,7 +28,7 @@ export function addToStorage(file, data) {
 
     storageAdd.put(file).then(snapshot => {
       data.imageURL = snapshot.downloadURL;
-      //console.log(data);
+      // console.log(data);
 
       const database = firebase.database();
       database
