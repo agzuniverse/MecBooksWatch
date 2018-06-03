@@ -68,6 +68,7 @@ class SearchPage extends Component {
         book.semester === this.props.semFilter
       )
         return <ProductDiv details={book} />;
+      return null;
     });
     return (
       <div className="App">
