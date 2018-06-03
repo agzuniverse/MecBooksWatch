@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../App.css";
 import { connect } from "react-redux";
 import { searchAll } from "../firebase/firebase";
@@ -18,7 +19,7 @@ class SearchPage extends Component {
   }
 
   componentWillMount() {
-    if (this.props.query != "" && this.props.query != null) {
+    if (this.props.query !== "" && this.props.query !== null) {
       this.performSearch(this.props.query);
     }
   }
@@ -92,5 +93,11 @@ class SearchPage extends Component {
     );
   }
 }
+
+SearchPage.propTypes = {
+  query: PropTypes.string.isRequired,
+  semFilter: PropTypes.string.isRequired,
+  branchFilter: PropTypes.string.isRequired,
+};
 
 export default connect(store => store)(SearchPage);
