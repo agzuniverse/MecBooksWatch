@@ -1,17 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      placeholder: ""
-    };
-  }
-
   search = () => {
     const query = document.getElementById("input").value;
     this.props.update("SEARCH_STRING", { query });
@@ -58,6 +52,12 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  uid: PropTypes.string.isRequired,
+  update: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+};
 
 export default connect(
   store => store,
