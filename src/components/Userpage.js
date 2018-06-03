@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../App.css";
 import { connect } from "react-redux";
 import { readFromStorage } from "../firebase/firebase";
@@ -6,7 +7,6 @@ import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import GetAuthDetails from "./GetAuthDetails";
 
 class Userpage extends Component {
   constructor(props) {
@@ -72,6 +72,11 @@ class Userpage extends Component {
     return <h1>403 Forbidden</h1>;
   }
 }
+
+Userpage.propTypes = {
+  uid: PropTypes.string.isRequired,
+  update: PropTypes.func.isRequired,
+};
 
 export default connect(
   store => store,
