@@ -54,9 +54,13 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  uid: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   update: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
+};
+
+Home.defaultProps = {
+  uid:''
 };
 
 export default connect(

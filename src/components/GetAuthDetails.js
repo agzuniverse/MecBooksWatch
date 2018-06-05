@@ -24,8 +24,12 @@ class GetAuthDetails extends React.Component {
 }
 
 GetAuthDetails.propTypes = {
-  uid: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   update: PropTypes.func.isRequired
+};
+
+GetAuthDetails.defaultProps = {
+  uid: ''
 };
 
 export default connect(
