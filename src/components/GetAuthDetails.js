@@ -29,7 +29,7 @@ GetAuthDetails.propTypes = {
 };
 
 GetAuthDetails.defaultProps = {
-  uid: ''
+  uid: ""
 };
 
 export default connect(

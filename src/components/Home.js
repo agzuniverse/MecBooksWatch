@@ -60,7 +60,7 @@ Home.propTypes = {
 };
 
 Home.defaultProps = {
-  uid:''
+  uid: ""
 };
 
 export default connect(
