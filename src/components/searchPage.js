@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { searchAll } from "../firebase/firebase";
 import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
+import Searchbar from "./Searchbar";
 import GetAuthDetails from "./GetAuthDetails";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -76,9 +77,7 @@ class SearchPage extends Component {
         <SideMenu isFilter />
         <div className="mainDiv">
           <div id="searchDiv">
-            <form onSubmit={this.search}>
-              <input id="input2" type="text" placeholder="Search for Books" />
-            </form>
+            <Searchbar />
             {this.state.loaded ? (
               books
             ) : (
