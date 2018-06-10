@@ -76,8 +76,8 @@ class SearchPage extends Component {
         <GetAuthDetails />
         <SideMenu isFilter />
         <div className="mainDiv">
-          <div id="searchDiv">
-            <Searchbar />
+          <Searchbar search={this.search} />
+          <div id="productList">
             {this.state.loaded ? (
               books
             ) : (
