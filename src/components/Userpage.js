@@ -7,6 +7,7 @@ import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import Searchbar from "./Searchbar";
 
 class Userpage extends Component {
   constructor(props) {
@@ -59,15 +60,19 @@ class Userpage extends Component {
         <div className="App">
           <SideMenu isFilter={false} userDetails={this.props} />
           <div className="mainDiv">
-            {this.state.loaded ? (
-              books
-            ) : (
-              <div id="loading2">
-                <MuiThemeProvider>
-                  <CircularProgress size={200} thickness={9} />
-                </MuiThemeProvider>
-              </div>
-            )}
+            <Searchbar search={this.search} />
+            <div id="productList">
+              {this.state.loaded ? (
+                books
+              ) : (
+                <div id="loading">
+                  <MuiThemeProvider>
+                    <CircularProgress size={200} thickness={9} />
+                  </MuiThemeProvider>
+                </div>
+              )}
+            
+            </div>
           </div>
         </div>
       );

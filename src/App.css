@@ -139,14 +139,38 @@ footer {
   padding: 0px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr repeat(5fr);
+  grid-template-rows: 1fr 8fr;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-#searchDiv {
+#productList{
+  display: grid;
+  grid-template-rows: repeat(5fr);
+}
+/* #searchDiv {
   height: 30px;
   padding: 10px;
   text-align: center;
+} */
+.Searchbar{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+#inputDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#searchForm{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#iconDiv{
+  display: none;
 }
 #input2 {
   height: 80%;
@@ -154,10 +178,24 @@ footer {
   background-color: white;
   color: black;
   font-size: 17px;
-  border-radius: 17px;
+  border-radius: 13px;
   text-indent: 5%;
   padding: 3px;
   outline-width: 0;
+}
+@media only screen and (max-width: 768px) {
+  #iconDiv{
+    display: block;
+  }
+  .Searchbar{
+    grid-template-columns: 1fr 13fr;
+  }
+  .SideMenu{
+    display: none;
+  }
+  .App{
+    grid-template-columns: 1fr;
+  }
 }
 .ProductDiv {
   display: grid;

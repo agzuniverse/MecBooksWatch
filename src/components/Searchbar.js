@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -9,15 +9,23 @@ const Searchbar = (props) => {
     return(
       <div className="Searchbar">
         <MuiThemeProvider>
-          <IconButton>
-            <NavigationMenu />
-          </IconButton>
-          <form onSubmit={props.search}>
-            <input id="input2" type="text" placeholder="Search for Books" />
-          </form>
+          <div id="iconDiv">
+            <IconButton>
+              <NavigationMenu />
+            </IconButton>
+          </div>
+          <div id="inputDiv">
+            <form onSubmit={props.search} id="searchForm">
+              <input id="input2" type="text" placeholder="Search for Books" />
+            </form>
+          </div>
         </MuiThemeProvider>
       </div>
     )
 }
+
+Searchbar.propTypes = {
+  search: PropTypes.func.isRequired
+};
 
 export default Searchbar;
