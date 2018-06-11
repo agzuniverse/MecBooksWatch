@@ -20,7 +20,7 @@ const Searchbar = props => (
       </div>
     </MuiThemeProvider>
   </div>
-  );
+);
 
 Searchbar.propTypes = {
   search: PropTypes.func.isRequired
