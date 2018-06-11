@@ -71,7 +71,6 @@ class Userpage extends Component {
                   </MuiThemeProvider>
                 </div>
               )}
-            
             </div>
           </div>
         </div>
