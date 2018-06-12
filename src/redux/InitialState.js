@@ -1,6 +1,6 @@
 const InitialState = {
   test: {
-    testString: 'incomplete'
+    testString: "incomplete"
   },
   auth: {
     uid: "",
