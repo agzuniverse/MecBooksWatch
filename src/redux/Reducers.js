@@ -1,15 +1,7 @@
 import { TEST, SET_UID, SET_NAME, SET_EMAIL, SET_PROPIC, SEARCH_STRING, SEMFILTER, BRANCHFILTER } from './Actions';
 import InitialState from './InitialState';
 
-const reducers = (state = {}, action) => {
-        return {
-            test: testReducer(state.test, action),
-            auth: authReducer(state.auth, action),
-            search: searchReducer(state.search, action)
-        }
-};
-
-const testReducer = (state = InitialState.test, action) => {
+export const testReducer = (state = InitialState.test, action) => {
     switch (action.type) {
         case TEST:
             return Object.assign({}, state, { testString: action.test });
@@ -18,7 +10,7 @@ const testReducer = (state = InitialState.test, action) => {
     }
 }
 
-const authReducer = (state = InitialState.auth, action) => {
+export const authReducer = (state = InitialState.auth, action) => {
     switch (action.type) {
         case SET_UID:
             return Object.assign({}, state, { uid: action.uid });
@@ -33,7 +25,7 @@ const authReducer = (state = InitialState.auth, action) => {
     }
 }
 
-const searchReducer = (state = InitialState.search, action) => {
+export const searchReducer = (state = InitialState.search, action) => {
     switch (action.type) {
         case SEARCH_STRING:
             return Object.assign({}, state, { query: action.query });

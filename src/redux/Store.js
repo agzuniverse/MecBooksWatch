@@ -1,4 +1,10 @@
-import { createStore } from "redux";
-import reducers from "./Reducers.js";
+import { createStore, combineReducers } from "redux";
+import { testReducer, authReducer, searchReducer } from "./Reducers";
 
-export default createStore(reducers);
+const reducer = combineReducers({
+    test: testReducer,
+    auth: authReducer,
+    search: searchReducer
+});
+
+export default createStore(reducer);
