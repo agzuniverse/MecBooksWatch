@@ -9,58 +9,42 @@ import {
   BRANCHFILTER
 } from "./Actions";
 
-export const testRedux = text => {
-  return {
-    type: TEST,
-    text
-  };
-};
+export const testRedux = text => ({
+  type: TEST,
+  text
+});
 
-export const setGlobalUid = uid => {
-  return {
-    type: SET_UID,
-    uid
-  };
-};
+export const setGlobalUid = uid => ({
+  type: SET_UID,
+  uid
+});
 
-export const setGlobalName = name => {
-  return {
-    type: SET_NAME,
-    name
-  };
-};
+export const setGlobalName = name => ({
+  type: SET_NAME,
+  name
+});
 
-export const setGlobalEmail = email => {
-  return {
-    type: SET_EMAIL,
-    email
-  };
-};
+export const setGlobalEmail = email => ({
+  type: SET_EMAIL,
+  email
+});
 
-export const setGlobalProPic = propic => {
-  return {
-    type: SET_UID,
-    propic
-  };
-};
+export const setGlobalProPic = propic => ({
+  type: SET_PROPIC,
+  propic
+});
 
-export const searchString = query => {
-  return {
-    type: SET_UID,
-    query
-  };
-};
+export const searchString = query => ({
+  type: SEARCH_STRING,
+  query
+});
 
-export const setSemFilter = sem => {
-  return {
-    type: SET_UID,
-    sem
-  };
-};
+export const setSemFilter = sem => ({
+  type: SEMFILTER,
+  sem
+});
 
-export const setBranchFilter = branch => {
-  return {
-    type: SET_UID,
-    branch
-  };
-};
+export const setBranchFilter = branch => ({
+  type: BRANCHFILTER,
+  branch
+});
