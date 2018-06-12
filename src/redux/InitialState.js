@@ -1,12 +1,18 @@
 const InitialState = {
-  test: "incomplete",
-  uid: "",
-  name: "",
-  proPic: "",
-  email: "",
-  query: "",
-  semFilter: "Any semester",
-  branchFilter: "Any branch"
+  test: {
+    testString: 'incomplete'
+  },
+  auth: {
+    uid: "",
+    name: "",
+    proPic: "",
+    email: ""
+  },
+  search: {
+    query: "",
+    semFilter: "Any semester",
+    branchFilter: "Any branch"
+  }
 };
 
 export default InitialState;
