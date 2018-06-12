@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom && ./node_modules/.bin/eslint src/ && ./node_modules/.bin/prettier --list-different src/**/*.js",
+    "test": "./node_modules/.bin/eslint src/ && ./node_modules/.bin/prettier --list-different src/**/*.js && react-scripts test --env=jsdom",
     "jest": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
