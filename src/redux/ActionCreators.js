@@ -1,4 +1,4 @@
-import { TEST, SET_UID, SET_NAME, SET_EMAIL, SET_PROPIC, SEARCH_STRING, SEMFILTER, BRANCHFILTER } from './Reducers';
+import { TEST, SET_UID, SET_NAME, SET_EMAIL, SET_PROPIC, SEARCH_STRING, SEMFILTER, BRANCHFILTER } from './Actions';
 
 export const testRedux = (text) => {
     return {
