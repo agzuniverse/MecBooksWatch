@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic } from "../redux/ActionCreators";
+import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic, testRedux } from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
 
 class Auth extends React.Component {
@@ -26,7 +26,7 @@ class Auth extends React.Component {
         console.log("No user logged in");
       }
     });
-    this.props.update("TEST", { test: "WORKS" });
+    this.props.testRedux("WORKS");
   }
 
   logout = () => {
@@ -41,10 +41,10 @@ class Auth extends React.Component {
       localStorage.removeItem("LOCAL_NAME");
       localStorage.removeItem("LOCAL_EMAIL");
       localStorage.removeItem("LOCAL_PROPIC");
-      this.props.update("SET_UID", { uid: "" });
-      this.props.update("SET_NAME", { name: "" });
-      this.props.update("SET_EMAIL", { email: "" });
-      this.props.update("SET_PROPIC", { propic: "" });
+      this.props.updateUid("");
+      this.props.updateName("");
+      this.props.updateEmail("");
+      this.props.updatePropic("");
       console.log("Logout Successful");
       this.props.history.push("/");
     });
@@ -64,10 +64,10 @@ class Auth extends React.Component {
           userProPic: pData.photoURL
         },
         () => {
-          this.props.update("SET_UID", { uid: this.state.uid });
-          this.props.update("SET_NAME", { name: this.state.userName });
-          this.props.update("SET_EMAIL", { email: this.state.userEmail });
-          this.props.update("SET_PROPIC", { propic: this.state.userProPic });
+          this.props.updateUid(this.state.uid);
+          this.props.updateName(this.state.userName);
+          this.props.updateEmail(this.state.userEmail);
+          this.props.updatePropic(this.state.userProPic);
           localStorage.setItem("LOCAL_UID", this.state.uid);
           localStorage.setItem("LOCAL_NAME", this.state.userName);
           localStorage.setItem("LOCAL_EMAIL", this.state.userEmail);
@@ -114,7 +114,11 @@ class Auth extends React.Component {
 
 Auth.propTypes = {
   uid: PropTypes.string.isRequired,
-  update: PropTypes.func.isRequired,
+  updateUid: PropTypes.func.isRequired,
+  updateEmail: PropTypes.func.isRequired,
+  updateName: PropTypes.func.isRequired,
+  updatePropic: PropTypes.func.isRequired,
+  testRedux: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
@@ -137,6 +141,9 @@ const mapDispatchToProps = (dispatch) => (
     },
     updatePropic: (propic) => {
       dispatch(setGlobalProPic(propic));
+    },
+    testRedux: (text) => {
+      dispatch(testRedux(text));
     }
   }
 );
