@@ -4,6 +4,7 @@ import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSemFilter, setBranchFilter } from '../redux/ActionCreators';
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
@@ -21,14 +22,14 @@ class SideMenu extends Component {
     this.setState({
       semesterValue: value
     });
-    this.props.update("SEMFILTER", { sem: value });
+    this.props.updateSemFilter(value);
   };
 
   branchChange = (event, index, value) => {
     this.setState({
       branchValue: value
     });
-    this.props.update("BRANCHFILTER", { branch: value });
+    this.props.updateBranchFilter(value);
   };
 
   render() {
@@ -153,17 +154,29 @@ class SideMenu extends Component {
 
 SideMenu.propTypes = {
   isFilter: PropTypes.bool.isRequired,
-  update: PropTypes.func.isRequired,
+  updateSemFilter: PropTypes.func.isRequired,
+  updateBranchFilter: PropTypes.func.isRequired,
   proPic: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
   userDetails: PropTypes.object.isRequired
 };
 
-export default connect(
-  store => store,
-  dispatch => ({
-    update: (dispatchType, dispatchPayload) => {
-      dispatch({ type: dispatchType, payload: dispatchPayload });
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid,
+    proPic: state.auth.proPic
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    updateSemFilter: (sem) => {
+      dispatch(setSemFilter(sem));
+    },
+    updateBranchFilter: (branch) => {
+      dispatch(setBranchFilter(branch));
     }
-  })
-)(SideMenu);
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
