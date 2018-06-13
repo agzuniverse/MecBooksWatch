@@ -7,13 +7,14 @@ import NavigationMenu from "material-ui/svg-icons/navigation/menu";
 
 let sideMenu = false;
 
-function toggleSideMenu(){
-  if(!sideMenu){
-    document.getElementsByClassName("App")[0].style.gridTemplateColumns = "230px 1fr";
+function toggleSideMenu() {
+  if (!sideMenu) {
+    document.getElementsByClassName("App")[0].style.gridTemplateColumns =
+      "230px 1fr";
     document.getElementsByClassName("SideMenu")[0].style.display = "grid";
     document.getElementsByClassName("mainDiv")[0].style.overflow = "hidden";
     sideMenu = true;
-  } else { 
+  } else {
     document.getElementsByClassName("App")[0].style.gridTemplateColumns = "1fr";
     document.getElementsByClassName("SideMenu")[0].style.display = "none";
     document.getElementsByClassName("mainDiv")[0].style.overflow = "hidden";
