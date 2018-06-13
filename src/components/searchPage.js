@@ -83,7 +83,7 @@ class SearchPage extends Component {
             ) : (
               <div id="loading">
                 <MuiThemeProvider>
-                  <CircularProgress size={200} thickness={9} />
+                  <CircularProgress size={50} thickness={5} />
                 </MuiThemeProvider>
               </div>
             )}
