@@ -64,18 +64,14 @@ Home.defaultProps = {
   uid: ""
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid
+});
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    updateSearchString: (query) => {
-      dispatch(searchString(query));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateSearchString: query => {
+    dispatch(searchString(query));
   }
-);
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

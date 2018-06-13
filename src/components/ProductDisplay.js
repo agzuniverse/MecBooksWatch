@@ -128,10 +128,8 @@ ProductDisplay.propTypes = {
   location: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid
+});
 
 export default connect(mapStateToProps)(ProductDisplay);

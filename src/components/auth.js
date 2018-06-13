@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic, testRedux } from "../redux/ActionCreators";
+import {
+  setGlobalUid,
+  setGlobalEmail,
+  setGlobalName,
+  setGlobalProPic,
+  testRedux
+} from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
 
 class Auth extends React.Component {
@@ -122,30 +128,26 @@ Auth.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid
+});
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    updateUid: (uid) => {
-      dispatch(setGlobalUid(uid));
-    },
-    updateEmail: (email) => {
-      dispatch(setGlobalEmail(email));
-    },
-    updateName: (name) => {
-      dispatch(setGlobalName(name));
-    },
-    updatePropic: (propic) => {
-      dispatch(setGlobalProPic(propic));
-    },
-    testRedux: (text) => {
-      dispatch(testRedux(text));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateUid: uid => {
+    dispatch(setGlobalUid(uid));
+  },
+  updateEmail: email => {
+    dispatch(setGlobalEmail(email));
+  },
+  updateName: name => {
+    dispatch(setGlobalName(name));
+  },
+  updatePropic: propic => {
+    dispatch(setGlobalProPic(propic));
+  },
+  testRedux: text => {
+    dispatch(testRedux(text));
   }
-);
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

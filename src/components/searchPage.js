@@ -100,12 +100,10 @@ SearchPage.propTypes = {
   branchFilter: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    query: state.search.query,
-    semFilter: state.search.semFilter,
-    branchFilter: state.search.branchFilter
-  }
-);
+const mapStateToProps = state => ({
+  query: state.search.query,
+  semFilter: state.search.semFilter,
+  branchFilter: state.search.branchFilter
+});
 
 export default connect(mapStateToProps)(SearchPage);

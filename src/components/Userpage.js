@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
-import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic } from "../redux/ActionCreators";
+import {
+  setGlobalUid,
+  setGlobalEmail,
+  setGlobalName,
+  setGlobalProPic
+} from "../redux/ActionCreators";
 import { readFromStorage } from "../firebase/firebase";
 import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
@@ -80,27 +85,23 @@ Userpage.propTypes = {
   updatePropic: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid
+});
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    updateUid: (uid) => {
-      dispatch(setGlobalUid(uid));
-    },
-    updateEmail: (email) => {
-      dispatch(setGlobalEmail(email));
-    },
-    updateName: (name) => {
-      dispatch(setGlobalName(name));
-    },
-    updatePropic: (propic) => {
-      dispatch(setGlobalProPic(propic));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateUid: uid => {
+    dispatch(setGlobalUid(uid));
+  },
+  updateEmail: email => {
+    dispatch(setGlobalEmail(email));
+  },
+  updateName: name => {
+    dispatch(setGlobalName(name));
+  },
+  updatePropic: propic => {
+    dispatch(setGlobalProPic(propic));
   }
-);
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Userpage);

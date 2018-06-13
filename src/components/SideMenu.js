@@ -4,7 +4,7 @@ import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSemFilter, setBranchFilter } from '../redux/ActionCreators';
+import { setSemFilter, setBranchFilter } from "../redux/ActionCreators";
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
@@ -161,22 +161,18 @@ SideMenu.propTypes = {
   userDetails: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid,
-    proPic: state.auth.proPic
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid,
+  proPic: state.auth.proPic
+});
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    updateSemFilter: (sem) => {
-      dispatch(setSemFilter(sem));
-    },
-    updateBranchFilter: (branch) => {
-      dispatch(setBranchFilter(branch));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateSemFilter: sem => {
+    dispatch(setSemFilter(sem));
+  },
+  updateBranchFilter: branch => {
+    dispatch(setBranchFilter(branch));
   }
-);
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
