@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic } from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
 
 class Auth extends React.Component {
@@ -117,11 +118,27 @@ Auth.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-export default connect(
-  store => store,
-  dispatch => ({
-    update: (dispatchType, dispatchPayload) => {
-      dispatch({ type: dispatchType, payload: dispatchPayload });
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    updateUid: (uid) => {
+      dispatch(setGlobalUid(uid));
+    },
+    updateEmail: (email) => {
+      dispatch(setGlobalEmail(email));
+    },
+    updateName: (name) => {
+      dispatch(setGlobalName(name));
+    },
+    updatePropic: (propic) => {
+      dispatch(setGlobalProPic(propic));
     }
-  })
-)(Auth);
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
