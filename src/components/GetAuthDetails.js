@@ -1,20 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic } from "../redux/ActionCreators";
 
 class GetAuthDetails extends React.Component {
   componentWillMount() {
     if (this.props.uid === "" || this.props.uid === null) {
-      this.props.update("SET_UID", { uid: localStorage.getItem("LOCAL_UID") });
-      this.props.update("SET_NAME", {
-        name: localStorage.getItem("LOCAL_NAME")
-      });
-      this.props.update("SET_EMAIL", {
-        email: localStorage.getItem("LOCAL_EMAIL")
-      });
-      this.props.update("SET_PROPIC", {
-        propic: localStorage.getItem("LOCAL_PROPIC")
-      });
+      this.props.updateUid(localStorage.getItem("LOCAL_UID"));
+      this.props.updateName(localStorage.getItem("LOCAL_NAME"));
+      this.props.updateEmail(localStorage.getItem("LOCAL_EMAIL"));
+      this.props.updatePropic(localStorage.getItem("LOCAL_PROPIC"));
     }
   }
 
@@ -25,18 +20,37 @@ class GetAuthDetails extends React.Component {
 
 GetAuthDetails.propTypes = {
   uid: PropTypes.string,
-  update: PropTypes.func.isRequired
+  updateUid: PropTypes.func.isRequired,
+  updateEmail: PropTypes.func.isRequired,
+  updateName: PropTypes.func.isRequired,
+  updatePropic: PropTypes.func.isRequired,
 };
 
 GetAuthDetails.defaultProps = {
   uid: ""
 };
 
-export default connect(
-  store => store,
-  dispatch => ({
-    update: (dispatchType, dispatchPayload) => {
-      dispatch({ type: dispatchType, payload: dispatchPayload });
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    updateUid: (uid) => {
+      dispatch(setGlobalUid(uid));
+    },
+    updateEmail: (email) => {
+      dispatch(setGlobalEmail(email));
+    },
+    updateName: (name) => {
+      dispatch(setGlobalName(name));
+    },
+    updatePropic: (propic) => {
+      dispatch(setGlobalProPic(propic));
     }
-  })
-)(GetAuthDetails);
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAuthDetails);
