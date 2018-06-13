@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
+import { setGlobalUid, setGlobalEmail, setGlobalName, setGlobalProPic } from "../redux/ActionCreators";
 import { readFromStorage } from "../firebase/firebase";
 import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
@@ -21,22 +22,14 @@ class Userpage extends Component {
   componentWillMount() {
     if (this.props.uid === "" || this.props.uid === null) {
       this.fetchLocalUidAsync();
-      this.props.update("SET_NAME", {
-        name: localStorage.getItem("LOCAL_NAME")
-      });
-      this.props.update("SET_EMAIL", {
-        email: localStorage.getItem("LOCAL_EMAIL")
-      });
-      this.props.update("SET_PROPIC", {
-        propic: localStorage.getItem("LOCAL_PROPIC")
-      });
+      this.props.updateName(localStorage.getItem("LOCAL_NAME"));
+      this.props.updateEmail(localStorage.getItem("LOCAL_EMAIL"));
+      this.props.updatePropic(localStorage.getItem("LOCAL_PROPIC"));
     } else this.fetchUserBooks(this.props.uid);
   }
 
   fetchLocalUidAsync = async () => {
-    await this.props.update("SET_UID", {
-      uid: localStorage.getItem("LOCAL_UID")
-    });
+    await this.props.updateUid(localStorage.getItem("LOCAL_UID"));
     this.fetchUserBooks(this.props.uid);
   };
 
@@ -81,14 +74,33 @@ class Userpage extends Component {
 
 Userpage.propTypes = {
   uid: PropTypes.string.isRequired,
-  update: PropTypes.func.isRequired
+  updateUid: PropTypes.func.isRequired,
+  updateEmail: PropTypes.func.isRequired,
+  updateName: PropTypes.func.isRequired,
+  updatePropic: PropTypes.func.isRequired
 };
 
-export default connect(
-  store => store,
-  dispatch => ({
-    update: (dispatchType, dispatchPayload) => {
-      dispatch({ type: dispatchType, payload: dispatchPayload });
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    updateUid: (uid) => {
+      dispatch(setGlobalUid(uid));
+    },
+    updateEmail: (email) => {
+      dispatch(setGlobalEmail(email));
+    },
+    updateName: (name) => {
+      dispatch(setGlobalName(name));
+    },
+    updatePropic: (propic) => {
+      dispatch(setGlobalProPic(propic));
     }
-  })
-)(Userpage);
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Userpage);
