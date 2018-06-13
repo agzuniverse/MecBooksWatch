@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { searchString } from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
 
 class Home extends Component {
   search = () => {
     const query = document.getElementById("input").value;
-    this.props.update("SEARCH_STRING", { query });
+    this.props.updateSearchString(query);
     this.props.history.push("/search");
   };
 
@@ -55,7 +56,7 @@ class Home extends Component {
 
 Home.propTypes = {
   uid: PropTypes.string,
-  update: PropTypes.func.isRequired,
+  updateSearchString: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
@@ -63,11 +64,18 @@ Home.defaultProps = {
   uid: ""
 };
 
-export default connect(
-  store => store,
-  dispatch => ({
-    update: (dispatchType, dispatchPayload) => {
-      dispatch({ type: dispatchType, payload: dispatchPayload });
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    updateSearchString: (query) => {
+      dispatch(searchString(query));
     }
-  })
-)(Home);
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
