@@ -140,12 +140,19 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 8fr;
+<<<<<<< HEAD
+=======
+  overflow-y: scroll;
+>>>>>>> 05602f35844f68fea76870b7a4e2860d12fbc57c
   overflow-x: hidden;
 }
 #productList{
   display: grid;
   grid-template-rows: repeat(5fr);
+<<<<<<< HEAD
   overflow-y: scroll;
+=======
+>>>>>>> 05602f35844f68fea76870b7a4e2860d12fbc57c
 }
 /* #searchDiv {
   height: 30px;
