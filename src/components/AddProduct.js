@@ -313,4 +313,12 @@ AddProduct.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-export default connect(store => store)(AddProduct);
+const mapStateToProps = (state) => (
+  {
+    uid: state.auth.uid,
+    email: state.auth.email,
+    name: state.auth.name
+  }
+);
+
+export default connect(mapStateToProps)(AddProduct);
