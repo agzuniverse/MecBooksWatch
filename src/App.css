@@ -2,9 +2,9 @@
   overflow: hidden;
 }
 
-.container {
+.Container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 .topWrapper {
@@ -18,9 +18,9 @@
 
 #head {
   color: white;
-  width: 9em;
+  width: 22.5%;
   position: absolute;
-  top: 3.3em;
+  top: 20%;
   left: 0;
   right: 0;
   margin: auto;
@@ -31,10 +31,10 @@
 }
 
 #input {
-  height: 2.4em;
-  width: 32em;
+  height: 3.9%;
+  width: 40%;
   position: absolute;
-  top: 13em;
+  top: 31%;
   left: 0;
   right: 0;
   margin: auto;
@@ -42,39 +42,33 @@
   color: black;
   font-size: 17px;
   border-radius: 17px;
-  box-shadow: 4px 4px 10px #888888;
   text-indent: 5%;
   padding: 3px;
   outline-width: 0;
-  transition-duration: 0.2s;
-  border: none;
-}
-
-#input:hover {
-  box-shadow: 5px 8px 12px #888888;
 }
 
 #tagLine {
-  color: #474949d5;
+  color: white;
   font-size: 21px;
   text-align: center;
   width: 100%;
   position: absolute;
-  top: 13.5em;
+  top: 40.5%;
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 7px;
 }
 
 #bottom {
   color: white;
-  width: 17em;
+  width: 100%;
   text-align: center;
   position: absolute;
-  bottom: 16px;
-  right: 16px;
-  font-size: 16px;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 17px;
 }
 
 footer {
@@ -91,11 +85,6 @@ footer {
 
 .mainBackground {
   background: rgb(4, 47, 78);
-}
-.mainBackground-addProductPage {
-  background: rgb(4, 47, 78);
-  min-height: 100vh;
-  overflow: scroll;
 }
 .mainColor {
   color: rgba(255, 255, 255, 0.87);
@@ -119,8 +108,8 @@ footer {
   text-align: center;
   height: 100vh;
 }
-
 .logo {
+  float: left;
   text-decoration: none;
   text-align: center;
   color: rgba(255, 255, 255, 0.87);
@@ -130,11 +119,13 @@ footer {
 #watchPart {
   color: lawngreen;
 }
-
 .dropDownMenu {
   width: 200px;
 }
 
+.linksDiv {
+  align-self: end;
+}
 #loading {
   text-align: center;
   padding-top: 10%;
@@ -152,7 +143,7 @@ footer {
   grid-template-rows: 1fr 8fr;
   overflow-x: hidden;
 }
-#productList {
+#productList{
   display: grid;
   grid-template-rows: repeat(5fr);
   overflow-y: scroll;
@@ -162,24 +153,24 @@ footer {
   padding: 10px;
   text-align: center;
 } */
-.Searchbar {
+.Searchbar{
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
 }
-#inputDiv {
+#inputDiv{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#searchForm {
+#searchForm{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#iconDiv {
+#iconDiv{
   display: none;
 }
 #input2 {
@@ -194,16 +185,16 @@ footer {
   outline-width: 0;
 }
 @media only screen and (max-width: 768px) {
-  #iconDiv {
+  #iconDiv{
     display: block;
   }
-  .Searchbar {
+  .Searchbar{
     grid-template-columns: 1fr 13fr;
   }
-  .SideMenu {
+  .SideMenu{
     display: none;
   }
-  .App {
+  .App{
     grid-template-columns: 1fr;
   }
 }
@@ -336,8 +327,10 @@ footer {
 }
 
 .centerTotal {
+  height: auto;
   padding: 20px 0px 20px 0px;
   width: 85%;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,8 +352,8 @@ footer {
   left: 0;
   right: 0;
   margin: auto;
-  /* overflow-y: hidden; */
-  height: 85vh;
+  overflow-y: hidden;
+  height: 87.6vh;
   padding: 20px 0px 20px 0px;
   width: 85%;
   background-color: white;
@@ -374,11 +367,29 @@ footer {
 
 #button {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  right: 2em;
+  top: 2em;
+  padding: 6px;
   font-size: 18px;
+  width: 8%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
   display: inline-block;
   cursor: pointer;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+#button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#button:focus {
+  outline: none;
+  border: none;
 }
 
 .materialBlack {
@@ -390,10 +401,11 @@ footer {
   position: sticky;
   top: 0px;
   width: 100vw;
+  text-align: center;
   min-height: 9.3vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   box-shadow: 2px 2px 15px rgb(66, 66, 66);
 }
 
@@ -403,15 +415,14 @@ footer {
 }
 
 .backToButton {
-  position: absolute;
-  right: 16px;
-  justify-self: flex-end;
+  width: 100%;
+  height: 5%;
 }
 
 .imageHolder {
   background-color: rgb(236, 239, 241);
   width: 25%;
-  height: 75vh;
+  /* height: 75vh; */
   position: absolute;
   top: 18%;
   left: 15%;
@@ -560,30 +571,12 @@ footer {
 
 #logout {
   box-sizing: border-box;
-  /* position: absolute; */
-  /* top: 39%;
+  position: absolute;
+  top: 39%;
   left: 0;
-  right: 0;*/
+  right: 0;
   margin: auto;
-  width: 8em;
-  height: 2.2em;
-  text-align: center;
-  font-size: 18px;
-  background-color: #00c853b7;
-  color: white;
-  border: none;
-  border-radius: 0.2em;
-  white-space: nowrap;
-  cursor: pointer;
-}
-#userpage {
-  box-sizing: border-box;
-  /* position: absolute; */
-  /* top: 39%;
-  left: 0;
-  right: 0; */
-  margin: auto;
-  width: 8em;
+  width: 13em;
   height: 2.2em;
   text-align: center;
   font-size: 18px;
@@ -616,6 +609,13 @@ footer {
 }
 
 #google-login {
+  position: absolute;
+  top: 39%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 13em;
+  height: 2.2em;
   cursor: pointer;
 }
 
@@ -695,35 +695,29 @@ footer {
     display: flex;
     justify-content: center;
   }
-  .logo {
-    font-size: 24px;
-    padding-left: 16px;
-  }
-  .appbar {
-    justify-content: space-between;
-  }
-  #centerTotal {
-    height: 180vh;
-    width: 90%;
-  }
+}
 
-  /*.imageHolder {
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+  .imageHolder {
     height: 45%;
     width: 60%;
     left: 0%;
     top: 25%;
     right: 0;
     margin: auto;
-  }*/
+  }
 
   .details {
     display: none;
   }
 
   .detailCard {
-    top: 42%;
-    width: 75%;
-    height: 26em;
+    top: 84%;
+    width: 60%;
+    height: 70%;
     position: absolute;
     left: 0;
     right: 0;
@@ -761,10 +755,10 @@ footer {
   }
 
   #sellerInfoCard {
-    width: 90%;
-    height: 26em;
+    width: 75%;
+    height: 75%;
     position: absolute;
-    top: 27em;
+    top: 82%;
     left: 0;
     right: 0;
     margin: auto;
@@ -775,33 +769,37 @@ footer {
   }
 
   .imageHolder {
-    top: 5em;
-    width: 80%;
-    height: 20em;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 20%;
+    width: 70%;
+    height: 55%;
   }
   footer {
     font-size: 17px;
   }
   #head {
-    top: 4.8em;
-    width: 9em;
+    width: 70%;
     font-size: 37px;
   }
   #tagLine {
-    width: 19em;
-    top: 17.9em;
-    font-size: 17px;
+    top: 46%;
+    font-size: 18.5px;
   }
   #bottom {
-    width: 22em;
     font-size: 14px;
   }
   #input {
-    top: 14.3em;
+    top: 36%;
     width: 80%;
+  }
+
+  .mainBackground {
+    height: 170vh;
+  }
+  .sellWrapper {
+    height: 180vh;
+  }
+  .centerTotal {
+    height: 200vh;
   }
 }
 
@@ -815,52 +813,4 @@ footer {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-}
-
-/* New Landing Page */
-.Wrapper {
-  height: 100%;
-  margin: 0;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  overflow: hidden;
-}
-
-.bg,
-.bg2,
-.bg3 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-.bg {
-  -webkit-clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
-  clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
-  z-index: -1;
-  background: #360033; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #0b8793,
-    #360033
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #0b8793,
-    #360033
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.bg2 {
-  -webkit-clip-path: polygon(63% 69%, 100% 9%, 100% 100%, 5% 100%);
-  clip-path: polygon(63% 69%, 100% 9%, 100% 100%, 5% 100%);
-  z-index: -2;
-  background: #c31432; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #240b36,
-    #c31432
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #240b36, #c31432);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -1,6 +1,5 @@
 /* eslint-disable */
 import * as firebase from "firebase";
-import "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyDw_Tpy96dXGAd3z65s_s98pdd007MPysU",
@@ -11,7 +10,6 @@ const config = {
 };
 
 firebase.initializeApp(config);
-let db = firebase.firestore();
 
 export function addToStorage(file, data) {
   return new Promise((resolve, reject) => {
@@ -31,9 +29,10 @@ export function addToStorage(file, data) {
 
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
-        db
-          .collection("textbooks")
-          .add(data)
+        const database = firebase.database();
+        database
+          .ref(`store/textbooks/${data.uid}`)
+          .push(data)
           .then(dataSnapshot => {
             console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
             resolve();
@@ -48,12 +47,11 @@ export function addToStorage(file, data) {
 export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
-        .where("uid", "==", uid)
-        .get()
-        .then(result => {
-          resolve(result);
+      firebase
+        .database()
+        .ref(`store/textbooks/${uid}`)
+        .once("value", snapshot => {
+          resolve(snapshot.val());
         });
     } catch (e) {
       reject();
@@ -65,12 +63,31 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
-        .where("tags." + query, "==", true)
-        .get()
-        .then(result => {
-          resolve(result);
+      firebase
+        .database()
+        .ref("store/textbooks/")
+        .once("value", snapshot => {
+          const data = snapshot.val();
+          const results = [];
+          let flag = true;
+          for (const i in data) {
+            for (const j in data[i]) {
+              for (const tag in data[i][j].tags) {
+                if (data[i][j].tags[tag].toLowerCase().includes(query)) {
+                  flag = true;
+                  for (const k in results) {
+                    if (results[k] === data[i][j]) {
+                      flag = false;
+                    }
+                  }
+                  if (flag) {
+                    results.push(data[i][j]);
+                  }
+                }
+              }
+            }
+          }
+          resolve(results);
         });
     } catch (e) {
       reject();
@@ -78,17 +95,35 @@ export function searchAll(query) {
   });
 }
 
-export function searchUser(query, uid) {
+export function searchUser(query,uid) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
-        .where("uid", "==", uid)
-        .where("tags." + query, "==", true)
-        .get()
-        .then(result => {
-          resolve(result);
+      firebase
+        .database()
+        .ref(`store/textbooks/${uid}`)
+        .once("value", snapshot => {
+          const data = snapshot.val();
+          console.log(data);
+          const results = [];
+          let flag = true;
+          for (const i in data) {
+              console.log(i,data[i]);
+              for (const tag in data[i].tags) {
+                if (data[i].tags[tag].toLowerCase().includes(query)) {
+                  flag = true;
+                  for (const k in results) {
+                    if (results[k] === data[i]) {
+                      flag = false;
+                    }
+                  }
+                  if (flag) {
+                    results.push(data[i]);
+                  }
+                }
+              }
+            }
+          resolve(results);
         });
     } catch (e) {
       reject();
