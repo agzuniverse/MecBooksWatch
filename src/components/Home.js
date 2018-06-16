@@ -14,6 +14,19 @@ class Home extends Component {
     this.props.history.push("/search");
   };
 
+  navigateOnAuthChange = path => {
+    switch (path) {
+      case "userpage":
+        this.props.history.push("/user");
+        break;
+      case "homepage":
+        this.props.history.push("/");
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
     return (
       <div>
@@ -21,7 +34,7 @@ class Home extends Component {
         <div className="Container">
           <div className="topWrapper">
             <span id="button">
-              <Auth />
+              <Auth navigateOnAuthChange={this.navigateOnAuthChange} />
             </span>
             <center>
               <h1 id="head">

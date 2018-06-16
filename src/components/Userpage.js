@@ -73,6 +73,19 @@ class Userpage extends Component {
     this.performSearch(query);
   };
 
+  navigateOnAuthChange = path => {
+    switch (path) {
+      case "userpage":
+        this.props.history.push("/user");
+        break;
+      case "homepage":
+        this.props.history.push("/");
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
     let books = [];
     if (this.state.searchResults) {
@@ -88,7 +101,11 @@ class Userpage extends Component {
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
         <div className="App">
-          <SideMenu isFilter={false} userDetails={this.props} />
+          <SideMenu
+            isFilter={false}
+            userDetails={this.props}
+            navigateOnAuthChange={this.navigateOnAuthChange}
+          />
           <div className="mainDiv">
             <Searchbar search={this.search} />
             <div id="productList">
@@ -114,7 +131,8 @@ Userpage.propTypes = {
   updateUid: PropTypes.func.isRequired,
   updateEmail: PropTypes.func.isRequired,
   updateName: PropTypes.func.isRequired,
-  updatePropic: PropTypes.func.isRequired
+  updatePropic: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

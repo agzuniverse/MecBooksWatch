@@ -33,11 +33,6 @@ class SideMenu extends Component {
     this.props.updateBranchFilter(value);
   };
 
-  login = () => {
-    window.location = "/";
-    window.alert("Please login to add book");
-  };
-
   render() {
     if (this.props.isFilter === true) {
       return (
@@ -132,7 +127,7 @@ class SideMenu extends Component {
             <br />
             {this.props.userDetails.email}
             <br />
-            <Auth />
+            <Auth navigateOnAuthChange={this.props.navigateOnAuthChange} />
           </div>
           <div className="linksDiv">
             <Link to="/addproduct">
@@ -162,7 +157,8 @@ SideMenu.propTypes = {
   updateBranchFilter: PropTypes.func.isRequired,
   proPic: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
-  userDetails: PropTypes.object.isRequired
+  userDetails: PropTypes.object.isRequired,
+  navigateOnAuthChange: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
