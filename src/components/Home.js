@@ -50,23 +50,13 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  // uid: PropTypes.string,
   updateSearchString: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
-
-// Home.defaultProps = {
-//   uid: ""
-// };
-
-const mapStateToProps = state => ({
-  uid: state.auth.uid
-});
-
 const mapDispatchToProps = dispatch => ({
   updateSearchString: query => {
     dispatch(searchString(query));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
