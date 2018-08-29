@@ -107,13 +107,18 @@ class Auth extends React.Component {
                 <button
                   id="userpage"
                   onClick={() => this.props.history.push("/user")}
+                  style={{ margin: "8px" }}
                 >
                   My Profile
                 </button>
               ) : null}
             </span>
             <span>
-              <button id="logout" onClick={this.logout}>
+              <button
+                id="logout"
+                onClick={this.logout}
+                style={{ margin: "8px" }}
+              >
                 Logout
               </button>
             </span>
