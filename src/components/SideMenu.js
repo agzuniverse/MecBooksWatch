@@ -4,7 +4,7 @@ import "../App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSemFilter, setBranchFilter } from "../redux/ActionCreators";
+import { setYearFilter, setBranchFilter } from "../redux/ActionCreators";
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
@@ -14,16 +14,16 @@ class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semesterValue: "Any semester",
+      yearValue: "Any year",
       branchValue: "Any branch"
     };
   }
 
-  semChange = (event, index, value) => {
+  yearChange = (event, index, value) => {
     this.setState({
-      semesterValue: value
+      yearValue: value
     });
-    this.props.updateSemFilter(value);
+    this.props.updateYearFilter(value);
   };
 
   branchChange = (event, index, value) => {
@@ -46,23 +46,19 @@ class SideMenu extends Component {
             <div className="filterDiv">
               <br />
               <br />
-              Semester<br />
+              Year<br />
               <DropDownMenu
-                onChange={this.semChange}
-                value={this.state.semesterValue}
+                onChange={this.yearChange}
+                value={this.state.yearValue}
                 autoWidth={false}
                 className="dropDownMenu"
                 labelStyle={{ color: "rgba(255,255,255,0.87)" }}
               >
-                <MenuItem value="Any semester" primaryText="Any semester" />
-                <MenuItem value="Semester 1" primaryText="Semester 1" />
-                <MenuItem value="Semester 2" primaryText="Semester 2" />
-                <MenuItem value="Semester 3" primaryText="Semester 3" />
-                <MenuItem value="Semester 4" primaryText="Semester 4" />
-                <MenuItem value="Semester 5" primaryText="Semester 5" />
-                <MenuItem value="Semester 6" primaryText="Semester 6" />
-                <MenuItem value="Semester 7" primaryText="Semester 7" />
-                <MenuItem value="Semester 8" primaryText="Semester 8" />
+                <MenuItem value="Any year" primaryText="Any year" />
+                <MenuItem value="1" primaryText="1" />
+                <MenuItem value="2" primaryText="2" />
+                <MenuItem value="3" primaryText="3" />
+                <MenuItem value="4" primaryText="4" />
               </DropDownMenu>
               <br />
               Branch<br />
@@ -167,8 +163,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateSemFilter: sem => {
-    dispatch(setSemFilter(sem));
+  updateYearFilter: year => {
+    dispatch(setYearFilter(year));
   },
   updateBranchFilter: branch => {
     dispatch(setBranchFilter(branch));

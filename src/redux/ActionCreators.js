@@ -5,7 +5,7 @@ import {
   SET_EMAIL,
   SET_PROPIC,
   SEARCH_STRING,
-  SEMFILTER,
+  YEARFILTER,
   BRANCHFILTER
 } from "./Actions";
 
@@ -39,9 +39,9 @@ export const searchString = query => ({
   query
 });
 
-export const setSemFilter = sem => ({
-  type: SEMFILTER,
-  sem
+export const setYearFilter = year => ({
+  type: YEARFILTER,
+  year
 });
 
 export const setBranchFilter = branch => ({

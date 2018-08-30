@@ -48,23 +48,20 @@ class SearchPage extends Component {
 
   render() {
     const { searchResults, loaded } = this.state;
-    const { semFilter, branchFilter } = this.props;
+    const { yearFilter, branchFilter } = this.props;
 
     const books = Object.keys(searchResults).map(key => {
-      if (semFilter === "Any semester" && branchFilter === "Any branch")
+      if (yearFilter === "Any year" && branchFilter === "Any branch")
         return <ProductDiv details={searchResults[key]} />;
-      else if (semFilter !== "Any semester" && branchFilter === "Any branch") {
-        if (searchResults[key].semester === semFilter)
+      else if (yearFilter !== "Any year" && branchFilter === "Any branch") {
+        if (searchResults[key].year === yearFilter)
           return <ProductDiv details={searchResults[key]} />;
-      } else if (
-        semFilter === "Any semester" &&
-        branchFilter !== "Any branch"
-      ) {
+      } else if (yearFilter === "Any year" && branchFilter !== "Any branch") {
         if (searchResults[key].branch === branchFilter)
           return <ProductDiv details={searchResults[key]} />;
       } else if (
         searchResults[key].branch === branchFilter &&
-        searchResults[key].semester === semFilter
+        searchResults[key].year === yearFilter
       )
         return <ProductDiv details={searchResults[key]} />;
       return null;
@@ -94,13 +91,13 @@ class SearchPage extends Component {
 
 SearchPage.propTypes = {
   query: PropTypes.string.isRequired,
-  semFilter: PropTypes.string.isRequired,
+  yearFilter: PropTypes.string.isRequired,
   branchFilter: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
   query: state.search.query,
-  semFilter: state.search.semFilter,
+  yearFilter: state.search.yearFilter,
   branchFilter: state.search.branchFilter
 });
 

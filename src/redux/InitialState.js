@@ -10,7 +10,7 @@ const InitialState = {
   },
   search: {
     query: "",
-    semFilter: "Any semester",
+    yearFilter: "Any year",
     branchFilter: "Any branch"
   }
 };
