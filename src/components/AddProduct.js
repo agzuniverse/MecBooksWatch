@@ -80,7 +80,10 @@ class AddProduct extends Component {
         tags[e.toLowerCase()] = true;
       });
 
-      this.state.invalid = [];
+      this.setState({
+        invalid: []
+      });
+
       if (title.replace(/\s/g, "") === "")
         this.setInvalid("Title field is blank");
 
