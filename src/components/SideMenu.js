@@ -149,7 +149,7 @@ class SideMenu extends Component {
 
 SideMenu.propTypes = {
   isFilter: PropTypes.bool.isRequired,
-  updateSemFilter: PropTypes.func.isRequired,
+  updateYearFilter: PropTypes.func.isRequired,
   updateBranchFilter: PropTypes.func.isRequired,
   proPic: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
