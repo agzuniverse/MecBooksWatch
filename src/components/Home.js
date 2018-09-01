@@ -31,14 +31,17 @@ class Home extends Component {
     return (
       <div>
         <GetAuthDetails />
-        <div className="Container">
-          <div className="topWrapper">
+        <div className="Wrapper">
+          <div className="bg" />
+          <div className="bg2" />
+
+          <div className="container">
             <span id="button">
               <Auth navigateOnAuthChange={this.navigateOnAuthChange} />
             </span>
             <center>
               <h1 id="head">
-                Books<span id="watch">Watch</span>
+                <span id="watch">BooksWatch</span>
               </h1>
             </center>
             <form onSubmit={this.search}>

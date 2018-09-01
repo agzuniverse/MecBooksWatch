@@ -31,7 +31,7 @@
 }
 
 #input {
-  height: 3.9%;
+  height: 2.4em;
   width: 32em;
   position: absolute;
   top: 13em;
@@ -42,13 +42,20 @@
   color: black;
   font-size: 17px;
   border-radius: 17px;
+  box-shadow: 4px 4px 10px #888888;
   text-indent: 5%;
   padding: 3px;
   outline-width: 0;
+  transition-duration: 0.2s;
+  border: none;
+}
+
+#input:hover {
+  box-shadow: 5px 8px 12px #888888;
 }
 
 #tagLine {
-  color: white;
+  color: #474949d5;
   font-size: 21px;
   text-align: center;
   width: 100%;
@@ -57,18 +64,19 @@
   left: 0;
   right: 0;
   margin: auto;
+  margin-top: 7px;
 }
 
 #bottom {
   color: white;
-  width: 100%;
+  width: 17em;
   text-align: center;
   position: absolute;
   bottom: 8%;
   left: 0;
-  right: 0;
+  right: -70em;
   margin: auto;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 footer {
@@ -575,7 +583,7 @@ footer {
   /* position: absolute; */
   /* top: 39%;
   left: 0;
-  right: 0; */
+  right: 0;*/
   margin: auto;
   width: 8em;
   height: 2.2em;
@@ -834,4 +842,52 @@ footer {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+
+/* New Landing Page */
+.Wrapper {
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+
+.bg,
+.bg2,
+.bg3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.bg {
+  -webkit-clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
+  clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
+  z-index: -1;
+  background: #360033; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.bg2 {
+  -webkit-clip-path: polygon(63% 69%, 100% 9%, 100% 100%, 5% 100%);
+  clip-path: polygon(63% 69%, 100% 9%, 100% 100%, 5% 100%);
+  z-index: -2;
+  background: #c31432; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
