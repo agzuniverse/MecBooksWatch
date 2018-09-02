@@ -616,13 +616,6 @@ footer {
 }
 
 #google-login {
-  position: absolute;
-  top: 39%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 13em;
-  height: 2.2em;
   cursor: pointer;
 }
 
