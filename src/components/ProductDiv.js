@@ -8,17 +8,16 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 class ProductDiv extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {
-    const { imageurl, title, author, price } = this.props.details;
+    const { imageURL, title, author, price } = this.props.details;
 
     return (
       <div className="ProductDiv">
         <MuiThemeProvider>
           <div className="imgDiv">
-            <img src={imageurl} id="productImg" alt="" />
+            <img src={imageURL} id="productImg" alt="" />
           </div>
           <Link
             to={{ pathname: "/productdisplay", state: this.props.details }}
