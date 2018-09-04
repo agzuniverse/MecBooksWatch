@@ -32,7 +32,8 @@ export function addToStorage(file, data) {
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
         data.fileID = uuid + file.name;
-        db.collection("textbooks")
+        db
+          .collection("textbooks")
           .add(data)
           .then(dataSnapshot => {
             console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
@@ -48,7 +49,8 @@ export function addToStorage(file, data) {
 export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
-      db.collection("textbooks")
+      db
+        .collection("textbooks")
         .where("uid", "==", uid)
         .get()
         .then(result => {
@@ -64,7 +66,8 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db.collection("textbooks")
+      db
+        .collection("textbooks")
         .where("tags." + query, "==", true)
         .get()
         .then(result => {
@@ -80,7 +83,8 @@ export function searchUser(query, uid) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db.collection("textbooks")
+      db
+        .collection("textbooks")
         .where("uid", "==", uid)
         .where("tags." + query, "==", true)
         .get()
@@ -100,7 +104,8 @@ export function deleteFromDB(tbID) {
     if (user) {
       // get storageId
       var bookImgURL;
-      db.collection("textbooks")
+      db
+        .collection("textbooks")
         .doc(tbID)
         .get()
         .then(result => {
@@ -112,7 +117,8 @@ export function deleteFromDB(tbID) {
         .delete()
         .then(function() {
           // delete from database
-          db.collection("textbooks")
+          db
+            .collection("textbooks")
             .doc(tbID)
             .delete()
             .then(() => {
