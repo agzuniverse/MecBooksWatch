@@ -21,7 +21,7 @@ class ProductDisplay extends Component {
 
   render() {
     const {
-      imageurl,
+      imageURL,
       title,
       author,
       price,
@@ -53,7 +53,7 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img id="textbook" src={imageurl} alt="Fetching error" />
+                <img id="textbook" src={imageURL} alt="Image of the book" />
               </div>
 
               <div className="detailCard">
