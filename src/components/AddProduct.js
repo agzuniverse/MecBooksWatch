@@ -159,7 +159,8 @@ class AddProduct extends Component {
           <MuiThemeProvider>
             <div className="appbar">
               <a href="/" className="logo">
-                Books<span id="watchPart">Watch</span>
+                Books
+                <span id="watchPart">Watch</span>
               </a>
 
               <div className="backToButton">
@@ -281,7 +282,9 @@ class AddProduct extends Component {
                   modal
                   open={this.state.open}
                 >
-                  {this.state.invalid.map(value => <p key={value}>{value}</p>)}
+                  {this.state.invalid.map(value => (
+                    <p key={value}>{value}</p>
+                  ))}
                 </Dialog>
               </div>
             ) : (

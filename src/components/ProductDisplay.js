@@ -38,7 +38,8 @@ class ProductDisplay extends Component {
           <div>
             <div className="appbar">
               <a href="/" className="logo">
-                Books<span id="watchPart">Watch</span>
+                Books
+                <span id="watchPart">Watch</span>
               </a>
               {!this.props.uid ? (
                 <Link to="/login">
@@ -53,7 +54,7 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img id="textbook" src={imageURL} alt="Image of the book" />
+                <img id="textbook" src={imageURL} alt="Book" />
               </div>
 
               <div className="detailCard">
