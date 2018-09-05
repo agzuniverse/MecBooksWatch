@@ -586,7 +586,7 @@ footer {
   width: 8em;
   height: 2.2em;
   text-align: center;
-  font-size: 18px;
+  font-size: 18px; 
   background-color: #00c853b7;
   color: white;
   border: none;
@@ -703,7 +703,7 @@ footer {
     justify-content: space-between;
   }
   #centerTotal {
-    height: 180vh;
+    height: 130vh;
     width: 90%;
   }
 
@@ -721,7 +721,7 @@ footer {
   }
 
   .detailCard {
-    top: 42%;
+    top: 47%;
     width: 75%;
     height: 26em;
     position: absolute;
@@ -803,6 +803,9 @@ footer {
     top: 14.3em;
     width: 80%;
   }
+  .Wrapper{
+    height: 100vh;
+  }
 }
 
 .userInfoDiv {
@@ -819,7 +822,10 @@ footer {
 
 /* New Landing Page */
 .Wrapper {
-  height: 100%;
+
+  height: 100vh;
+
+
   margin: 0;
   display: grid;
   grid-template-columns: auto;
