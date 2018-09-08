@@ -25,7 +25,7 @@ class Userpage extends Component {
   }
 
   componentWillMount() {
-    if (this.props.uid === "" || this.props.uid === null) {
+    if (!this.props.uid) {
       this.fetchLocalUidAsync();
       this.props.updateName(localStorage.getItem("LOCAL_NAME"));
       this.props.updateEmail(localStorage.getItem("LOCAL_EMAIL"));
@@ -39,8 +39,11 @@ class Userpage extends Component {
   };
 
   fetchUserBooks = async uid => {
-    let bookData = await readFromStorage(uid);
-    console.log(bookData);
+    const result = await readFromStorage(uid);
+    let bookData = {};
+    result.forEach(data => {
+      bookData[data.id] = data.data();
+    });
     if (bookData == null) bookData = {};
     this.setState({
       bookData,
@@ -55,10 +58,13 @@ class Userpage extends Component {
     });
     console.log(query);
     try {
-      const data = await searchUser(query, this.props.uid);
-      console.log(data);
+      const result = await searchUser(query, this.props.uid);
+      const searchResults = {};
+      result.forEach(data => {
+        searchResults[data.id] = data.data();
+      });
       this.setState({
-        searchResults: data,
+        searchResults,
         loaded: true
       });
     } catch (err) {
@@ -73,26 +79,45 @@ class Userpage extends Component {
     this.performSearch(query);
   };
 
+  navigateOnAuthChange = path => {
+    switch (path) {
+      case "userpage":
+        this.props.history.push("/user");
+        break;
+      case "homepage":
+        this.props.history.push("/");
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
+    const { searchResults, bookData, loaded } = this.state;
+
     let books = [];
-    if (this.state.searchResults) {
-      books = this.state.searchResults.map(book => (
-        <ProductDiv details={book} />
+    if (searchResults) {
+      books = Object.keys(searchResults).map(key => (
+        <ProductDiv details={searchResults[key]} />
       ));
     } else {
-      books = Object.keys(this.state.bookData).map(key => (
-        <ProductDiv details={this.state.bookData[key]} />
+      books = Object.keys(bookData).map(key => (
+        <ProductDiv details={bookData[key]} />
       ));
     }
 
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
         <div className="App">
-          <SideMenu isFilter={false} userDetails={this.props} />
+          <SideMenu
+            isFilter={false}
+            userDetails={this.props}
+            navigateOnAuthChange={this.navigateOnAuthChange}
+          />
           <div className="mainDiv">
             <Searchbar search={this.search} />
             <div id="productList">
-              {this.state.loaded ? (
+              {loaded ? (
                 books
               ) : (
                 <div id="loading">
@@ -114,7 +139,8 @@ Userpage.propTypes = {
   updateUid: PropTypes.func.isRequired,
   updateEmail: PropTypes.func.isRequired,
   updateName: PropTypes.func.isRequired,
-  updatePropic: PropTypes.func.isRequired
+  updatePropic: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -136,4 +162,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Userpage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Userpage);

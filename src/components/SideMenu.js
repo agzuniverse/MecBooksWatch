@@ -40,13 +40,15 @@ class SideMenu extends Component {
           <MuiThemeProvider>
             <Link to="/">
               <span className="logo">
-                Books<span id="watchPart">Watch</span>
+                Books
+                <span id="watchPart">Watch</span>
               </span>
             </Link>
             <div className="filterDiv">
               <br />
               <br />
-              Year<br />
+              Year
+              <br />
               <DropDownMenu
                 onChange={this.yearChange}
                 value={this.state.yearValue}
@@ -61,7 +63,8 @@ class SideMenu extends Component {
                 <MenuItem value="4" primaryText="4" />
               </DropDownMenu>
               <br />
-              Branch<br />
+              Branch
+              <br />
               <DropDownMenu
                 onChange={this.branchChange}
                 value={this.state.branchValue}
@@ -106,7 +109,8 @@ class SideMenu extends Component {
         <MuiThemeProvider>
           <Link to="/">
             <span className="logo">
-              Books<span id="watchPart">Watch</span>
+              Books
+              <span id="watchPart">Watch</span>
             </span>
           </Link>
           <div className="userInfoDiv">
@@ -171,4 +175,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideMenu);
