@@ -13,7 +13,6 @@ class Credits extends React.Component {
         githubID: "https://github.com/agzuniverse",
         avatar:
           "https://avatars1.githubusercontent.com/u/22353313?s=400&u=0e8dde806ccb9763ccfdcef69a3a90d45905bbd5&v=4",
-        desc: "Thinker, Coder, Blogger. Live life like it's meant to be =)",
         gitName: "agzuniverse"
       },
       {
@@ -22,7 +21,6 @@ class Credits extends React.Component {
         sub: "Front End",
         githubID: "https://github.com/aswin1999",
         avatar: "https://avatars2.githubusercontent.com/u/31558262?s=400&v=4",
-        desc: "Bibliophile and Enthusiastic Hacker",
         gitName: "aswin1999"
       },
       {
@@ -31,8 +29,6 @@ class Credits extends React.Component {
         sub: "Front End",
         githubID: "https://github.com/JoyalAJohney",
         avatar: "https://avatars0.githubusercontent.com/u/31545426?s=460&v=4",
-        desc:
-          "If something is Important enough and you believe it enough..Work Hard like its now or never till you achieve it.",
         gitName: "JoyalAJohney"
       },
       {
@@ -42,7 +38,6 @@ class Credits extends React.Component {
         githubID: "https://github.com/123vivekr",
         avatar:
           "https://avatars1.githubusercontent.com/u/28249428?s=400&u=4f56dd04a570ab942717ee378deff2fbdd4196c3&v=4",
-        desc: "Problem solver, programmer, gamer and fitness enthusiast",
         gitName: "123vivekr"
       }
     ];
@@ -88,7 +83,7 @@ class Credits extends React.Component {
             <span id="credits-watch">Watch</span>
           </h2>
         </a>
-        <h1 id="credits-aboutus">ABOUT US</h1>
+        <h1 id="credits-aboutus">The Developers</h1>
         <span className="credit-sep" />
         <div className="credit-devs">
           <center> {this.devs.map(dev => this.userPic(dev))} </center>
