@@ -128,7 +128,6 @@ class AddProduct extends Component {
         this.setState({
           uploading: true
         });
-        console.log("before uploading");
         this.addToStorageAsync(file, data);
       }
     }
@@ -136,6 +135,7 @@ class AddProduct extends Component {
 
   addToStorageAsync = async (file, data) => {
     await addToStorage(file, data);
+    console.log("BEFORE");
     this.setState({
       uploading: false
     });
