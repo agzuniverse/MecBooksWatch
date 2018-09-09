@@ -30,8 +30,7 @@ class Credits extends React.Component {
         email: "joyalajohney@gmail.com",
         sub: "Front End",
         githubID: "https://github.com/JoyalAJohney",
-        avatar:
-          "https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/25594088_1251251545020685_3793156892541494986_n.jpg?_nc_cat=0&oh=d912ee22c56988896577a3c1e4c48549&oe=5B62BEB2",
+        avatar: "https://avatars0.githubusercontent.com/u/31545426?s=460&v=4",
         desc:
           "If something is Important enough and you believe it enough..Work Hard like its now or never till you achieve it.",
         gitName: "JoyalAJohney"
