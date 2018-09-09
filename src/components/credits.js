@@ -8,7 +8,7 @@ class Credits extends React.Component {
     this.devs = [
       {
         name: "Aswin G",
-        email: "agzstudios@gmail.com",
+        email: "aswinganesh666@gmail.com",
         sub: "Project Lead",
         githubID: "https://github.com/agzuniverse",
         avatar:
@@ -19,7 +19,7 @@ class Credits extends React.Component {
         name: "Aswin M Prabhu",
         email: "aswinmprabhu@gmail.com",
         sub: "Front End",
-        githubID: "https://github.com/aswin1999",
+        githubID: "https://github.com/aswinmprabhu",
         avatar: "https://avatars2.githubusercontent.com/u/31558262?s=400&v=4",
         gitName: "aswin1999"
       },
@@ -56,12 +56,10 @@ class Credits extends React.Component {
         <center>{dev.sub}</center>
       </font>
       <span className="credit-sep" />
-      <p>{dev.desc}</p>
-      <b>Contact</b>
-      <br />
       <FaEnvelope key={dev.email} /> {dev.email}
       <br />
-      <FaGithub key={dev.githubID} />{" "}
+      <br />
+      <FaGithub key={dev.githubID} />
       <a
         href={dev.githubID}
         rel="noopener noreferrer"
@@ -75,20 +73,21 @@ class Credits extends React.Component {
 
   render() {
     return (
-      <div className="credit-container">
-        <meta name="viewport" content="width=1024" />
-        <a style={{ textDecoration: "none" }} href="/">
-          <h2 id="credits-head">
-            Books
-            <span id="credits-watch">Watch</span>
-          </h2>
-        </a>
-        <h1 id="credits-aboutus">The Developers</h1>
-        <span className="credit-sep" />
-        <div className="credit-devs">
-          <center> {this.devs.map(dev => this.userPic(dev))} </center>
+      <div>
+        <div className="bg" />
+        <div className="bg2" />
+        <div className="credit-container">
+          <meta name="viewport" content="width=1024" />
+          <a style={{ textDecoration: "none" }} href="/">
+            <h2 id="credits-head">BooksWatch</h2>
+          </a>
+          <h1 id="credits-aboutus">The Developers</h1>
+          <span className="credit-sep" />
+          <div className="credit-devs">
+            <center> {this.devs.map(dev => this.userPic(dev))} </center>
+          </div>
+          {this.devs.map(dev => this.userDetails(dev))}
         </div>
-        {this.devs.map(dev => this.userDetails(dev))}
       </div>
     );
   }
