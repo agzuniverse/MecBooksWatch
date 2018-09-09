@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../App.css";
-import "../assets/book1.jpg";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 const ProductDiv = ({ details }) => {
