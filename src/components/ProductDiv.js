@@ -34,14 +34,16 @@ class ProductDiv extends React.Component {
               <br />
             </div>
           </Link>
-          <div>
-            <button
-              onClick={() => this.deleteBook(book_id)}
-              class="bookDeleteButton"
-            >
-              Delete book
-            </button>
-          </div>
+          {book_id ? (
+            <div>
+              <button
+                onClick={() => this.deleteBook(book_id)}
+                class="bookDeleteButton"
+              >
+                Delete book
+              </button>
+            </div>
+          ) : null}
         </MuiThemeProvider>
       </div>
     );
