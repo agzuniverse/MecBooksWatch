@@ -214,6 +214,7 @@ footer {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 20px;
   transition: 0.3s;
+  max-height: 30vh;
 }
 .ProductDiv:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
