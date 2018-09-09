@@ -70,6 +70,7 @@ class Auth extends React.Component {
           userProPic: pData.photoURL
         },
         () => {
+          console.log(this.state.userName);
           this.props.updateUid(this.state.uid);
           this.props.updateName(this.state.userName);
           this.props.updateEmail(this.state.userEmail);
