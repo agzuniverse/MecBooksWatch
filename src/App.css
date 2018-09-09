@@ -586,7 +586,7 @@ footer {
   width: 8em;
   height: 2.2em;
   text-align: center;
-  font-size: 18px; 
+  font-size: 18px;
   background-color: #00c853b7;
   color: white;
   border: none;
@@ -803,7 +803,7 @@ footer {
     top: 14.3em;
     width: 80%;
   }
-  .Wrapper{
+  .Wrapper {
     height: 100vh;
   }
 }
@@ -822,10 +822,7 @@ footer {
 
 /* New Landing Page */
 .Wrapper {
-
   height: 100vh;
-
-
   margin: 0;
   display: grid;
   grid-template-columns: auto;
@@ -869,4 +866,19 @@ footer {
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #240b36, #c31432);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.bookDeleteButton {
+  box-sizing: border-box;
+  margin: auto;
+  width: 8em;
+  height: 2.2em;
+  text-align: center;
+  font-size: 18px;
+  background-color: #00c853b7;
+  color: white;
+  border: none;
+  border-radius: 0.2em;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-left: 20px;
 }

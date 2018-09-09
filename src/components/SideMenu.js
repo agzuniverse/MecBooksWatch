@@ -13,6 +13,7 @@ import Auth from "./auth";
 class SideMenu extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       yearValue: "Any year",
       branchValue: "Any branch"
@@ -123,9 +124,9 @@ class SideMenu extends Component {
             />
             <br />
             <br />
-            {this.props.userDetails.name}
+            {this.props.name}
             <br />
-            {this.props.userDetails.email}
+            {this.props.email}
             <br />
             <Auth navigateOnAuthChange={this.props.navigateOnAuthChange} />
           </div>
@@ -163,7 +164,9 @@ SideMenu.propTypes = {
 
 const mapStateToProps = state => ({
   uid: state.auth.uid,
-  proPic: state.auth.proPic
+  proPic: state.auth.proPic,
+  name: state.auth.name,
+  email: state.auth.email
 });
 
 const mapDispatchToProps = dispatch => ({
