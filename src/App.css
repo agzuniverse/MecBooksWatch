@@ -586,7 +586,7 @@ footer {
   width: 8em;
   height: 2.2em;
   text-align: center;
-  font-size: 18px; 
+  font-size: 18px;
   background-color: #00c853b7;
   color: white;
   border: none;
@@ -803,7 +803,7 @@ footer {
     top: 14.3em;
     width: 80%;
   }
-  .Wrapper{
+  .Wrapper {
     height: 100vh;
   }
 }
@@ -822,9 +822,7 @@ footer {
 
 /* New Landing Page */
 .Wrapper {
-
   height: 100vh;
-
 
   margin: 0;
   display: grid;
