@@ -47,9 +47,7 @@ class Home extends Component {
             <form onSubmit={this.search}>
               <input id="input" type="text" placeholder="Search for Books" />
             </form>
-            <div id="tagLine">
-              An Official KTU book exchange platform For MECians!
-            </div>
+            <div id="tagLine">A KTU book exchange platform For MECians!</div>
             <div id="bottom">
               <Link
                 to="/credits"
