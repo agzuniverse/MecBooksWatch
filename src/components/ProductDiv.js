@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../App.css";
+import { deleteFromDB } from "../firebase/firebase";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 const ProductDiv = ({ details }) => {
   const { imageURL, title, author, price } = details;
+
+  const deleteBook = () => {};
 
   return (
     <div className="ProductDiv">
@@ -28,6 +31,10 @@ const ProductDiv = ({ details }) => {
             <br />
           </div>
         </Link>
+
+        <button onClick={deleteBook()} class="bookDeleteButton">
+          Delete book
+        </button>
       </MuiThemeProvider>
     </div>
   );
