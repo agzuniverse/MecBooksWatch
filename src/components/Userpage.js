@@ -43,7 +43,7 @@ class Userpage extends Component {
     let bookData = {};
     result.forEach(data => {
       bookData[data.id] = data.data();
-      Object.assign(bookData[data.id], { book_id: data.id });
+      Object.assign(bookData[data.id], { bookId: data.id });
     });
     if (bookData == null) bookData = {};
     this.setState({

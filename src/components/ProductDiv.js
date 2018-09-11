@@ -8,12 +8,12 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class ProductDiv extends React.Component {
   deleteBook = id => {
-    console.log(id);
     deleteFromDB(id);
   };
 
   render() {
     const { imageURL, title, author, price, bookId } = this.props.details;
+    console.log(bookId);
 
     return (
       <div className="ProductDiv">

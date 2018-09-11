@@ -129,7 +129,7 @@ export function deleteFromDB(tbID) {
         .get()
         .then(result => {
           var data = result.data();
-          if (data.uid !== user.uid) {
+          if (data.uid !== user.providerData[0].uid) {
             console.log("This action is forbidden");
             reject(false);
             return;
