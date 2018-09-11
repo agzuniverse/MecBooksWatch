@@ -53,7 +53,7 @@ class Userpage extends Component {
   };
 
   updateBookListOnDelete = id => {
-    let tempData = this.state.bookData;
+    const tempData = this.state.bookData;
     delete tempData[id];
     this.setState({
       bookData: tempData
