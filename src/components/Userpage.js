@@ -52,6 +52,14 @@ class Userpage extends Component {
     });
   };
 
+  updateBookListOnDelete = id => {
+    let tempData = this.state.bookData;
+    delete tempData[id];
+    this.setState({
+      bookData: tempData
+    });
+  };
+
   performSearch = async query => {
     console.log("performSearch");
     this.setState({
@@ -102,7 +110,10 @@ class Userpage extends Component {
       ));
     } else {
       books = Object.keys(bookData).map(key => (
-        <ProductDiv details={bookData[key]} />
+        <ProductDiv
+          details={bookData[key]}
+          onDelete={this.updateBookListOnDelete}
+        />
       ));
     }
 

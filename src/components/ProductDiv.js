@@ -7,13 +7,13 @@ import { deleteFromDB } from "../firebase/firebase";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class ProductDiv extends React.Component {
-  deleteBook = id => {
+  deleteBook = (id, onDelete) => {
     deleteFromDB(id);
+    onDelete(id);
   };
 
   render() {
     const { imageURL, title, author, price, bookId } = this.props.details;
-    console.log(bookId);
 
     return (
       <div className="ProductDiv">
@@ -39,7 +39,7 @@ class ProductDiv extends React.Component {
           {bookId ? (
             <div>
               <button
-                onClick={() => this.deleteBook(bookId)}
+                onClick={() => this.deleteBook(bookId, this.props.onDelete)}
                 className="bookDeleteButton"
               >
                 Delete book
@@ -53,7 +53,8 @@ class ProductDiv extends React.Component {
 }
 
 ProductDiv.propTypes = {
-  details: PropTypes.object.isRequired
+  details: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default ProductDiv;
