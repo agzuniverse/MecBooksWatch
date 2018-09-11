@@ -33,7 +33,7 @@ class SearchPage extends Component {
     const searchResults = {};
     result.forEach(data => {
       searchResults[data.id] = data.data();
-      searchResults[data.id]["bookId"] = data.id;
+      searchResults[data.id].bookId = data.id;
       console.log(data);
     });
     console.log(searchResults);

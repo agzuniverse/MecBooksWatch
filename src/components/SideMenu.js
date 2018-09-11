@@ -158,7 +158,8 @@ SideMenu.propTypes = {
   updateBranchFilter: PropTypes.func.isRequired,
   proPic: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
-  userDetails: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   navigateOnAuthChange: PropTypes.func.isRequired
 };
 
