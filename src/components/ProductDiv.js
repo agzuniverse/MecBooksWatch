@@ -14,6 +14,7 @@ class ProductDiv extends React.Component {
 
   render() {
     const { imageURL, title, author, price, bookId } = this.props.details;
+    console.log(this.props.details);
 
     return (
       <div className="ProductDiv">
