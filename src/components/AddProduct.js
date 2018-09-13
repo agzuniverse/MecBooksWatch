@@ -63,6 +63,15 @@ class AddProduct extends Component {
     });
   };
 
+  previewImage = () => {
+    let reader = new FileReader();
+    reader.readAsDataURL(document.getElementById("fileUpload").files[0]);
+    reader.onload = file => {
+      console.log("HEREHEREHRERH");
+      document.getElementById("previewImage").src = file.target.result;
+    };
+  };
+
   handeSubmit = () => {
     if (!this.props.uid) {
       alert("You need to log in to add a book!");
@@ -265,11 +274,14 @@ class AddProduct extends Component {
                 >
                   <input
                     id="fileUpload"
+                    onChange={this.previewImage}
                     type="file"
                     accept="image/*"
                     className="hiddenFileInput"
                   />
                 </RaisedButton>
+                <div style={{ height: "2vh" }} />
+                <img id="previewImage" />
                 <div style={{ height: "2vh" }} />
                 <RaisedButton
                   onClick={() => this.handeSubmit()}
