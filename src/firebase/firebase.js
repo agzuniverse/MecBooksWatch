@@ -13,6 +13,8 @@ const config = {
 
 firebase.initializeApp(config);
 let db = firebase.firestore();
+let settings = { timestampsInSnapshots: true };
+db.settings(settings);
 
 export function addToStorage(file, data) {
   return new Promise((resolve, reject) => {
