@@ -77,6 +77,11 @@
   font-size: 16px;
 }
 
+#previewImage {
+  max-height: 50vh;
+  max-width: 80%;
+}
+
 footer {
   background-color: #070707;
   height: 15vh;
