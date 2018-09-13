@@ -92,13 +92,7 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                <RaisedButton
-                  backgroundColor="lawngreen"
-                  fullWidth
-                  onClick={this.login}
-                >
-                  Sell Books
-                </RaisedButton>
+                <Auth />
               )}
             </div>
           </MuiThemeProvider>
