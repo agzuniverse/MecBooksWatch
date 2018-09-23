@@ -139,7 +139,9 @@ func main() {
 				ch <- textbook
 
 			}()
-			resultTextbooks = append(resultTextbooks, <-ch)
+			for range result.Hits {
+				resultTextbooks = append(resultTextbooks, <-ch)
+			}
 		}
 		w.WriteHeader(http.StatusOK)
 		jsonBody, _ := json.Marshal(resultTextbooks)
