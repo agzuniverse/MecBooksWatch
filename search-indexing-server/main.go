@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strconv"
 
 	firebase "firebase.google.com/go"
 	"github.com/blevesearch/bleve"
@@ -79,6 +80,27 @@ func main() {
 		if errr != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			w.Write([]byte("error verifying ID token: " + errr.Error()))
+			return
+		}
+		if reqdata.Data.Author == "" || reqdata.Data.Title == "" {
+			w.WriteHeader(http.StatusInternalServerError)
+			w.Write([]byte("author and title should not be empty"))
+			return
+		}
+		price, err := strconv.Atoi(reqdata.Data.Price)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			w.Write([]byte(err.Error()))
+			return
+		}
+		if price < 0 {
+			w.WriteHeader(http.StatusInternalServerError)
+			w.Write([]byte("price should not be negative"))
+			return
+		}
+		if len(reqdata.Data.Contact) != 10 {
+			w.WriteHeader(http.StatusInternalServerError)
+			w.Write([]byte("Phone number should contain 10 digits"))
 			return
 		}
 		firestore, err := app.Firestore(context.Background())
