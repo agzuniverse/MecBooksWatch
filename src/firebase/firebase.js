@@ -46,16 +46,18 @@ export function addToStorage(file, data) {
               .then(idToken => {
                 const algoData = {
                   idToken,
-                  textbookID: dataSnapshot.id,
                   data
                 };
-                fetch("https://secret-escarpment-95373.herokuapp.com/", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json; charset=utf-8"
-                  },
-                  body: JSON.stringify(algoData) // body data type must match "Content-Type" header
-                })
+                fetch(
+                  "https://secret-escarpment-95373.herokuapp.com/postbook",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json; charset=utf-8"
+                    },
+                    body: JSON.stringify(algoData) // body data type must match "Content-Type" header
+                  }
+                )
                   .then(res => {
                     console.log(res);
                     resolve();
@@ -92,12 +94,19 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db.collection("textbooks")
-        .where("tags." + query, "==", true)
-        .get()
-        .then(result => {
-          resolve(result);
-        });
+      // db.collection("textbooks")
+      //   .where("tags." + query, "==", true)
+      //   .get()
+      //   .then(result => {
+      //     resolve(result);
+      //   });
+      fetch("https://secret-escarpment-95373.herokuapp.com/search", {
+        body: {
+          query
+        }
+      })
+        .then(data => data.json())
+        .then(result => resolve(result));
     } catch (e) {
       reject();
     }
@@ -145,12 +154,32 @@ export function deleteFromDB(tbID) {
           imageRef
             .delete()
             .then(function() {
-              // delete from database
-              db.collection("textbooks")
-                .doc(tbID)
-                .delete()
-                .then(() => {
-                  resolve(true);
+              firebase
+                .auth()
+                .currentUser.getIdToken(true)
+                .then(idToken => {
+                  const algoData = {
+                    idToken,
+                    bookID: book_id
+                  };
+                  fetch(
+                    "https://secret-escarpment-95373.herokuapp.com/deletebook",
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                      },
+                      body: JSON.stringify(algoData)
+                    }
+                  )
+                    .then(res => {
+                      console.log(res);
+                      resolve();
+                    })
+                    .catch(err => {
+                      console.log(err);
+                      reject();
+                    });
                 });
             })
             .catch(function(error) {
