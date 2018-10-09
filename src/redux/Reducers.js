@@ -6,7 +6,9 @@ import {
   SET_PROPIC,
   SEARCH_STRING,
   YEARFILTER,
-  BRANCHFILTER
+  BRANCHFILTER,
+  ADD_MSG,
+  ADD_NOTIF
 } from "./Actions";
 import InitialState from "./InitialState";
 
@@ -29,6 +31,19 @@ export const authReducer = (state = InitialState.auth, action) => {
       return Object.assign({}, state, { email: action.email });
     case SET_PROPIC:
       return Object.assign({}, state, { proPic: action.propic });
+    default:
+      return state;
+  }
+};
+
+export const msgReducer = (state = InitialState.search, action) => {
+  switch (action.type) {
+    case ADD_NOTIF:
+      return Object.assign({}, state, {
+        notifs: [...state.notifs, action.notif]
+      });
+    case ADD_MSG:
+      return Object.assign({}, state, { chat: [...state.chat, action.msg] });
     default:
       return state;
   }

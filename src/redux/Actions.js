@@ -6,3 +6,5 @@ export const SET_PROPIC = "SET_PROPIC";
 export const SEARCH_STRING = "SEARCH_STRING";
 export const YEARFILTER = "YEARFILTER";
 export const BRANCHFILTER = "BRANCHFILTER";
+export const ADD_NOTIF = "ADD_NOTIF";
+export const ADD_MSG = "ADD_MSG";

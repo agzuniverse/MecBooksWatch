@@ -101,6 +101,7 @@ export function searchAll(query) {
       //     resolve(result);
       //   });
       fetch("https://secret-escarpment-95373.herokuapp.com/search", {
+        method: "POST",
         body: {
           query
         }
@@ -196,6 +197,41 @@ export function deleteFromDB(tbID) {
       return;
     }
   });
+}
+
+export function subscribeToNotifs(uid) {
+  try {
+    db.collection("messages")
+      .where("receiver", "==", uid)
+      .onSnapshot(snap => {
+        console.log(snap);
+        snap.docChanges.forEach(function(change) {
+          if (change.type === "added") {
+            console.log(change.doc.data());
+          }
+        });
+      });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export function subscribeToChat(senderuid, uid) {
+  try {
+    db.collection("messages")
+      .where("sender", "==", senderuid)
+      .where("receiver", "==", uid)
+      .onSnapshot(snap => {
+        console.log(snap);
+        snap.docChanges.forEach(function(change) {
+          if (change.type === "added") {
+            console.log(change.doc.data());
+          }
+        });
+      });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export const provider = new firebase.auth.GoogleAuthProvider();

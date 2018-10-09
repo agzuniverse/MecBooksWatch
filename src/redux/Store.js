@@ -1,10 +1,11 @@
 import { createStore, combineReducers } from "redux";
-import { testReducer, authReducer, searchReducer } from "./Reducers";
+import { testReducer, authReducer, searchReducer, msgReducer } from "./Reducers";
 
 const reducer = combineReducers({
   test: testReducer,
   auth: authReducer,
-  search: searchReducer
+  search: searchReducer,
+  msg: msgReducer
 });
 
 export default createStore(reducer);
