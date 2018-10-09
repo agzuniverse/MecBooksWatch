@@ -12,6 +12,10 @@ const InitialState = {
     query: "",
     yearFilter: "Any year",
     branchFilter: "Any branch"
+  },
+  msg: {
+    notifs: [],
+    chat: []
   }
 };
 

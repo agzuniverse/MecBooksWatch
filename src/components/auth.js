@@ -1,4 +1,4 @@
-import { auth, provider } from "../firebase/firebase";
+import { auth, provider, subscribeToNotifs } from "../firebase/firebase";
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
@@ -83,6 +83,7 @@ class Auth extends React.Component {
         }
       );
       console.log("User has logged in");
+      subscribeToNotifs(this.state.uid);
     });
   };
 
