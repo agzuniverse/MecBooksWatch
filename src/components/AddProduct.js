@@ -67,7 +67,6 @@ class AddProduct extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(document.getElementById("fileUpload").files[0]);
     reader.onload = file => {
-      console.log("HEREHEREHRERH");
       document.getElementById("previewImage").src = file.target.result;
     };
   };
