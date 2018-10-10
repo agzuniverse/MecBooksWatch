@@ -281,7 +281,7 @@ class AddProduct extends Component {
                   />
                 </RaisedButton>
                 <div style={{ height: "2vh" }} />
-                <img id="previewImage" />
+                <img id="previewImage" alt="Preview" />
                 <div style={{ height: "2vh" }} />
                 <RaisedButton
                   onClick={() => this.handeSubmit()}
