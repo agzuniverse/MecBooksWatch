@@ -67,7 +67,6 @@ class AddProduct extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(document.getElementById("fileUpload").files[0]);
     reader.onload = file => {
-      console.log("HEREHEREHRERH");
       document.getElementById("previewImage").src = file.target.result;
     };
   };
@@ -281,7 +280,7 @@ class AddProduct extends Component {
                   />
                 </RaisedButton>
                 <div style={{ height: "2vh" }} />
-                <img id="previewImage" />
+                <img id="previewImage" alt="Preview" />
                 <div style={{ height: "2vh" }} />
                 <RaisedButton
                   onClick={() => this.handeSubmit()}

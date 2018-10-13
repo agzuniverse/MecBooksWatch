@@ -31,13 +31,15 @@ class SearchPage extends Component {
     });
     const result = await searchAll(query);
     const searchResults = {};
-    result.forEach(data => {
-      searchResults[data.id] = data.data();
-    });
-    this.setState({
-      searchResults,
-      loaded: true
-    });
+    if (result) {
+      result.forEach(data => {
+        searchResults[data.id] = data;
+      });
+      this.setState({
+        searchResults,
+        loaded: true
+      });
+    }
   };
 
   search = e => {

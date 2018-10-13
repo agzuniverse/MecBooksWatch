@@ -102,9 +102,7 @@ export function searchAll(query) {
       //   });
       fetch("https://secret-escarpment-95373.herokuapp.com/search", {
         method: "POST",
-        body: {
-          query
-        }
+        body: JSON.stringify({ query: query })
       })
         .then(data => data.json())
         .then(result => resolve(result));
