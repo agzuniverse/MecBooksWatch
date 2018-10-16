@@ -35,37 +35,28 @@ export function addToStorage(file, data) {
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
         data.fileID = uuid + file.name;
-        db.collection("textbooks")
-          .add(data)
-          .then(dataSnapshot => {
-            console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
-            console.log(dataSnapshot);
-            firebase
-              .auth()
-              .currentUser.getIdToken(true)
-              .then(idToken => {
-                const algoData = {
-                  idToken,
-                  data
-                };
-                fetch(
-                  "https://secret-escarpment-95373.herokuapp.com/postbook",
-                  {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json; charset=utf-8"
-                    },
-                    body: JSON.stringify(algoData) // body data type must match "Content-Type" header
-                  }
-                )
-                  .then(res => {
-                    console.log(res);
-                    resolve();
-                  })
-                  .catch(err => {
-                    console.log(err);
-                    reject();
-                  });
+        firebase
+          .auth()
+          .currentUser.getIdToken(true)
+          .then(idToken => {
+            const algoData = {
+              idToken,
+              data
+            };
+            fetch("https://secret-escarpment-95373.herokuapp.com/postbook", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json; charset=utf-8"
+              },
+              body: JSON.stringify(algoData) // body data type must match "Content-Type" header
+            })
+              .then(res => {
+                console.log(res);
+                resolve();
+              })
+              .catch(err => {
+                console.log(err);
+                reject();
               });
           });
       });
@@ -133,7 +124,6 @@ export function deleteFromDB(tbID) {
   new Promise((resolve, reject) => {
     // get user
     var user = auth.currentUser;
-    console.log(tbID);
     if (user) {
       // get storageId
       db.collection("textbooks")
@@ -148,6 +138,7 @@ export function deleteFromDB(tbID) {
           }
           var bookImgURL = data.imageURL;
           var book_id = bookImgURL.slice(72, -53);
+          console.log(book_id);
           const storageRef = firebase.storage().ref();
           var imageRef = storageRef.child(book_id);
           imageRef
@@ -182,6 +173,7 @@ export function deleteFromDB(tbID) {
                 });
             })
             .catch(function(error) {
+              console.log(error);
               console.log("Error: Cannot delete from storage");
               reject(false);
               return;
