@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	firebase "firebase.google.com/go"
@@ -63,12 +64,12 @@ func main() {
 		w.Header().Set("Content-Type", "text/plain")
 		var reqdata PostReqData
 		b, _ := ioutil.ReadAll(r.Body)
+		fmt.Println(string(b))
 		if err := json.Unmarshal(b, &reqdata); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			w.Write([]byte(err.Error()))
 			return
 		}
-		fmt.Println(reqdata)
 		client, err := app.Auth(context.Background())
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
@@ -125,22 +126,27 @@ func main() {
 		if err := json.Unmarshal(b, &reqdata); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			w.Write([]byte(err.Error()))
+			fmt.Printf("1:%v", err)
 			return
 		}
 		query := bleve.NewFuzzyQuery(reqdata.Query)
+		query.SetFuzziness(2)
 		req := bleve.NewSearchRequest(query)
 		result, err := index.Search(req)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			w.Write([]byte(err.Error()))
+			fmt.Printf("2:%v", err)
 			return
 		}
+		fmt.Println(result)
 		var resultTextbooks []Textbook
 		for _, v := range result.Hits {
 			firestore, err := app.Firestore(context.Background())
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				w.Write([]byte(err.Error()))
+				fmt.Printf("3:%v", err)
 				return
 			}
 			ch := make(chan Textbook)
@@ -150,12 +156,14 @@ func main() {
 				if err != nil {
 					w.WriteHeader(http.StatusInternalServerError)
 					w.Write([]byte(err.Error()))
+					fmt.Printf("4:%v", err)
 					return
 				}
 				var textbook Textbook
 				if err := datasnap.DataTo(&textbook); err != nil {
 					w.WriteHeader(http.StatusInternalServerError)
 					w.Write([]byte(err.Error()))
+					fmt.Printf("5:%v", err)
 					return
 				}
 				ch <- textbook
@@ -168,7 +176,7 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 		jsonBody, _ := json.Marshal(resultTextbooks)
 		w.Write([]byte(jsonBody))
-	}).Methods("GET")
+	}).Methods("POST")
 
 	r.HandleFunc("/deletebook", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/plain")
@@ -210,5 +218,6 @@ func main() {
 
 	corshandler := cors.Default().Handler(r)
 	http.Handle("/", corshandler)
-	log.Fatal(http.ListenAndServe(":4000", nil))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
+	fmt.Println("Listening on " + os.Getenv("PORT") + "....")
 }
