@@ -150,7 +150,7 @@ export function deleteFromDB(tbID) {
                 .then(idToken => {
                   const algoData = {
                     idToken,
-                    bookID: book_id
+                    bookID: tbID
                   };
                   fetch(
                     "https://secret-escarpment-95373.herokuapp.com/deletebook",
