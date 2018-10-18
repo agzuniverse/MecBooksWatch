@@ -146,6 +146,7 @@ footer {
   text-align: center;
   height: 100vh;
   font-family: "BrandonGrotesque-Med";
+  background-color: #051029;
 }
 
 .logo {
@@ -865,12 +866,12 @@ footer {
 .userInfoDiv {
   text-align: center;
   color: white;
-  font-size: 0.9vw;
+  font-size: 1vw;
   overflow-x: hidden;
 }
 .profilePic {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 
