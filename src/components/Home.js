@@ -51,7 +51,7 @@ class Home extends Component {
             <div id="bottom">
               <Link
                 to="/credits"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "white", fontFamily: "BrandonGrotesque-Med" }}
               >
                 Developed by Students of Govt. Model Engineering College
               </Link>

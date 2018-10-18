@@ -12,10 +12,11 @@
   bottom: 0px;
   overflow: auto; 
   overflow-y: hidden;
+  font-family: "BrandonGrotesque-Lit";
 }
 
 .credits-card {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 50px;
   display: grid;
   grid-template-columns: 2fr 5fr;
@@ -24,12 +25,12 @@
 }
 
 .credits-name {
-  font-size: 22px;
+  font-size: 21px;
 }
 
 #credits-avatar {
-  height: 140px;
-  width: 140px;
+  height: 120px;
+  width: 120px;
   border-radius: 80px;
 }
 
