@@ -76,7 +76,7 @@
 }
 
 #tagLine {
-  color: #474949d5;
+  color: #616161d5;
   font-size: 24px;
   text-align: center;
   width: 100%;
@@ -149,7 +149,7 @@ footer {
 }
 
 .logo {
-  text-decoration: none;
+  /* text-decoration: none; */
   text-align: center;
   color: rgba(255, 255, 255, 0.87);
   font-size: 35px;
@@ -605,11 +605,18 @@ footer {
   background-color: #00c853b7;
   color: white;
   border: none;
-  border-radius: 0.2em;
+  border-radius: 2em;
   white-space: nowrap;
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
 }
+#logout:hover{
+  background: none;
+  color: #00c853b7;
+  border: 2px solid #00c853b7;
+  outline: none;
+}
+
 #userpage {
   box-sizing: border-box;
   /* position: absolute; */
@@ -624,10 +631,16 @@ footer {
   background-color: #00c853b7;
   color: white;
   border: none;
-  border-radius: 0.2em;
+  border-radius: 1em;
   white-space: nowrap;
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
+  outline: none;
+}
+#userpage:hover{
+  background: none;
+  color: #00c853b7;
+  border: 2px solid #00c853b7;
 }
 
 #logoutAppBar {
@@ -645,9 +658,14 @@ footer {
   background-color: #00c853b7;
   color: white;
   border: none;
-  border-radius: 0.2em;
+  border-radius: 2em;
   white-space: nowrap;
   cursor: pointer;
+}
+#logoutAppBar:hover{
+  background: none;
+  color: #00c853b7;
+  border: 2px solid #00c853b7;
 }
 
 #google-login {
@@ -913,8 +931,9 @@ footer {
   background-color: #00c853b7;
   color: white;
   border: none;
-  border-radius: 0.2em;
+  border-radius: 2em;
   white-space: nowrap;
   cursor: pointer;
-  margin-left: 20px;
+  margin-left: 10px;
+  outline: none;
 }
