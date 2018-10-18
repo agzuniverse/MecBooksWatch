@@ -39,7 +39,7 @@ class SideMenu extends Component {
       return (
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
-            <Link to="/">
+            <Link style={{ textDecoration: "none" }} to="/">
               <span className="logo">
                 Books
                 <span id="watchPart">Watch</span>
