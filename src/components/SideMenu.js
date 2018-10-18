@@ -102,7 +102,7 @@ class SideMenu extends Component {
     return (
       <div className="SideMenu mainBackground mainColor">
         <MuiThemeProvider>
-          <Link to="/">
+          <Link style={{ textDecoration: "none" }} to="/">
             <span className="logo">
               Books
               <span id="watchPart">Watch</span>
@@ -126,7 +126,7 @@ class SideMenu extends Component {
           </div>
           <div className="linksDiv">
             <Link to="/addproduct">
-              <RaisedButton labelStyle={{ fontFamily: "BrandonGrotesque-Med" }} backgroundColor="lawngreen" fullWidth>
+              <RaisedButton backgroundColor="lawngreen" fullWidth>
                 Add Book
               </RaisedButton>
               <br />
