@@ -383,6 +383,96 @@ footer {
   cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+/* CHAT UI */
+.chatUi{
+  height: 73vh;
+  width: 26vw;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  right: 3em;
+  border: 1px solid 	#c0c0c0;
+  border-bottom: none;
+  border-top: none;
+}
+
+.chatHead{
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  color: white;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #0575E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+cursor: pointer;
+}
+
+.chatBody{
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  /* top: 11%; */
+  /* left: 0;
+  right: 0;
+  margin: auto; */
+  background-color:#f3f7f7 ;
+}
+
+.chatInput{
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  bottom: 0%;
+  /* border-radius: 2em; */
+  box-shadow: 0 4px 8px 4px rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chatInput > input{
+  padding: 5px;
+  width: 17vw;
+  margin: 0 10px;
+  border-radius: 2em;
+  outline: none;
+  text-indent: 7px;
+  font-size: 15px;
+  color: #474949;
+  font-family: "BrandonGrotesque-Med";
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.chatInput > img{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 .centerTotal {
   padding: 20px 0px 20px 0px;
   width: 85%;
