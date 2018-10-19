@@ -152,12 +152,14 @@ footer {
 .logo {
   /* text-decoration: none; */
   text-align: center;
-  color: rgba(255, 255, 255, 0.87);
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: white;
   font-size: 35px;
   line-height: 25px;
+  text-decoration: none;
 }
 #watchPart {
-  color: #00c853;
+  color: #1ba94c;
 }
 
 .dropDownMenu {
@@ -365,6 +367,22 @@ footer {
   font-size: 20px;
 }
 
+.extraWhiteDiv{
+  min-height: 13vh;
+  width: 100vw;
+  background-color: white;
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #474949;
+}
+
+.gitHub{
+  cursor: pointer;
+}
+
 .centerTotal {
   padding: 20px 0px 20px 0px;
   width: 85%;
@@ -385,21 +403,21 @@ footer {
 
 /* This is not yours agz */
 #centerTotal {
-  position: relative;
+  /* position: relative;
   left: 0;
   right: 0;
-  margin: auto;
+  margin: auto; */
   /* overflow-y: hidden; */
-  height: 85vh;
+  height: 70vh;
   padding: 20px 0px 20px 0px;
-  width: 85%;
+  width: 100vw;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 20px rgb(66, 66, 66);
-  background-color: rgb(236, 239, 241);
+  /* box-shadow: 2px 2px 20px rgb(66, 66, 66); */
+  background-color: #f3f7f7;
 }
 
 #button {
@@ -417,15 +435,16 @@ footer {
 }
 
 .appbar {
-  background-color: rgb(33, 33, 33);
+  /* background-color: rgb(33, 33, 33); */
+  background-color: #303741;
   position: sticky;
   top: 0px;
   width: 100vw;
-  min-height: 9.3vh;
+  min-height: 9.7vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 15px rgb(66, 66, 66);
+  /* box-shadow: 2px 2px 15px rgb(66, 66, 66); */
 }
 
 .info {
@@ -440,12 +459,16 @@ footer {
 }
 
 .imageHolder {
-  background-color: rgb(236, 239, 241);
-  width: 25%;
-  height: 75vh;
+  /* background-color: blue; */
+  width: 25vw;
+  height: auto;
   position: absolute;
-  top: 18%;
+  /* padding:2em 3em; */
+  top: 30vh;
   left: 15%;
+  border: 1px solid 	#c0c0c0;
+  border-radius: 2px;
+  background-color: white;
 }
 
 #textbook {
@@ -456,17 +479,18 @@ footer {
 
 .detailCard {
   background-color: white;
-  width: 34%;
-  height: 62%;
+  width: 27vw;
+  height: 55vh;
   position: absolute;
-  top: 21%;
-  right: 9%;
+  top: 31vh;
+  right: 15%;
   float: left;
-  border-radius: 2%;
+  border-radius: 4px;
   padding-left: 1.7em;
   padding-right: 1.7em;
-  box-shadow: 2px 2px 20px rgb(66, 66, 66);
-  background-color: rgb(236, 239, 241);
+  /* box-shadow: 2px 2px 20px rgb(66, 66, 66); */
+  /* background-color: rgb(236, 239, 241); */
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
 }
 
 #textName {
@@ -505,7 +529,6 @@ footer {
   position: absolute;
   color: #212121;
   float: left;
-  
 }
 
 #sellerInfo {
@@ -529,19 +552,19 @@ footer {
 }
 
 #sellerInfoCard {
-  height: 69%;
-  width: 40%;
+  height: 60vh;
+  width: 35vw;
   position: absolute;
-  top: 18%;
-  right: 7%;
+  top: 25vh;
+  right: 12%;
   background-color: rgba(0, 0, 0, 0.92);
   color: white;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 2.1em;
-  padding-top: 10px;
+  padding-top: 7px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 0.5em;
+  border-radius: 5px;
 }
 
 #sellerInfoCard h2 {
@@ -559,11 +582,9 @@ footer {
   padding: 3px;
   font-size: 18px;
   outline: none;
+  cursor: pointer;
 }
 
-#sellerInfoCard button:hover {
-  color: white;
-}
 
 .details {
   color: #212121;
@@ -662,11 +683,13 @@ footer {
   border-radius: 2em;
   white-space: nowrap;
   cursor: pointer;
+  font-family: "BrandonGrotesque-Med";
 }
 #logoutAppBar:hover{
   background: none;
-  color: #00c853b7;
+  color: white;
   border: 2px solid #00c853b7;
+  /* background-color: white; */
 }
 
 #google-login {

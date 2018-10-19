@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
+import gitHub from '../img/if_1-06_2311228.png';
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
 
@@ -32,10 +33,11 @@ class ProductDisplay extends Component {
     } = this.props.location.state;
 
     return (
-      <div className="mainBackground sellWrapper">
+      <div className="sellWrapper">
         <GetAuthDetails />
         {this.props.location.state ? (
           <div>
+            {/* APPBAR */}
             <div className="appbar">
               <a href="/" className="logo">
                 Books
@@ -46,10 +48,15 @@ class ProductDisplay extends Component {
                   <button id="logoutAppBar">Login</button>
                 </Link>
               ) : (
-                <Link to="/user">
-                  <button id="logoutAppBar">Profile</button>
-                </Link>
-              )}
+                  <Link to="/user">
+                    <button id="logoutAppBar">Profile</button>
+                  </Link>
+                )}
+            </div>
+            {/* EXTRA WHITE DIV */}
+            <div className="extraWhiteDiv" >
+              "We are inviting developers to contribute to MecBooksWatch"
+              <img className="gitHub" src={gitHub} width="100" height="100" />
             </div>
 
             <div id="centerTotal">
@@ -64,7 +71,7 @@ class ProductDisplay extends Component {
                   <span id="priceTag">Price</span>: Rs {price}{" "}
                 </div>
                 <div id="details">
-                  Buyers are required to contact the sellers and set up a
+                  Buyers are required to contact the sellers and set up a<br />
                   meeting place for themselves
                 </div>
                 <button
@@ -97,10 +104,10 @@ class ProductDisplay extends Component {
                         Is on Whatsapp: <span>Yes</span>
                       </li>
                     ) : (
-                      <li>
-                        Is on Whatsapp: <span>No</span>
-                      </li>
-                    )}
+                        <li>
+                          Is on Whatsapp: <span>No</span>
+                        </li>
+                      )}
                     <li>
                       Email:
                       <span>{email}</span>
@@ -117,8 +124,8 @@ class ProductDisplay extends Component {
             </div>
           </div>
         ) : (
-          <h1 style={{ color: "white" }}>403 Forbidden</h1>
-        )}
+            <h1 style={{ color: "white" }}>403 Forbidden</h1>
+          )}
       </div>
     );
   }
