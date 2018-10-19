@@ -423,14 +423,46 @@ cursor: pointer;
 
 .chatBody{
   position: absolute;
-  height: 75%;
+  min-height: 75%;
+  overflow-y: scroll;
   width: 100%;
   /* top: 11%; */
   /* left: 0;
   right: 0;
   margin: auto; */
-  background-color:#f3f7f7 ;
+  background-color: #eeeeee;
+  padding-top: 2em;
 }
+
+.buyerBox{
+
+  width: 80%;
+  padding: 10px;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-right-radius: 2em;
+  color: white;
+  background-color: #3e3f3f;
+  margin-left: 5px;
+}
+
+.sellerBox{
+
+  margin: 13px 0;
+  position: absolute;
+  right: 5px;
+  width: 80%;
+  padding: 10px;
+  padding-left: 1.4em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  color: #474949;
+  background-color: white;
+}
+
 
 .chatInput{
   position: absolute;
