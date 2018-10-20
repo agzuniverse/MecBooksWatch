@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
-import gitHub from '../img/if_1-06_2311228.png';
-import sentLogo from '../img/if_telegram_519183.png';
-import smiley from '../img/if_emoji_emoticon-04_3638423.png';
+import gitHub from "../img/if_1-06_2311228.png";
+import sentLogo from "../img/if_telegram_519183.png";
+import smiley from "../img/if_emoji_emoticon-04_3638423.png";
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
 
@@ -50,16 +50,16 @@ class ProductDisplay extends Component {
                   <button id="logoutAppBar">Login</button>
                 </Link>
               ) : (
-                  <Link to="/user">
-                    <button id="logoutAppBar">Profile</button>
-                  </Link>
-                )}
+                <Link to="/user">
+                  <button id="logoutAppBar">Profile</button>
+                </Link>
+              )}
             </div>
             {/* EXTRA WHITE DIV */}
-            <div className="extraWhiteDiv" >
+            {/* <div className="extraWhiteDiv">
               "We are inviting developers to contribute to MecBooksWatch"
               <img className="gitHub" src={gitHub} width="100" height="100" />
-            </div>
+            </div> */}
 
             <div id="centerTotal">
               <div className="imageHolder">
@@ -86,19 +86,19 @@ class ProductDisplay extends Component {
               </div>
 
               {/* MESSENGER */}
-              <div className="chatUi">
-                <div className="chatHead">Seller Name</div>
+              {/* <div className="chatUi">
+                <div className="chatHead">Seller Name</div> */}
 
-                {/* CHAT BODY */}
-                <div className="chatBody">
+              {/* CHAT BODY */}
+              {/* <div className="chatBody">
                   <div className="buyerBox">
-                    Hey,there I'm interested in purchasing your book, where can we meet
+                    Hey,there I'm interested in purchasing your book, where can
+                    we meet
                   </div>
 
                   <div className="sellerBox">
                     Yeah Sure, we can meet up near college library
                   </div>
-
                 </div>
 
                 <div className="chatInput">
@@ -106,7 +106,7 @@ class ProductDisplay extends Component {
                   <input />
                   <img src={sentLogo} height="40" width="40" />
                 </div>
-              </div>
+              </div> */}
 
               {!this.state.hidden ? (
                 <div id="sellerInfoCard">
@@ -129,10 +129,10 @@ class ProductDisplay extends Component {
                         Is on Whatsapp: <span>Yes</span>
                       </li>
                     ) : (
-                        <li>
-                          Is on Whatsapp: <span>No</span>
-                        </li>
-                      )}
+                      <li>
+                        Is on Whatsapp: <span>No</span>
+                      </li>
+                    )}
                     <li>
                       Email:
                       <span>{email}</span>
@@ -149,8 +149,8 @@ class ProductDisplay extends Component {
             </div>
           </div>
         ) : (
-            <h1 style={{ color: "white" }}>403 Forbidden</h1>
-          )}
+          <h1 style={{ color: "white" }}>403 Forbidden</h1>
+        )}
       </div>
     );
   }
