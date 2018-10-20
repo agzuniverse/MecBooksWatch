@@ -37,13 +37,13 @@
 
 #head {
   color: white;
-  width: 9em;
+  width: 8em;
   position: absolute;
-  top: 3.3em;
+  top: 3em;
   left: 0;
   right: 0;
   margin: auto;
-  font-size: 45px;
+  font-size: 48px;
   font-family: "BrandonGrotesque-Med";
 }
 #watch {
@@ -1067,6 +1067,41 @@ cursor: pointer;
   background: linear-gradient(to right, #240b36, #c31432);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
+/* ANIMATION -- TITLE */
+@keyframes titleReveal{
+  0%{
+      transform: rotate(0) translateY(-20%);
+      opacity: 0;
+      }
+  100%{
+      transform: rotate(0) translateY(0);
+      opacity: 1.5;
+      }
+}
+
+#head{
+  animation: titleReveal 0.8s forwards 0s ease-in;
+}
+
+
+@keyframes tagReveal{
+  0%{
+      transform: rotate(0) translateX(0);
+      opacity: 0;
+      }
+  100%{
+      transform: rotate(0) translateX(0);
+      opacity: 1.5;
+      }
+}
+
+#tagLine{
+  animation: tagReveal 1s forwards 0s ease-in;
+}
+
+
 .bookDeleteButton {
   box-sizing: border-box;
   margin: auto;
