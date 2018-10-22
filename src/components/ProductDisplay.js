@@ -17,13 +17,6 @@ class ProductDisplay extends Component {
     };
   }
 
-  subscribe = e => {
-    e.preventDefault();
-    subscribeToChat(
-      "zKthtagWMZYRpPen10IzWWhJG2D3",
-      "Ux7LDVn37JMot4YHRcCIWiH0ckB3"
-    );
-  };
   toggleSellerInfoHidden = () => {
     if (this.props.uid) this.setState({ hidden: !this.state.hidden });
     else {
