@@ -7,6 +7,7 @@ import sentLogo from "../img/if_telegram_519183.png";
 import smiley from "../img/if_emoji_emoticon-04_3638423.png";
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
+import { subscribeToChat } from "../firebase/firebase";
 
 class ProductDisplay extends Component {
   constructor(props) {
@@ -15,6 +16,14 @@ class ProductDisplay extends Component {
       hidden: true
     };
   }
+
+  subscribe = e => {
+    e.preventDefault();
+    subscribeToChat(
+      "zKthtagWMZYRpPen10IzWWhJG2D3",
+      "Ux7LDVn37JMot4YHRcCIWiH0ckB3"
+    );
+  };
   toggleSellerInfoHidden = () => {
     if (this.props.uid) this.setState({ hidden: !this.state.hidden });
     else {
@@ -104,7 +113,12 @@ class ProductDisplay extends Component {
                 <div className="chatInput">
                   <img src={smiley} height="30" width="30" />
                   <input />
-                  <img src={sentLogo} height="40" width="40" />
+                  <img
+                    src={sentLogo}
+                    height="40"
+                    width="40"
+                    onClick={this.subscribe}
+                  />
                 </div>
               </div> */}
 
