@@ -16,6 +16,8 @@ let db = firebase.firestore();
 let settings = { timestampsInSnapshots: true };
 db.settings(settings);
 
+const baseURL = "https://secret-escarpment-95373.herokuapp.com";
+
 export function addToStorage(file, data) {
   return new Promise((resolve, reject) => {
     try {
@@ -43,7 +45,7 @@ export function addToStorage(file, data) {
               idToken,
               data
             };
-            fetch("https://secret-escarpment-95373.herokuapp.com/postbook", {
+            fetch(baseURL + "/postbook", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json; charset=utf-8"
@@ -91,7 +93,7 @@ export function searchAll(query) {
       //   .then(result => {
       //     resolve(result);
       //   });
-      fetch("https://secret-escarpment-95373.herokuapp.com/search", {
+      fetch(baseURL + "/search", {
         method: "POST",
         body: JSON.stringify({ query: query })
       })
@@ -152,16 +154,13 @@ export function deleteFromDB(tbID) {
                     idToken,
                     bookID: tbID
                   };
-                  fetch(
-                    "https://secret-escarpment-95373.herokuapp.com/deletebook",
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json; charset=utf-8"
-                      },
-                      body: JSON.stringify(algoData)
-                    }
-                  )
+                  fetch(baseURL + "/deletebook", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json; charset=utf-8"
+                    },
+                    body: JSON.stringify(algoData)
+                  })
                     .then(res => {
                       console.log(res);
                       resolve();
@@ -219,6 +218,18 @@ export function subscribeToChat(senderuid, uid) {
           }
         });
       });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export function sendMsg(from, to, msg) {
+  try {
+    db.collection("messages").add({
+      sender: from,
+      receiver: to,
+      msg
+    });
   } catch (e) {
     console.log(e);
   }

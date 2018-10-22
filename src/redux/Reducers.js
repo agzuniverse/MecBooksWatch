@@ -36,7 +36,7 @@ export const authReducer = (state = InitialState.auth, action) => {
   }
 };
 
-export const msgReducer = (state = InitialState.search, action) => {
+export const msgReducer = (state = InitialState.msg, action) => {
   switch (action.type) {
     case ADD_NOTIF:
       return Object.assign({}, state, {
