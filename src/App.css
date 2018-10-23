@@ -689,7 +689,6 @@ footer {
   font-size: 18px;
   background-color: #00c853b7;
   color: white;
-
   border: none;
   border-radius: 2em;
   white-space: nowrap;
@@ -703,8 +702,7 @@ footer {
   outline: none;
 }
 #userpage {
-  box-sizing: border-box; /* position: absolute; */
-  /* top: 39%;
+  box-sizing: border-box; /* position: absolute; */ /* top: 39%;
   left: 0;
   right: 0; */
   margin: auto;
@@ -1045,6 +1043,7 @@ footer {
   background: rgba(0, 0, 0, 0.4);
 }
 .modal-main {
+  z-index: 9999;
   position: fixed;
   background: white; /* background: rgb(236, 239, 241); */
   width: 50%;

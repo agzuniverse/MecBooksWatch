@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import gitHub from "../img/if_1-06_2311228.png";
 import sentLogo from "../img/if_telegram_519183.png";
 import smiley from "../img/if_emoji_emoticon-04_3638423.png";
+import Modal from "./modal";
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
 import { subscribeToChat } from "../firebase/firebase";
@@ -13,7 +14,8 @@ class ProductDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: true
+      hidden: true,
+      show: false
     };
   }
 
@@ -22,6 +24,14 @@ class ProductDisplay extends Component {
     else {
       alert("Please login to view seller details");
     }
+  };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
   };
 
   render() {
@@ -33,11 +43,17 @@ class ProductDisplay extends Component {
       username,
       contact,
       isOnWa,
-      email
+      email,
+      uid
     } = this.props.location.state;
 
     return (
       <div className="sellWrapper">
+        <Modal
+          show={this.state.show}
+          handleClose={this.hideModal}
+          sendToUid={uid}
+        />
         <GetAuthDetails />
         {this.props.location.state ? (
           <div>
@@ -144,11 +160,14 @@ class ProductDisplay extends Component {
                       Email:
                       <span>{email}</span>
                     </li>
+                    <button onClick={() => this.showModal()}>
+                      Contact seller
+                    </button>
                     <button
                       type="submit"
                       onClick={() => this.toggleSellerInfoHidden()}
                     >
-                      Done
+                      Back
                     </button>
                   </ul>
                 </div>
