@@ -7,7 +7,6 @@ import Home from "./components/Home";
 import ProductDisplay from "./components/ProductDisplay";
 import SearchPage from "./components/searchPage";
 import Userpage from "./components/Userpage";
-import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Credits from "./components/credits";
 
@@ -15,7 +14,7 @@ const App = () => (
   <Provider store={Store}>
     <Router>
       <div>
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={Home} />
         <Route path="/addproduct" component={AddProduct} />
         <Route path="/search" component={SearchPage} />
         <Route path="/productdisplay" component={ProductDisplay} />

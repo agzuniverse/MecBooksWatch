@@ -1,22 +1,19 @@
 /* New Fonts -- Imported from Internship Project  */
-@font-face{
+@font-face {
   font-family: "BrandonGrotesque-Bold";
-  src: url('../src/font/BrandonGrotesque/Brandon_bld.otf');
+  src: url("../src/font/BrandonGrotesque/Brandon_bld.otf");
 }
-@font-face{
+@font-face {
   font-family: "BrandonGrotesque-Med";
-  src: url('../src/font/BrandonGrotesque/Brandon_med.otf');
+  src: url("../src/font/BrandonGrotesque/Brandon_med.otf");
 }
-@font-face{
+@font-face {
   font-family: "BrandonGrotesque-Lit";
-  src: url('../src/font/BrandonGrotesque/Brandon_reg.otf');
+  src: url("../src/font/BrandonGrotesque/Brandon_reg.otf");
 }
-
-
 
 #App {
   overflow: hidden;
-  
 }
 
 .container {
@@ -24,15 +21,6 @@
   width: 100vw;
   overflow: hidden;
   font-family: "BrandonGrotesque-Med";
-}
-
-.topWrapper {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("img/night2.jpg");
-  background-size: cover;
-  overflow: hidden;
 }
 
 #head {
@@ -367,7 +355,7 @@ footer {
   font-size: 20px;
 }
 
-.extraWhiteDiv{
+.extraWhiteDiv {
   min-height: 13vh;
   width: 100vw;
   background-color: white;
@@ -379,32 +367,24 @@ footer {
   color: #474949;
 }
 
-.gitHub{
+.gitHub {
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
 /* CHAT UI */
-.chatUi{
+.chatUi {
   height: 73vh;
   width: 26vw;
   background-color: white;
   position: fixed;
   bottom: 0;
   right: 3em;
-  border: 1px solid 	#c0c0c0;
+  border: 1px solid #c0c0c0;
   border-bottom: none;
   border-top: none;
 }
 
-.chatHead{
+.chatHead {
   width: 100%;
   height: auto;
   padding: 10px 0;
@@ -414,14 +394,20 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #0575E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-cursor: pointer;
+  background: #0575e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #021b79,
+    #0575e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #021b79,
+    #0575e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  cursor: pointer;
 }
-
-.chatBody{
+.chatBody {
   position: absolute;
   min-height: 75%;
   overflow-y: scroll;
@@ -433,9 +419,7 @@ cursor: pointer;
   background-color: #eeeeee;
   padding-top: 2em;
 }
-
-.buyerBox{
-
+.buyerBox {
   width: 80%;
   padding: 10px;
   padding-right: 1em;
@@ -447,9 +431,7 @@ cursor: pointer;
   background-color: #3e3f3f;
   margin-left: 5px;
 }
-
-.sellerBox{
-
+.sellerBox {
   margin: 13px 0;
   position: absolute;
   right: 5px;
@@ -462,22 +444,18 @@ cursor: pointer;
   color: #474949;
   background-color: white;
 }
-
-
-.chatInput{
+.chatInput {
   position: absolute;
   width: 100%;
   height: 15%;
   bottom: 0%;
   /* border-radius: 2em; */
-  box-shadow: 0 4px 8px 4px rgba(0,0,0,0.12),
-            0 2px 4px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
-.chatInput > input{
+.chatInput > input {
   padding: 5px;
   width: 17vw;
   margin: 0 10px;
@@ -490,21 +468,9 @@ cursor: pointer;
   overflow-x: hidden;
   overflow-y: scroll;
 }
-
-.chatInput > img{
+.chatInput > img {
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
 .centerTotal {
   padding: 20px 0px 20px 0px;
   width: 85%;
@@ -515,14 +481,12 @@ cursor: pointer;
   box-shadow: 2px 2px 20px rgb(66, 66, 66);
   background-color: rgb(236, 239, 241);
 }
-
 .sellWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
 }
-
 /* This is not yours agz */
 #centerTotal {
   /* position: relative;
@@ -541,7 +505,6 @@ cursor: pointer;
   /* box-shadow: 2px 2px 20px rgb(66, 66, 66); */
   background-color: #f3f7f7;
 }
-
 #button {
   position: absolute;
   top: 16px;
@@ -551,11 +514,9 @@ cursor: pointer;
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
 }
-
 .materialBlack {
   color: rgba(0, 0, 0, 0.87);
 }
-
 .appbar {
   /* background-color: rgb(33, 33, 33); */
   background-color: #303741;
@@ -568,18 +529,15 @@ cursor: pointer;
   align-items: center;
   /* box-shadow: 2px 2px 15px rgb(66, 66, 66); */
 }
-
 .info {
   font-size: 13px;
   padding: 0vw 5vw 0vw 5vw;
 }
-
 .backToButton {
   position: absolute;
   right: 16px;
   justify-self: flex-end;
 }
-
 .imageHolder {
   /* background-color: blue; */
   width: 25vw;
@@ -588,17 +546,15 @@ cursor: pointer;
   /* padding:2em 3em; */
   top: 30vh;
   left: 15%;
-  border: 1px solid 	#c0c0c0;
+  border: 1px solid #c0c0c0;
   border-radius: 2px;
   background-color: white;
 }
-
 #textbook {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .detailCard {
   background-color: white;
   width: 27vw;
@@ -612,9 +568,9 @@ cursor: pointer;
   padding-right: 1.7em;
   /* box-shadow: 2px 2px 20px rgb(66, 66, 66); */
   /* background-color: rgb(236, 239, 241); */
-  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
-
 #textName {
   width: 100%;
   height: 12%;
@@ -623,7 +579,6 @@ cursor: pointer;
   margin-top: 1em;
   font-family: "BrandonGrotesque-Med";
 }
-
 #author {
   color: rgb(14, 99, 226);
   width: 100%;
@@ -631,14 +586,12 @@ cursor: pointer;
   padding: 1px;
   font-size: 17px;
 }
-
 #amount {
   width: 100%;
   height: 17%;
   font-size: 27px;
   padding-top: 0.8em;
 }
-
 #realprice {
   margin-left: 8px;
 }
@@ -646,13 +599,11 @@ cursor: pointer;
   margin-left: 10px;
   font-size: 33px;
 }
-
 #details {
   position: absolute;
   color: #212121;
   float: left;
 }
-
 #sellerInfo {
   justify-content: center;
   position: absolute;
@@ -672,7 +623,6 @@ cursor: pointer;
   border: none;
   font-family: "BrandonGrotesque-Med";
 }
-
 #sellerInfoCard {
   height: 60vh;
   width: 35vw;
@@ -688,11 +638,9 @@ cursor: pointer;
   padding-right: 15px;
   border-radius: 5px;
 }
-
 #sellerInfoCard h2 {
   text-align: center;
 }
-
 #sellerInfoCard button {
   position: absolute;
   left: 0;
@@ -706,22 +654,17 @@ cursor: pointer;
   outline: none;
   cursor: pointer;
 }
-
-
 .details {
   color: #212121;
 }
-
 #Container {
   overflow: scroll;
 }
-
 .chooseImageButton {
   border-style: solid;
   border-width: 1px;
   border-radius: 50px;
 }
-
 .hiddenFileInput {
   cursor: pointer;
   position: absolute;
@@ -732,15 +675,13 @@ cursor: pointer;
   width: 100%;
   opacity: 0;
 }
-
-/*Login */
-
+/* Login */
 #logout {
   box-sizing: border-box;
   /* position: absolute; */
   /* top: 39%;
   left: 0;
-  right: 0;*/
+  right: 0; */
   margin: auto;
   width: 8em;
   height: 2.2em;
@@ -748,22 +689,21 @@ cursor: pointer;
   font-size: 18px;
   background-color: #00c853b7;
   color: white;
+
   border: none;
   border-radius: 2em;
   white-space: nowrap;
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
 }
-#logout:hover{
+#logout:hover {
   background: none;
   color: #00c853b7;
   border: 2px solid #00c853b7;
   outline: none;
 }
-
 #userpage {
-  box-sizing: border-box;
-  /* position: absolute; */
+  box-sizing: border-box; /* position: absolute; */
   /* top: 39%;
   left: 0;
   right: 0; */
@@ -781,12 +721,11 @@ cursor: pointer;
   font-family: "BrandonGrotesque-Med";
   outline: none;
 }
-#userpage:hover{
+#userpage:hover {
   background: none;
   color: #00c853b7;
   border: 2px solid #00c853b7;
 }
-
 #logoutAppBar {
   box-sizing: border-box;
   float: right;
@@ -807,18 +746,16 @@ cursor: pointer;
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
 }
-#logoutAppBar:hover{
+#logoutAppBar:hover {
   background: none;
   color: white;
   border: 2px solid #00c853b7;
   /* background-color: white; */
 }
-
 #google-login {
   cursor: pointer;
   font-family: "BrandonGrotesque-Med";
 }
-
 #fb-login {
   position: absolute;
   top: 43%;
@@ -858,9 +795,8 @@ cursor: pointer;
 .loginBtn:active {
   box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
 }
-
 .loginBtn--google {
-  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  /* font-family: "Roboto", Roboto, arial, sans-serif; */
   background: #dd4b39;
 }
 .loginBtn--google:before {
@@ -872,11 +808,12 @@ cursor: pointer;
 .loginBtn--google:focus {
   background: #e74b37;
 }
-
 .loginBtn--facebook {
   background-color: #4c69ba;
-  background-image: linear-gradient(#4c69ba, #3b55a0);
-  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  background-image: linear-gradient(
+    #4c69ba,
+    #3b55a0
+  ); /* font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif; */
   text-shadow: 0 -1px 0 #354c8c;
 }
 .loginBtn--facebook:before {
@@ -889,7 +826,6 @@ cursor: pointer;
   background-color: #5b7bd5;
   background-image: linear-gradient(#5b7bd5, #4864b1);
 }
-
 @media only screen and (max-width: 768px) {
   .backToButton {
     display: flex;
@@ -906,20 +842,17 @@ cursor: pointer;
     height: 130vh;
     width: 90%;
   }
-
-  /*.imageHolder {
+  /* .imageHolder {
     height: 45%;
     width: 60%;
     left: 0%;
     top: 25%;
     right: 0;
     margin: auto;
-  }*/
-
+  } */
   .details {
     display: none;
   }
-
   .detailCard {
     top: 47%;
     width: 75%;
@@ -933,7 +866,6 @@ cursor: pointer;
   #author {
     font-size: 14px;
   }
-
   #amount {
     padding-top: 14px;
     margin-top: 8px;
@@ -950,7 +882,6 @@ cursor: pointer;
     height: 18%;
     font-size: 20px;
   }
-
   #sellerInfo {
     width: 50%;
     position: absolute;
@@ -959,7 +890,6 @@ cursor: pointer;
     right: 0;
     margin: auto;
   }
-
   #sellerInfoCard {
     width: 90%;
     height: 26em;
@@ -973,7 +903,6 @@ cursor: pointer;
     bottom: 6%;
     width: 35%;
   }
-
   .imageHolder {
     top: 5em;
     width: 80%;
@@ -1005,9 +934,8 @@ cursor: pointer;
   }
   .Wrapper {
     height: 100vh;
-  } 
+  }
 }
-
 .userInfoDiv {
   text-align: center;
   color: white;
@@ -1019,7 +947,6 @@ cursor: pointer;
   height: 150px;
   border-radius: 50%;
 }
-
 /* New Landing Page */
 .Wrapper {
   height: 100vh;
@@ -1029,7 +956,6 @@ cursor: pointer;
   grid-template-rows: auto;
   overflow: hidden;
 }
-
 .bg,
 .bg2,
 .bg3 {
@@ -1037,7 +963,6 @@ cursor: pointer;
   height: 100%;
   position: absolute;
 }
-
 .bg {
   -webkit-clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
   clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
@@ -1067,47 +992,33 @@ cursor: pointer;
   background: linear-gradient(to right, #240b36, #c31432);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-.booksPic{
-  position: fixed;
-  top: -9vh;
-  left: 0vw;
-}
-
-
 /* ANIMATION -- TITLE */
-@keyframes titleReveal{
-  0%{
-      transform: rotate(0) translateY(-20%);
-      opacity: 0;
-      }
-  100%{
-      transform: rotate(0) translateY(0);
-      opacity: 1.5;
-      }
+@keyframes titleReveal {
+  0% {
+    transform: rotate(0) translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1.5;
+  }
 }
-
-#head{
+#head {
   animation: titleReveal 0.8s forwards 0s ease-in;
 }
-
-
-@keyframes tagReveal{
-  0%{
-      transform: rotate(0) translateX(0);
-      opacity: 0;
-      }
-  100%{
-      transform: rotate(0) translateX(0);
-      opacity: 1.5;
-      }
+@keyframes tagReveal {
+  0% {
+    transform: rotate(0) translateX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) translateX(0);
+    opacity: 1.5;
+  }
 }
-
-#tagLine{
+#tagLine {
   animation: tagReveal 1s forwards 0s ease-in;
 }
-
-
 .bookDeleteButton {
   box-sizing: border-box;
   margin: auto;
@@ -1124,34 +1035,29 @@ cursor: pointer;
   margin-left: 10px;
   outline: none;
 }
-
-
-
 /* MODAL CHECK */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
 }
-
 .modal-main {
-  position:fixed;
-  background: white;
-  /* background: rgb(236, 239, 241); */
+  position: fixed;
+  background: white; /* background: rgb(236, 239, 241); */
   width: 50%;
   height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
   padding: 1em 0;
-} 
-
+}
 /* .modal-main button{
   position: absolute;
   bottom: 1em;
@@ -1159,30 +1065,25 @@ cursor: pointer;
   right: 0;
   margin: auto;
 } */
-
 .display-block {
   display: block;
 }
-
 .display-none {
   display: none;
 }
-
-
 /* CHATBOX */
-.chatBox{
+.chatBox {
   height: 8vh;
   width: 92%;
   margin: auto;
   margin: 1em auto;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10); 
-  cursor: pointer; 
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   display: flex;
   align-items: center;
   padding-left: 2em;
   /* background: rgb(245, 245, 245); */
 }
-
-.chatBox:hover{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08);
+.chatBox:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
