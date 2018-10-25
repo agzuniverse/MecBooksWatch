@@ -1,7 +1,12 @@
 {
-  "main.css": "static/css/main.996b623c.css",
-  "main.css.map": "static/css/main.996b623c.css.map",
-  "main.js": "static/js/main.d8ab634c.js",
-  "main.js.map": "static/js/main.d8ab634c.js.map",
+  "main.css": "static/css/main.b4240a77.css",
+  "main.css.map": "static/css/main.b4240a77.css.map",
+  "main.js": "static/js/main.810912ad.js",
+  "main.js.map": "static/js/main.810912ad.js.map",
+  "static/media/Brandon_bld.otf": "static/media/Brandon_bld.fa11c3ca.otf",
+  "static/media/Brandon_med.otf": "static/media/Brandon_med.a989c5b7.otf",
+  "static/media/Brandon_reg.otf": "static/media/Brandon_reg.1f55925e.otf",
+  "static/media/if_1-06_2311228.png": "static/media/if_1-06_2311228.61b8ad02.png",
+  "static/media/if_telegram_519183.png": "static/media/if_telegram_519183.a5f3981e.png",
   "static/media/night2.jpg": "static/media/night2.b862deeb.jpg"
 }
