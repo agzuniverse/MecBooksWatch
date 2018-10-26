@@ -87,18 +87,21 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      // db.collection("textbooks")
-      //   .where("tags." + query, "==", true)
-      //   .get()
-      //   .then(result => {
-      //     resolve(result);
-      //   });
-      fetch(baseURL + "/search", {
-        method: "POST",
-        body: JSON.stringify({ query: query })
-      })
-        .then(data => data.json())
-        .then(result => resolve(result));
+      if ((query = "")) {
+        // db.collection("textbooks")
+        //   .where("tags." + query, "==", true)
+        //   .get()
+        //   .then(result => {
+        //     resolve(result);
+        //   });
+      } else {
+        fetch(baseURL + "/search", {
+          method: "POST",
+          body: JSON.stringify({ query: query })
+        })
+          .then(data => data.json())
+          .then(result => resolve(result));
+      }
     } catch (e) {
       reject();
     }
@@ -224,15 +227,19 @@ export function subscribeToChat(senderuid, uid) {
 }
 
 export function sendMsg(from, to, msg) {
-  try {
-    db.collection("messages").add({
+  db.collection("messages")
+    .add({
       sender: from,
       receiver: to,
-      msg
+      msg: msg,
+      timestamp: new Date().toLocaleString()
+    })
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
     });
-  } catch (e) {
-    console.log(e);
-  }
 }
 
 export const provider = new firebase.auth.GoogleAuthProvider();

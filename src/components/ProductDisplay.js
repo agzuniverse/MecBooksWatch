@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 import { connect } from "react-redux";
-import gitHub from "../img/if_1-06_2311228.png";
-import sentLogo from "../img/if_telegram_519183.png";
-import smiley from "../img/if_emoji_emoticon-04_3638423.png";
 import Modal from "./modal";
 import { Link } from "react-router-dom";
 import GetAuthDetails from "./GetAuthDetails";
-import { subscribeToChat } from "../firebase/firebase";
 
 class ProductDisplay extends Component {
   constructor(props) {
@@ -107,34 +103,6 @@ class ProductDisplay extends Component {
                   Seller Info
                 </button>
               </div>
-
-              {/* MESSENGER */}
-              {/* <div className="chatUi">
-                <div className="chatHead">Seller Name</div> */}
-
-              {/* CHAT BODY */}
-              {/* <div className="chatBody">
-                  <div className="buyerBox">
-                    Hey,there I'm interested in purchasing your book, where can
-                    we meet
-                  </div>
-
-                  <div className="sellerBox">
-                    Yeah Sure, we can meet up near college library
-                  </div>
-                </div>
-
-                <div className="chatInput">
-                  <img src={smiley} height="30" width="30" />
-                  <input />
-                  <img
-                    src={sentLogo}
-                    height="40"
-                    width="40"
-                    onClick={this.subscribe}
-                  />
-                </div>
-              </div> */}
 
               {!this.state.hidden ? (
                 <div id="sellerInfoCard">
