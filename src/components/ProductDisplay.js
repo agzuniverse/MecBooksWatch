@@ -68,16 +68,20 @@ class ProductDisplay extends Component {
                   <button id="logoutAppBar">Login</button>
                 </Link>
               ) : (
-                  <Link to="/user">
-                    <button id="logoutAppBar">Profile</button>
-                  </Link>
-                )}
+                <Link to="/user">
+                  <button id="logoutAppBar">Profile</button>
+                </Link>
+              )}
             </div>
             {/* EXTRA WHITE DIV */}
             <div className="extraWhiteDiv">
-              <button type="submit"
+              <button
+                type="submit"
                 onClick={() => this.showModal()}
-                id="contactButton" >chat with Seller</button>
+                id="contactButton"
+              >
+                Chat with seller
+              </button>
             </div>
 
             <div id="centerTotal">
@@ -153,10 +157,10 @@ class ProductDisplay extends Component {
                         Is on Whatsapp: <span>Yes</span>
                       </li>
                     ) : (
-                        <li>
-                          Is on Whatsapp: <span>No</span>
-                        </li>
-                      )}
+                      <li>
+                        Is on Whatsapp: <span>No</span>
+                      </li>
+                    )}
                     <li>
                       Email:
                       <span>{email}</span>
@@ -173,8 +177,8 @@ class ProductDisplay extends Component {
             </div>
           </div>
         ) : (
-            <h1 style={{ color: "white" }}>403 Forbidden</h1>
-          )}
+          <h1 style={{ color: "white" }}>403 Forbidden</h1>
+        )}
       </div>
     );
   }

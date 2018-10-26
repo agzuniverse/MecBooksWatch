@@ -92,8 +92,8 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                  <Auth />
-                )}
+                <Auth />
+              )}
             </div>
           </MuiThemeProvider>
         </div>
@@ -126,22 +126,34 @@ class SideMenu extends Component {
           </div>
           <div className="linksDiv">
             <Link to="/addproduct">
-              <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }} fullWidth>
+              <RaisedButton
+                style={{ borderRadius: "90px" }}
+                buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }}
+                fullWidth
+              >
                 Add Book
               </RaisedButton>
               <br />
               <br />
             </Link>
             <Link to="/search">
-              <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90 }} fullWidth>
+              <RaisedButton
+                style={{ borderRadius: "90px" }}
+                buttonStyle={{ borderRadius: 90 }}
+                fullWidth
+              >
                 Search for books
               </RaisedButton>
               <br />
               <br />
             </Link>
-            <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }} fullWidth>
+            <RaisedButton
+              style={{ borderRadius: "90px" }}
+              buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }}
+              fullWidth
+            >
               Inbox
-              </RaisedButton>
+            </RaisedButton>
           </div>
         </MuiThemeProvider>
       </div>

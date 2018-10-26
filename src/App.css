@@ -367,7 +367,7 @@ footer {
   color: #474949;
 }
 
-#contactButton{
+#contactButton {
   cursor: pointer;
   padding: 10px;
   font-size: 20px;
@@ -673,7 +673,6 @@ footer {
   outline: none;
   cursor: pointer;
 }
-
 .details {
   color: #212121;
 }
@@ -985,7 +984,8 @@ footer {
   -webkit-clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
   clip-path: polygon(72% 74%, 100% 27%, 100% 100%, 5% 100%);
   z-index: -1;
-  background: #360033; /* fallback for old browsers */
+  background: #360033;
+  /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #0b8793,
@@ -1064,9 +1064,11 @@ footer {
   z-index: 1;
 }
 .modal-main {
+  border-radius: 20px;
   z-index: 2;
   position: fixed;
-  background: white; /* background: rgb(236, 239, 241); */
+  background: white;
+  /* background: rgb(236, 239, 241); */
   width: 50%;
   height: 75vh;
   overflow-y: hidden;
@@ -1079,14 +1081,12 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
-#closeBtn{
+#closeBtn {
   width: 10vw;
   position: absolute;
   top: 2vh;
   right: 13px;
 }
-
 /* .modal-main button{
   position: absolute;
   bottom: 1em;
