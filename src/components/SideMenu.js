@@ -9,6 +9,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import Auth from "./auth";
+import Modal from "./modal";
 
 class SideMenu extends Component {
   constructor(props) {
@@ -16,9 +17,18 @@ class SideMenu extends Component {
     console.log(props);
     this.state = {
       yearValue: "Any year",
-      branchValue: "Any branch"
+      branchValue: "Any branch",
+      show: false
     };
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   yearChange = (event, index, value) => {
     this.setState({
@@ -101,6 +111,7 @@ class SideMenu extends Component {
     }
     return (
       <div className="SideMenu mainBackground mainColor">
+        <Modal show={this.state.show} handleClose={this.hideModal} />
         <MuiThemeProvider>
           <Link style={{ textDecoration: "none" }} to="/">
             <span className="logo">
@@ -151,6 +162,7 @@ class SideMenu extends Component {
               style={{ borderRadius: "90px" }}
               buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }}
               fullWidth
+              onClick={() => this.showModal()}
             >
               Inbox
             </RaisedButton>
