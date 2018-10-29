@@ -208,22 +208,39 @@ export function subscribeToNotifs(uid) {
   }
 }
 
+//MAYBE SOMEDAY THIS CAN BE REALTIME CHAT
+// export function subscribeToChat(senderuid, uid) {
+//   try {
+//     db.collection("messages")
+//       .where("sender", "==", senderuid)
+//       .where("receiver", "==", uid)
+//       .onSnapshot(snap => {
+//         console.log(snap);
+//         snap.docChanges.forEach(function(change) {
+//           if (change.type === "added") {
+//             console.log(change.doc.data());
+//           }
+//         });
+//       });
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+
 export function subscribeToChat(senderuid, uid) {
-  try {
-    db.collection("messages")
-      .where("sender", "==", senderuid)
-      .where("receiver", "==", uid)
-      .onSnapshot(snap => {
-        console.log(snap);
-        snap.docChanges.forEach(function(change) {
-          if (change.type === "added") {
-            console.log(change.doc.data());
-          }
+  return new Promise((resolve, reject) => {
+    try {
+      db.collection("messages")
+        .where("sender", "==", senderuid)
+        .where("receiver", "==", uid)
+        .get()
+        .then(result => {
+          resolve(result);
         });
-      });
-  } catch (e) {
-    console.log(e);
-  }
+    } catch (e) {
+      reject(e);
+    }
+  });
 }
 
 export function sendMsg(from, to, msg) {

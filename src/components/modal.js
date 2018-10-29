@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import RaisedButton from "material-ui/RaisedButton";
 import sentLogo from "../img/if_telegram_519183.png";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { sendMsg } from "../firebase/firebase";
+import { sendMsg, subscribeToChat } from "../firebase/firebase";
 
 class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recievedMessages: [
+      receivedMessages: [
         "Hey,there I'm interested in purchasing your book, where can we meet?",
         "Sure man"
       ],
@@ -20,6 +20,27 @@ class Modal extends Component {
       ]
     };
   }
+
+  componentDidMount() {
+    this.fetchChatsAsync(this.props.uid, this.props.sendToUid);
+  }
+
+  fetchChatsAsync = async (uid, sendToUid) => {
+    let messages = await subscribeToChat(uid, sendToUid);
+    messages.forEach(data => {
+      let msg = data.data();
+      console.log(msg);
+      if (msg.sender === this.props.uid) {
+        this.setState({
+          sentMessages: this.state.sentMessages.concat([msg.msg])
+        });
+      } else {
+        this.setState({
+          receivedMessages: this.state.receivedMessages.concat([msg.msg])
+        });
+      }
+    });
+  };
 
   sendChat = () => {
     sendMsg(this.props.uid, this.props.sendToUid, this._input.value);
