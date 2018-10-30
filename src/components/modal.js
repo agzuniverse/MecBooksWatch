@@ -69,13 +69,15 @@ class Modal extends Component {
   };
 
   sendChat = () => {
-    sendMsg(this.props.uid, this.props.sendToUid, this._input.value);
-    this.setState({
-      messages: this.state.messages.concat([
-        { msg: this._input.value, side: 1 }
-      ])
-    });
-    this._input.value = "";
+    if (this._input.value) {
+      sendMsg(this.props.uid, this.props.sendToUid, this._input.value);
+      this.setState({
+        messages: this.state.messages.concat([
+          { msg: this._input.value, side: 1 }
+        ])
+      });
+      this._input.value = "";
+    }
   };
 
   fetchNewMessages = () => {
