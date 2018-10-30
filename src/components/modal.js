@@ -4,7 +4,12 @@ import { connect } from "react-redux";
 import RaisedButton from "material-ui/RaisedButton";
 import sentLogo from "../img/if_telegram_519183.png";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { sendMsg, subscribeToChat } from "../firebase/firebase";
+import {
+  sendMsg,
+  subscribeToChat,
+  checkForNewMessages,
+  deleteNewMessages
+} from "../firebase/firebase";
 
 class Modal extends Component {
   constructor(props) {
@@ -29,12 +34,21 @@ class Modal extends Component {
           msg: "Deal.",
           side: 1
         }
+      ],
+      newMessages: [
+        {
+          msg: "This is a placeholder",
+          sender: "Vivek R"
+        }
       ]
     };
   }
 
   componentDidMount() {
     this.fetchChatsAsync(this.props.uid, this.props.sendToUid);
+    if (!this.props.sendToUid) {
+      this.fetchNewMessages();
+    }
   }
 
   fetchChatsAsync = async (uid, sendToUid) => {
@@ -57,9 +71,33 @@ class Modal extends Component {
   sendChat = () => {
     sendMsg(this.props.uid, this.props.sendToUid, this._input.value);
     this.setState({
-      sentMessages: this.state.sentMessages.concat([this._input.value])
+      messages: this.state.messages.concat([
+        { msg: this._input.value, side: 1 }
+      ])
     });
     this._input.value = "";
+  };
+
+  fetchNewMessages = () => {
+    this.fetchNewMessagesAsync(this.props.uid);
+  };
+
+  fetchNewMessagesAsync = async uid => {
+    let messages = await checkForNewMessages(uid);
+    messages.forEach(data => {
+      let msg = data.data();
+      console.log(msg);
+      this.setState({
+        newMessages: this.state.newMessages.concat([
+          { msg: msg.msg, sender: msg.sender }
+        ])
+      });
+    });
+    this.deleteSeenMessages(uid);
+  };
+
+  deleteSeenMessages = uid => {
+    deleteNewMessages(uid);
   };
 
   fetchChat() {
@@ -124,12 +162,9 @@ class Modal extends Component {
             </div>
           ) : (
             <div className="modal-main">
-              <div className="chatBox">
-                You recieved one message from Vivek.R
-              </div>
-              <div className="chatBox" />
-              <div className="chatBox" />
-              <div className="chatBox" />
+              {this.state.newMessages.map(msg => {
+                return <div className="chatBox">{msg.msg}</div>;
+              })}
               <RaisedButton
                 secondary={true}
                 onClick={handleClose}

@@ -243,6 +243,27 @@ export function subscribeToChat(senderuid, uid) {
   });
 }
 
+export function checkForNewMessages(uid) {
+  return new Promise((resolve, reject) => {
+    try {
+      db.collection("notification")
+        .where("receiver", "==", uid)
+        .get()
+        .then(result => {
+          resolve(result);
+        });
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
+export function deleteNewMessages(uid) {
+  // db.collection("notification")
+  //   .doc(uid)
+  //   .delete();
+}
+
 export function sendMsg(from, to, msg) {
   db.collection("messages")
     .add({
@@ -253,6 +274,12 @@ export function sendMsg(from, to, msg) {
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
+      db.collection("notification").add({
+        sender: from,
+        receiver: to,
+        msg: msg,
+        timestamp: new Date().toLocaleString()
+      });
     })
     .catch(function(error) {
       console.error("Error adding document: ", error);
