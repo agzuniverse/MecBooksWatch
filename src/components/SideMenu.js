@@ -18,7 +18,8 @@ class SideMenu extends Component {
     this.state = {
       yearValue: "Any year",
       branchValue: "Any branch",
-      show: false
+      show: false,
+      unreadCount: 0
     };
   }
 
@@ -28,6 +29,12 @@ class SideMenu extends Component {
 
   hideModal = () => {
     this.setState({ show: false });
+  };
+
+  setUnreadText = n => {
+    this.setState({
+      unreadCount: n
+    });
   };
 
   yearChange = (event, index, value) => {
@@ -111,7 +118,11 @@ class SideMenu extends Component {
     }
     return (
       <div className="SideMenu mainBackground mainColor">
-        <Modal show={this.state.show} handleClose={this.hideModal} />
+        <Modal
+          show={this.state.show}
+          handleClose={this.hideModal}
+          setUnreadText={this.setUnreadText}
+        />
         <MuiThemeProvider>
           <Link style={{ textDecoration: "none" }} to="/">
             <span className="logo">
@@ -164,7 +175,7 @@ class SideMenu extends Component {
               fullWidth
               onClick={() => this.showModal()}
             >
-              Inbox
+              {this.state.unreadCount} Unread Messages
             </RaisedButton>
           </div>
         </MuiThemeProvider>

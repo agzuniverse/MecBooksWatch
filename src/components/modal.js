@@ -93,6 +93,7 @@ class Modal extends Component {
         ])
       });
     });
+    this.props.setUnreadText(this.state.newMessages.length);
     this.deleteSeenMessages(uid);
   };
 
