@@ -259,9 +259,16 @@ export function checkForNewMessages(uid) {
 }
 
 export function deleteNewMessages(uid) {
-  // db.collection("notification")
-  //   .doc(uid)
-  //   .delete();
+  db.collection("notification")
+    .where("receiver", "==", uid)
+    .get()
+    .then(result => {
+      let batch = db.batch();
+      result.forEach(data => {
+        batch.delete(data.ref);
+      });
+      return batch.commit();
+    });
 }
 
 export function sendMsg(from, to, msg) {
