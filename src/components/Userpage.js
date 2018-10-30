@@ -14,7 +14,6 @@ import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Searchbar from "./Searchbar";
-import Modal from "./modal";
 
 class Userpage extends Component {
   constructor(props) {
