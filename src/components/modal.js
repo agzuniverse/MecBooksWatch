@@ -10,13 +10,25 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      receivedMessages: [
-        "Hey,there I'm interested in purchasing your book, where can we meet?",
-        "Sure man"
-      ],
-      sentMessages: [
-        "Yeah Sure, we can meet up near college library at 1pm tomorrow..",
-        "Deal."
+      messages: [
+        {
+          msg:
+            "Hey,there I'm interested in purchasing your book, where can we meet?",
+          side: 0
+        },
+        {
+          msg:
+            "Yeah Sure, we can meet up near college library at 1pm tomorrow..",
+          side: 1
+        },
+        {
+          msg: "Sure man",
+          side: 0
+        },
+        {
+          msg: "Deal.",
+          side: 1
+        }
       ]
     };
   }
@@ -32,11 +44,11 @@ class Modal extends Component {
       console.log(msg);
       if (msg.sender === this.props.uid) {
         this.setState({
-          sentMessages: this.state.sentMessages.concat([msg.msg])
+          messages: this.state.messages.concat([{ msg: msg.msg, side: 1 }])
         });
       } else {
         this.setState({
-          receivedMessages: this.state.receivedMessages.concat([msg.msg])
+          messages: this.state.messages.concat([{ msg: msg.msg, side: 0 }])
         });
       }
     });
@@ -51,20 +63,20 @@ class Modal extends Component {
   };
 
   fetchChat() {
-    const Buyerbox = (props) => <div className="buyerBox">{props.chat}</div>;
-    const Sellerbox = (props) => <div className="sellerBox">{props.chat}</div>;
+    const Buyerbox = props => <div className="buyerBox">{props.chat}</div>;
+    const Sellerbox = props => <div className="sellerBox">{props.chat}</div>;
 
     if (this.props.sendToUid) {
       return (
         <div className="chatContainer">
           <div className="chatHead">MecBooksWatch</div>
           <div className="chatBody">
-            {this.state.receivedMessages.map((chat) => {
-              return <Buyerbox chat={chat} />
-            })}
-
-            {this.state.sentMessages.map((chat) => {
-              return <Sellerbox chat={chat} />
+            {this.state.messages.map(msg => {
+              if (msg.side === 0) {
+                return <Buyerbox chat={msg.msg} />;
+              } else {
+                return <Sellerbox chat={msg.msg} />;
+              }
             })}
           </div>
           <div className="chatInput">
@@ -111,29 +123,29 @@ class Modal extends Component {
               </RaisedButton>
             </div>
           ) : (
-              <div className="modal-main">
-                <div className="chatBox">
-                  You recieved one message from Vivek.R
+            <div className="modal-main">
+              <div className="chatBox">
+                You recieved one message from Vivek.R
               </div>
-                <div className="chatBox" />
-                <div className="chatBox" />
-                <div className="chatBox" />
-                <RaisedButton
-                  secondary={true}
-                  onClick={handleClose}
-                  id="closeBtn"
-                  buttonStyle={{
-                    width: "20",
-                    position: "absolute",
-                    bottom: "10",
-                    right: "10",
-                    backgroundColor: "white"
-                  }}
-                >
-                  close
+              <div className="chatBox" />
+              <div className="chatBox" />
+              <div className="chatBox" />
+              <RaisedButton
+                secondary={true}
+                onClick={handleClose}
+                id="closeBtn"
+                buttonStyle={{
+                  width: "20",
+                  position: "absolute",
+                  bottom: "10",
+                  right: "10",
+                  backgroundColor: "white"
+                }}
+              >
+                close
               </RaisedButton>
-              </div>
-            )}
+            </div>
+          )}
         </MuiThemeProvider>
       </div>
     );
