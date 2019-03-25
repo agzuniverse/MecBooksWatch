@@ -1,0 +1,73 @@
+package handlers
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"http"
+	"ioutil"
+	"strconv"
+)
+
+func PostBookHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+	var reqdata PostReqData
+	b, _ := ioutil.ReadAll(r.Body)
+	fmt.Println(string(b))
+	if err := json.Unmarshal(b, &reqdata); err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+		return
+	}
+	client, err := app.Auth(context.Background())
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("error getting Auth client: " + err.Error()))
+		return
+	}
+	idToken := reqdata.IDToken
+	_, err = client.VerifyIDToken(context.Background(), idToken)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("error verifying ID token: " + err.Error()))
+		return
+	}
+	if reqdata.Data.Author == "" || reqdata.Data.Title == "" {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("author and title should not be empty"))
+		return
+	}
+	price, err := strconv.Atoi(reqdata.Data.Price)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+		return
+	}
+	if price < 0 {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("price should not be negative"))
+		return
+	}
+	if len(reqdata.Data.Contact) != 10 {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Phone number should contain 10 digits"))
+		return
+	}
+	firestore, err := app.Firestore(context.Background())
+	ref, _, err := firestore.Collection("textbooks").Add(context.Background(), reqdata.Data)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+		return
+	} else {
+		textbookID := ref.ID
+
+		// Add book to algolia
+		index := algolia.algoliaClient.Index
+		index.AddObject({textbookID: reqdata.Data})
+
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("Textbook added successfully"))
+	}
+	defer firestore.Close()
+}
