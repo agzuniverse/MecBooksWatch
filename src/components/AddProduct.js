@@ -297,13 +297,13 @@ class AddProduct extends Component {
                 </Dialog>
               </div>
             ) : (
-                <div id="loading">
-                  <MuiThemeProvider>
-                    <CircularProgress size={200} thickness={9} />
-                    <h2 style={{ color: "white" }}> Uploading, please wait. </h2>
-                  </MuiThemeProvider>
-                </div>
-              )}
+              <div id="loading">
+                <MuiThemeProvider>
+                  <CircularProgress size={200} thickness={9} />
+                  <h2 style={{ color: "white" }}> Uploading, please wait. </h2>
+                </MuiThemeProvider>
+              </div>
+            )}
           </MuiThemeProvider>
         </div>
       );

@@ -91,8 +91,8 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                  <Auth />
-                )}
+                <Auth />
+              )}
             </div>
           </MuiThemeProvider>
         </div>
@@ -187,7 +187,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SideMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);

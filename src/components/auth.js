@@ -101,29 +101,29 @@ class Auth extends React.Component {
             {/* <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button> */}
           </div>
         ) : (
-            <div>
-              <span>
-                {this.props.location.pathname !== "/user" ? (
-                  <button
-                    id="userpage"
-                    onClick={() => this.props.history.push("/user")}
-                    style={{ margin: "8px" }}
-                  >
-                    My Profile
-                  </button>
-                ) : null}
-              </span>
-              <span>
+          <div>
+            <span>
+              {this.props.location.pathname !== "/user" ? (
                 <button
-                  id="logout"
-                  onClick={this.logout}
+                  id="userpage"
+                  onClick={() => this.props.history.push("/user")}
                   style={{ margin: "8px" }}
                 >
-                  Logout
+                  My Profile
                 </button>
-              </span>
-            </div>
-          )}
+              ) : null}
+            </span>
+            <span>
+              <button
+                id="logout"
+                onClick={this.logout}
+                style={{ margin: "8px" }}
+              >
+                Logout
+              </button>
+            </span>
+          </div>
+        )}
       </span>
     );
   }
@@ -167,7 +167,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(Auth));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Auth));

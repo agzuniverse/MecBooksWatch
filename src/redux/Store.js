@@ -1,5 +1,10 @@
 import { createStore, combineReducers } from "redux";
-import { testReducer, authReducer, searchReducer, msgReducer } from "./Reducers";
+import {
+  testReducer,
+  authReducer,
+  searchReducer,
+  msgReducer
+} from "./Reducers";
 
 const reducer = combineReducers({
   test: testReducer,

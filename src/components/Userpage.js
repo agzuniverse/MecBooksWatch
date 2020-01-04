@@ -76,7 +76,7 @@ class Userpage extends Component {
       });
     } catch (err) {
       // eslint-disable-next-line
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -130,12 +130,12 @@ class Userpage extends Component {
               {loaded ? (
                 books
               ) : (
-                  <div id="loading">
-                    <MuiThemeProvider>
-                      <CircularProgress size={50} thickness={5} />
-                    </MuiThemeProvider>
-                  </div>
-                )}
+                <div id="loading">
+                  <MuiThemeProvider>
+                    <CircularProgress size={50} thickness={5} />
+                  </MuiThemeProvider>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -172,7 +172,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Userpage);
+export default connect(mapStateToProps, mapDispatchToProps)(Userpage);
