@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import RaisedButton from "material-ui/RaisedButton";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
@@ -12,11 +13,11 @@ const Modal = ({ handleClose, show }) => {
                 <div className="modal-main">
                     <div className="chatBox">
                         You recieved one message from Vivek.R
-                     </div>
-                    <div className="chatBox"></div>
-                    <div className="chatBox"></div>
-                    <div className="chatBox"></div>
-                    <RaisedButton secondary={true} onClick={handleClose} style={{ width: "20", margin: "auto" }}>
+                    </div>
+                    <div className="chatBox" />
+                    <div className="chatBox" />
+                    <div className="chatBox" />
+                    <RaisedButton secondary onClick={handleClose} style={{ width: "20", margin: "auto" }}>
                         close
                     </RaisedButton>
                 </div>
@@ -24,5 +25,10 @@ const Modal = ({ handleClose, show }) => {
         </div>
     );
 };
+
+Modal.propTypes = {
+    handleClose: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired
+}
 
 export default Modal;

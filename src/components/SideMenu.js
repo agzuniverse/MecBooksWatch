@@ -13,7 +13,6 @@ import Auth from "./auth";
 class SideMenu extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       yearValue: "Any year",
       branchValue: "Any branch"
@@ -92,8 +91,8 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                <Auth />
-              )}
+                  <Auth />
+                )}
             </div>
           </MuiThemeProvider>
         </div>

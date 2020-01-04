@@ -1,5 +1,4 @@
 import React from "react";
-
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -14,7 +13,6 @@ class ProductDiv extends React.Component {
 
   render() {
     const { imageURL, title, author, price, bookId } = this.props.details;
-    console.log(this.props.details);
 
     return (
       <div className="ProductDiv">

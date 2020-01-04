@@ -73,6 +73,7 @@ class AddProduct extends Component {
 
   handeSubmit = () => {
     if (!this.props.uid) {
+      // eslint-disable-next-line
       alert("You need to log in to add a book!");
     } else {
       const title = document.getElementById("bookTitle").value;
@@ -110,7 +111,6 @@ class AddProduct extends Component {
         this.setInvalid("Image is invalid.");
 
       if (!(this.state.invalid.length === 0)) {
-        console.log("Form field error");
         this.handleOpen();
       } else {
         const data = {
@@ -143,11 +143,9 @@ class AddProduct extends Component {
 
   addToStorageAsync = async (file, data) => {
     await addToStorage(file, data);
-    console.log("BEFORE");
     this.setState({
       uploading: false
     });
-    console.log("AFTER");
     this.props.history.push("/user");
   };
 
@@ -299,13 +297,13 @@ class AddProduct extends Component {
                 </Dialog>
               </div>
             ) : (
-              <div id="loading">
-                <MuiThemeProvider>
-                  <CircularProgress size={200} thickness={9} />
-                  <h2 style={{ color: "white" }}> Uploading, please wait. </h2>
-                </MuiThemeProvider>
-              </div>
-            )}
+                <div id="loading">
+                  <MuiThemeProvider>
+                    <CircularProgress size={200} thickness={9} />
+                    <h2 style={{ color: "white" }}> Uploading, please wait. </h2>
+                  </MuiThemeProvider>
+                </div>
+              )}
           </MuiThemeProvider>
         </div>
       );

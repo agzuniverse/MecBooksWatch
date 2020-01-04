@@ -14,7 +14,6 @@ import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Searchbar from "./Searchbar";
-import Modal from './modal';
 
 class Userpage extends Component {
   constructor(props) {
@@ -62,7 +61,6 @@ class Userpage extends Component {
   };
 
   performSearch = async query => {
-    console.log("performSearch");
     this.setState({
       loaded: false
     });
@@ -77,12 +75,12 @@ class Userpage extends Component {
         loaded: true
       });
     } catch (err) {
-      console.log(err);
+      // eslint-disable-next-line
+      console.log(err)
     }
   };
 
   search = e => {
-    console.log("search func");
     e.preventDefault();
     const query = document.getElementById("input2").value;
     this.performSearch(query);

@@ -26,11 +26,13 @@ class Auth extends React.Component {
 
   componentWillMount() {
     auth.onAuthStateChanged(user => {
+      /* eslint-disable */
       if (user) {
         console.log("already logged in");
       } else {
         console.log("No user logged in");
       }
+      /* eslint-enable */
     });
     this.props.testRedux("WORKS");
   }
@@ -51,7 +53,6 @@ class Auth extends React.Component {
       this.props.updateName("");
       this.props.updateEmail("");
       this.props.updatePropic("");
-      console.log("Logout Successful");
       this.props.navigateOnAuthChange("homepage");
     });
   };
@@ -59,7 +60,6 @@ class Auth extends React.Component {
   login = () => {
     auth.signInWithPopup(provider).then(result => {
       const pData = result.user.providerData[0];
-      console.log(result);
       // Check if user is a new user
       // const isNewUser = result.additionalUserInfo.isNewUser;
       this.setState(
@@ -70,7 +70,6 @@ class Auth extends React.Component {
           userProPic: pData.photoURL
         },
         () => {
-          console.log(this.state.userName);
           this.props.updateUid(this.state.uid);
           this.props.updateName(this.state.userName);
           this.props.updateEmail(this.state.userEmail);
@@ -82,7 +81,6 @@ class Auth extends React.Component {
           this.props.navigateOnAuthChange("userpage");
         }
       );
-      console.log("User has logged in");
       subscribeToNotifs(this.state.uid);
     });
   };
@@ -103,29 +101,29 @@ class Auth extends React.Component {
             {/* <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button> */}
           </div>
         ) : (
-          <div>
-            <span>
-              {this.props.location.pathname !== "/user" ? (
+            <div>
+              <span>
+                {this.props.location.pathname !== "/user" ? (
+                  <button
+                    id="userpage"
+                    onClick={() => this.props.history.push("/user")}
+                    style={{ margin: "8px" }}
+                  >
+                    My Profile
+                  </button>
+                ) : null}
+              </span>
+              <span>
                 <button
-                  id="userpage"
-                  onClick={() => this.props.history.push("/user")}
+                  id="logout"
+                  onClick={this.logout}
                   style={{ margin: "8px" }}
                 >
-                  My Profile
+                  Logout
                 </button>
-              ) : null}
-            </span>
-            <span>
-              <button
-                id="logout"
-                onClick={this.logout}
-                style={{ margin: "8px" }}
-              >
-                Logout
-              </button>
-            </span>
-          </div>
-        )}
+              </span>
+            </div>
+          )}
       </span>
     );
   }
